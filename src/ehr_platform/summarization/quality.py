@@ -2,7 +2,8 @@
 
 They test what can be checked without a clinician:
   length       under the word limit
-  citations    every cited id is a real record of this patient, and every finding cites something
+  citations    every cited id is a real record of this patient, and every diagnosis and clinical anomaly
+               cites something (data quality notes about demographics have no record to cite)
   grounding    every number and date in the summary appears in the source records
                (ages worked out from the birth date also count)
   recall       every lab report with an abnormal value, and every data quality flag, is reported
@@ -61,7 +62,9 @@ def run_checks(s: ClinicalSummary, ctx: PatientContext) -> list[QualityCheck]:
     checks.append(QualityCheck(name="citations_exist", passed=not unknown,
                                detail=f"unknown ids: {', '.join(unknown)}" if unknown else ""))
 
-    uncited = [d.text for d in s.key_diagnoses if not d.source_ids] + [a.text for a in s.anomalies if not a.source_ids]
+    # Data quality notes about the demographics block have no record id to cite, so only clinical items must cite.
+    uncited = ([d.text for d in s.key_diagnoses if not d.source_ids]
+               + [a.text for a in s.anomalies if a.kind == "clinical" and not a.source_ids])
     checks.append(QualityCheck(name="findings_cited", passed=not uncited,
                                detail=f"uncited: {'; '.join(uncited)}" if uncited else ""))
 
