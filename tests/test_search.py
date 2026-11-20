@@ -92,6 +92,8 @@ def test_records_cover_notes_reports_and_summaries(env):
     assert ("hapi-report-r1", "lab_report") in kinds and ("summary-hapi-1", "summary") in kinds
     lab = next(r for r in records if r.record_id == "hapi-report-r1")
     assert "Glucose in blood: 6.3 mmol/L (high, abnormal)" in lab.text
+    summary = next(r for r in records if r.kind == "summary")
+    assert summary.title == "Chest pain"  # chief concern, not a repeat of the badge
     xray = next(r for r in records if r.record_id == "mts-doc-0015")
     assert xray.kind == "imaging_report" and xray.date is None
 
@@ -197,3 +199,11 @@ def test_patient_without_summary_and_resource_text(client):
 def test_health(client):
     body = client.get("/health").json()
     assert body["status"] == "ok" and body["indexed_chunks"] > 0
+
+
+def test_report_resource_lists_its_result_values(client):
+    body = client.get("/resources/DiagnosticReport/hapi-report-r1").json()
+    assert body["results"] == [{"name": "Glucose in blood", "value": "6.3 mmol/L, high"}]
+    linked = client.get("/patients/hapi-1").json()["resources"]
+    obs = next(r for r in linked if r["resource_type"] == "Observation")
+    assert obs["detail"] == "6.3 mmol/L, high"

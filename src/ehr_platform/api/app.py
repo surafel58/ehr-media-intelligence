@@ -68,6 +68,7 @@ class LinkedResource(BaseModel):
     title: str
     date: str | None = None
     status: str | None = None
+    detail: str | None = Field(default=None, description="Short value line, e.g. a lab result with its flag")
 
 
 class SummaryOut(BaseModel):
@@ -115,6 +116,22 @@ def _date(res: dict) -> str | None:
     value = (res.get("date") or res.get("effectiveDateTime") or res.get("period", {}).get("start")
              or res.get("context", {}).get("period", {}).get("start"))
     return value[:10] if value else None
+
+
+FLAG_WORD = {"H": "high", "L": "low", "A": "abnormal", "N": "normal"}
+
+
+def observation_line(obs: dict) -> str | None:
+    """'6.3 mmol/L, high' for a lab result."""
+    if "valueQuantity" in obs:
+        q = obs["valueQuantity"]
+        value = f"{q.get('value')} {q.get('unit', '')}".strip()
+    elif "valueString" in obs:
+        value = obs["valueString"]
+    else:
+        return None
+    flag = next((c.get("code") for i in obs.get("interpretation", []) for c in i.get("coding", [])), None)
+    return f"{value}, {FLAG_WORD[flag]}" if flag in FLAG_WORD else value
 
 
 def _snippet(text: str, title: str, size: int = 280) -> str:
@@ -185,7 +202,8 @@ def create_app(index: SearchIndex | None = None, db_path: Path = config.DB_PATH)
             pres = next((r for r in resources if r["resourceType"] == "Patient"), None)
             summary = cache.latest(patient_id)
         linked = [LinkedResource(resource_type=r["resourceType"], id=r["id"], title=_title(r), date=_date(r),
-                                 status=r.get("status"))
+                                 status=r.get("status"),
+                                 detail=observation_line(r) if r["resourceType"] == "Observation" else None)
                   for r in resources if r["resourceType"] != "Patient"]
         linked.sort(key=lambda r: (r.date or "", r.resource_type), reverse=True)
         flags = [t["code"] for t in (pres or {}).get("meta", {}).get("tag", [])]
@@ -198,15 +216,22 @@ def create_app(index: SearchIndex | None = None, db_path: Path = config.DB_PATH)
 
     @app.get("/resources/{resource_type}/{resource_id}")
     def resource(resource_type: str, resource_id: str) -> dict:
-        """The stored FHIR resource, with attachment text decoded for reading."""
+        """The stored FHIR resource, with attachment text decoded and a report's result values resolved."""
         with FhirStore(db_path) as store:
             res = store.resource(resource_type, resource_id)
-        if res is None:
-            raise HTTPException(status_code=404, detail="resource not found")
+            if res is None:
+                raise HTTPException(status_code=404, detail="resource not found")
+            results = []
+            for ref in res.get("result", []):
+                obs = store.resource_by_url(ref.get("reference", ""))
+                if obs:
+                    results.append({"name": obs.get("code", {}).get("text", "Result"), "value": observation_line(obs)})
+        text = None
         for att in [c.get("attachment", {}) for c in res.get("content", [])] + res.get("presentedForm", []):
             if att.get("data"):
-                return {"resource": res, "text": base64.b64decode(att["data"]).decode("utf-8", "replace")}
-        return {"resource": res, "text": None}
+                text = base64.b64decode(att["data"]).decode("utf-8", "replace")
+                break
+        return {"resource": res, "text": text, "results": results}
 
     if FRONTEND_DIST.exists():  # serve the built UI from the same port
         app.mount("/", StaticFiles(directory=FRONTEND_DIST, html=True), name="frontend")

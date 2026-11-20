@@ -1,0 +1,132 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/atkinson-hyperlegible-next";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: "Atkinson Hyperlegible Next Variable", ui-sans-serif, system-ui, sans-serif;
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  /* Clinical signals */
+  --color-flag: var(--flag);
+  --color-flag-soft: var(--flag-soft);
+  --color-note: var(--note);
+  --color-note-soft: var(--note-soft);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+/* Light: cool chart paper, teal ink */
+:root {
+  --background: #f6f8f9;
+  --foreground: #0f2a33;
+  --card: #ffffff;
+  --card-foreground: #0f2a33;
+  --popover: #ffffff;
+  --popover-foreground: #0f2a33;
+  --primary: #0b6e82;
+  --primary-foreground: #ffffff;
+  --secondary: #e6eef1;
+  --secondary-foreground: #0f2a33;
+  --muted: #edf2f4;
+  --muted-foreground: #4a626b;
+  --accent: #e3f0f3;
+  --accent-foreground: #0f2a33;
+  --destructive: #b42318;
+  --border: #d7e1e5;
+  --input: #c3d2d8;
+  --ring: #0b6e82;
+  --flag: #b42318;
+  --flag-soft: #fdecea;
+  --note: #0b6e82;
+  --note-soft: #e8f3f5;
+  --radius: 0.5rem;
+}
+
+/* Dark: deep teal night, not neutral black */
+.dark {
+  --background: #0b171b;
+  --foreground: #e4eef1;
+  --card: #11232a;
+  --card-foreground: #e4eef1;
+  --popover: #11232a;
+  --popover-foreground: #e4eef1;
+  --primary: #3bb8cc;
+  --primary-foreground: #06232a;
+  --secondary: #17303a;
+  --secondary-foreground: #e4eef1;
+  --muted: #142a32;
+  --muted-foreground: #9db2ba;
+  --accent: #18343d;
+  --accent-foreground: #e4eef1;
+  --destructive: #f2867a;
+  --border: #22383f;
+  --input: #2f4a52;
+  --ring: #3bb8cc;
+  --flag: #f2867a;
+  --flag-soft: #3a1d1a;
+  --note: #3bb8cc;
+  --note-soft: #10303a;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  /* Visible keyboard focus on custom interactive elements */
+  a:focus-visible,
+  [data-focus-ring]:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  mark {
+    background: var(--note-soft);
+    color: inherit;
+    border-radius: 2px;
+    padding: 0 1px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

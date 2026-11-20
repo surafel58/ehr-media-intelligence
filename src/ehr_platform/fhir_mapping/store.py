@@ -83,6 +83,11 @@ class FhirStore:
                                 (resource_type, resource_id)).fetchone()
         return json.loads(row[0]) if row else None
 
+    def resource_by_url(self, full_url: str) -> dict | None:
+        """Resolve a Bundle reference (urn:uuid) to the stored resource."""
+        row = self.conn.execute("SELECT resource_json FROM resources WHERE full_url = ?", (full_url,)).fetchone()
+        return json.loads(row[0]) if row else None
+
     def resources(self, resource_type: str | None = None, patient_id: str | None = None) -> list[dict]:
         sql, args = "SELECT resource_json FROM resources WHERE 1 = 1", []
         if resource_type:
