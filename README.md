@@ -9,12 +9,12 @@ Cleans raw EHR exports, maps them to FHIR R4, writes AI summaries per patient, a
 | 1. Ingestion and cleaning | Done | `src/ehr_platform/ingestion/` |
 | 2. FHIR R4 mapping | Done | `src/ehr_platform/fhir_mapping/` |
 | 3. AI summaries | Done (sample run in progress, see below) | `src/ehr_platform/summarization/` |
-| 4. Semantic search | Not started | `src/ehr_platform/search/` |
+| 4. Semantic search | Done | `src/ehr_platform/search/`, `src/ehr_platform/api/` |
 | 5. Frontend | Not started | `frontend/` |
 
 ## Setup
 
-Requires Python 3.11+ and [uv](https://docs.astral.sh/uv/). Plain pip also works with `pip install -r requirements.txt`.
+Requires Python 3.11+ and [uv](https://docs.astral.sh/uv/). Plain pip also works with `pip install -r requirements.txt` (it pulls the CPU-only PyTorch build).
 
 ```bash
 uv sync
@@ -22,6 +22,8 @@ cp .env.example .env                         # add ANTHROPIC_API_KEY (or GEMINI_
 uv run python -m ehr_platform.ingestion      # step 1
 uv run python -m ehr_platform.fhir_mapping   # step 2
 uv run python -m ehr_platform.summarization  # step 3
+uv run python -m ehr_platform.search         # step 4: build the index
+uv run python -m ehr_platform.api            # step 4: API on http://127.0.0.1:8000/docs
 uv run pytest
 ```
 
@@ -274,3 +276,67 @@ The summaries also caught problems step 1 missed, such as a patient with eight n
 ### Tests
 
 21 tests with a fake model client, so no API key is needed: context building, cache hits and misses, the length retry, every quality check, refusals and blocked responses, and rate-limit retries.
+
+## Step 4: Semantic search
+
+```bash
+uv run python -m ehr_platform.search   # build the index, print search timings
+uv run python -m ehr_platform.api      # serve the API
+```
+
+```bash
+curl -X POST "http://127.0.0.1:8000/search?resource_type=DiagnosticReport&date_from=2013-01-01&date_to=2013-12-31" \
+  -H "Content-Type: application/json" -d '{"query": "abnormal blood glucose"}'
+```
+
+### Index
+
+| Part | Choice |
+|---|---|
+| Embeddings | `all-MiniLM-L6-v2` (sentence-transformers), run locally on CPU. Record text never leaves the machine. |
+| Vector store | Chroma, saved in `var/chroma`, cosine distance |
+| What is indexed | Every note and report (text, conclusion, lab results as text) and every AI summary |
+| Chunks | 150 words with a 30-word overlap, title in front. The model reads at most 256 word pieces. |
+| Filter fields | Resource type and date stored on every chunk. Dates as `YYYYMMDD` numbers, since Chroma filters only compare numbers. |
+
+### Ranking
+
+| Rule | Why |
+|---|---|
+| Score = 75% cosine similarity + 25% keyword overlap | Embeddings miss exact clinical words. "Abnormal blood glucose" ranked a genetics panel above the high glucose result until keywords were added. |
+| Best chunk per record | A long note matches on its most relevant part |
+| Copies collapsed | Notes of one patient with the same matching text show once. The others are listed in `similar_records`. |
+| At most 2 records per patient (`per_patient`) | One long chart cannot fill all 5 results |
+
+### API
+
+| Endpoint | Purpose |
+|---|---|
+| `POST /search` | Body `{"query": "..."}`. Query parameters: `resource_type` (`DocumentReference`, `DiagnosticReport`, `Patient` for AI summaries), `date_from`, `date_to`, `limit` (default 5), `per_patient` (default 2). Returns ranked records with score, snippet, patient name and MRN, and the patient's AI summary overview. |
+| `GET /patients/{id}` | Patient details, full AI summary with disclaimer and quality checks, and every linked FHIR resource |
+| `GET /resources/{type}/{id}` | One FHIR resource with its attachment text decoded |
+| `GET /health` | Index size and model |
+
+Interactive docs at `http://127.0.0.1:8000/docs`.
+
+### Result
+
+187 records (154 notes, 10 lab reports, 8 imaging reports, 15 AI summaries) indexed as 744 chunks.
+
+| Measure | Median | Slowest |
+|---|---|---|
+| Search inside the index (30 queries) | 12 ms | 31 ms |
+| Full API request over HTTP (20 queries) | 95 ms | 123 ms |
+
+The model loads once at startup (about 6 seconds), not per request.
+
+### Known limits
+
+| Limit | Example |
+|---|---|
+| Negation | "Shortness of breath and chest pain" also matches an ER note that says the patient denies both |
+| Near-duplicate notes | Notes with small differences are not collapsed, only exact matching text |
+
+### Tests
+
+17 tests: chunking, records, ranking, both filters, collapsing copies, the per-patient cap, a 50-record speed test, and every endpoint including bad input.
