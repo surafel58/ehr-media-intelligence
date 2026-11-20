@@ -2,6 +2,43 @@
 
 Cleans raw EHR exports, maps them to FHIR R4, writes AI summaries per patient, and makes every record searchable in plain language.
 
+## Quick start
+
+Needs Python 3.11+ with [uv](https://docs.astral.sh/uv/), and Node 20+ with [pnpm](https://pnpm.io/) for the UI.
+
+```bash
+git clone https://github.com/surafel58/ehr-media-intelligence
+cd ehr-media-intelligence
+uv sync
+cd frontend && pnpm install && pnpm build && cd ..
+uv run python -m ehr_platform.demo
+```
+
+Then open http://127.0.0.1:8000. The demo command cleans the raw data, maps it to FHIR, loads the AI summaries and builds the search index, then starts the app. The first run takes a few minutes because it downloads the embedding model.
+
+No API key is needed: the AI summaries generated for this data ship in `data/summaries.json`. They are matched to each patient by a hash of their records, so they only appear while the records are unchanged.
+
+### Searches to try
+
+| Search | Expected top results |
+|---|---|
+| abnormal blood glucose | A blood count with high glucose and base excess, and that patient's AI summary |
+| heart failure with a leg wound | Home health notes and the AI summary for a patient with heart failure and a leg ulcer |
+| bone scan for prostate cancer | A whole body bone scan report, then a prostate pathology report |
+| headache with visual aura | Progress notes about migraine with aura |
+| chronic pain on opioids | The AI summary and notes of a patient on gabapentin and oxycodone |
+
+Click a result to open the patient: banner, AI summary with its sources, and every linked FHIR resource.
+
+### Other ways to check search
+
+| How | Command or link |
+|---|---|
+| From the terminal | `uv run python -m ehr_platform.search --query "abnormal blood glucose"` |
+| API docs | http://127.0.0.1:8000/docs, then `POST /search` and "Try it out" |
+| Backend tests | `uv run pytest` |
+| Browser tests | `cd frontend && pnpm exec playwright install chromium && pnpm e2e` |
+
 ## Progress
 
 | Step | Status | Code |
@@ -12,7 +49,7 @@ Cleans raw EHR exports, maps them to FHIR R4, writes AI summaries per patient, a
 | 4. Semantic search | Done | `src/ehr_platform/search/`, `src/ehr_platform/api/` |
 | 5. Frontend | Done | `frontend/` |
 
-## Setup
+## Step by step
 
 Requires Python 3.11+ and [uv](https://docs.astral.sh/uv/). Plain pip also works with `pip install -r requirements.txt` (it pulls the CPU-only PyTorch build).
 
