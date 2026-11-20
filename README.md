@@ -7,7 +7,7 @@ Cleans raw EHR exports, maps them to FHIR R4, writes AI summaries per patient, a
 | Step | Status | Code |
 |---|---|---|
 | 1. Ingestion and cleaning | Done | `src/ehr_platform/ingestion/` |
-| 2. FHIR R4 mapping | Not started | `src/ehr_platform/fhir_mapping/` |
+| 2. FHIR R4 mapping | Done | `src/ehr_platform/fhir_mapping/` |
 | 3. AI summaries | Not started | `src/ehr_platform/summarization/` |
 | 4. Semantic search | Not started | `src/ehr_platform/search/` |
 | 5. Frontend | Not started | `frontend/` |
@@ -18,8 +18,9 @@ Requires Python 3.11+ and [uv](https://docs.astral.sh/uv/). Plain pip also works
 
 ```bash
 uv sync
-cp .env.example .env                      # add ANTHROPIC_API_KEY
-uv run python -m ehr_platform.ingestion   # step 1
+cp .env.example .env                         # add ANTHROPIC_API_KEY
+uv run python -m ehr_platform.ingestion      # step 1
+uv run python -m ehr_platform.fhir_mapping   # step 2
 uv run pytest
 ```
 
@@ -126,4 +127,69 @@ Every record has an `audit` list. Each entry holds the field, the rule applied, 
 
 ### Tests
 
-71 tests in `tests/`: date formats, gender codes, names, MRNs, text repair, patient matching, document de-duplication, and a full run on a small hand-made dataset.
+71 tests: date formats, gender codes, names, MRNs, text repair, patient matching, document de-duplication, and a full run on a small hand-made dataset.
+
+## Step 2: FHIR R4 mapping
+
+```bash
+uv run python -m ehr_platform.fhir_mapping
+```
+
+Reads `var/clean/`. Writes one Bundle per patient to `var/fhir/bundles/` and `var/ehr.db`, and the validation report to `var/fhir/validation_report.md`.
+
+### Mapping
+
+| Clean record | FHIR resource | Details |
+|---|---|---|
+| Patient | `Patient` | MRN typed as `MR`, other IDs kept. Flags from step 1 kept as `meta.tag`. Age stated in a note kept as an extension. |
+| Visit | `Encounter` | Each MTSamples report gets one derived visit, tagged `derived`. |
+| Note | `DocumentReference` | LOINC type from the title: progress note, discharge summary, history and physical, consult, ED note. Text stored as an attachment. |
+| Lab or imaging report | `DiagnosticReport` | Category `LAB` or `RAD`. Conclusion taken from the IMPRESSION, CONCLUSION or DIAGNOSIS section. |
+| Lab result | `Observation` | LOINC code, value, unit, reference range, and `H` or `L` flag. |
+
+Each Bundle is a `collection`. Entries use `urn:uuid` addresses, and every `subject`, `encounter` and `result` reference points to an entry in the same Bundle.
+
+### Validation
+
+| Check | How |
+|---|---|
+| Structure and data types | fhir.resources R4B models |
+| Required codes | Gender and status values checked against the allowed codes. fhir.resources does not check these: it accepts gender `M`. |
+| Required fields | `status`, `class`, `code`, `content` |
+| References | Every reference must resolve to an entry in the Bundle |
+| Warnings | Valid but incomplete: no date, name, identifier or birth date |
+
+### Result
+
+| Bundles | Valid | Resources | Errors | Warnings |
+|---|---|---|---|---|
+| 64 | 64 | 506 | 0 | 188 |
+
+| Resource | Count |
+|---|---|
+| Patient | 64 |
+| Encounter | 147 (114 from HAPI, 33 derived) |
+| DocumentReference | 154 |
+| DiagnosticReport | 18 |
+| Observation | 123 |
+
+The raw HAPI snapshot also passes the same checks: 422 resources, 0 errors. Its problems are in the content (duplicates, conflicting IDs, missing values), not the structure, so cleaning has to run before mapping.
+
+Most warnings come from MTSamples patients, which have no name, identifier or birth date. MTSamples has no status field, so its notes are set to `current` and its reports to `unknown`. The report lists each of these 33 defaults.
+
+### FHIR version
+
+fhir.resources 8, the release built on Pydantic v2, ships R5 and R4B models but not R4. Bundles are validated with the R4B models. R4B changed subscriptions, medication definitions and evidence resources. The five resources used here are the same in R4 and R4B.
+
+### Storage
+
+SQLite at `var/ehr.db`:
+
+| Table | Holds |
+|---|---|
+| `bundles` | One row per patient: Bundle JSON, valid flag, error and warning counts |
+| `resources` | Every resource by type, id and patient, for direct lookups |
+
+### Tests
+
+15 tests: resource mapping, references, status defaults, lab results, derived visits, the validator catching bad codes, missing fields, broken references, bad dates and duplicate entries, and the SQLite store.
