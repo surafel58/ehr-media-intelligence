@@ -243,3 +243,37 @@ test("no serious accessibility violations in light and dark", async ({ page }) =
   await expect(page.getByRole("dialog")).toBeVisible()
   await scan(page, "drawer, dark")
 })
+
+for (const width of [320, 375, 768, 1024, 1440, 1920]) {
+  test(`layout holds at ${width}px wide`, async ({ page }) => {
+    await page.setViewportSize({ width, height: width < 768 ? 800 : 900 })
+    await search(page, "abnormal blood glucose")
+    const sideways = () => page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)
+    expect(await sideways()).toBeLessThanOrEqual(0)
+    await expect(results(page).first()).toBeVisible()
+    await page.screenshot({ path: `${SHOTS}/layout-${width}.png`, fullPage: true })
+
+    // Date picker fits on screen
+    await page.getByRole("button", { name: /Date range/ }).click()
+    const picker = page.getByRole("dialog")
+    await expect(picker).toBeVisible()
+    const box = (await picker.boundingBox())!
+    expect(box.x).toBeGreaterThanOrEqual(0)
+    expect(box.x + box.width).toBeLessThanOrEqual(width + 0.5) // sub-pixel rounding when flush to the edge
+    await page.keyboard.press("Escape")
+
+    // Drawer: full width on phones, a side panel on larger screens, never wider than the screen
+    await results(page).first().getByRole("button").click()
+    const drawer = page.getByRole("dialog")
+    await expect(drawer).toBeVisible()
+    const d = (await drawer.boundingBox())!
+    expect(d.width).toBeLessThanOrEqual(width + 0.5)
+    if (width < 640) expect(Math.round(d.width)).toBe(width)
+    else expect(d.width).toBeLessThan(width)
+    await page.evaluate(() => Promise.all(document.getAnimations().map((a) => a.finished)))
+    await expect(drawer.getByRole("heading", { name: "AI summary" })).toBeVisible()
+    const drawerSideways = await drawer.evaluate((el) => el.scrollWidth - el.clientWidth)
+    expect(drawerSideways).toBeLessThanOrEqual(0) // nothing inside the drawer sticks out
+    await page.screenshot({ path: `${SHOTS}/drawer-${width}.png` })
+  })
+}
