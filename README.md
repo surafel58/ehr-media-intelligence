@@ -8,7 +8,7 @@ Cleans raw EHR exports, maps them to FHIR R4, writes AI summaries per patient, a
 |---|---|---|
 | 1. Ingestion and cleaning | Done | `src/ehr_platform/ingestion/` |
 | 2. FHIR R4 mapping | Done | `src/ehr_platform/fhir_mapping/` |
-| 3. AI summaries | Not started | `src/ehr_platform/summarization/` |
+| 3. AI summaries | Done (sample run in progress, see below) | `src/ehr_platform/summarization/` |
 | 4. Semantic search | Not started | `src/ehr_platform/search/` |
 | 5. Frontend | Not started | `frontend/` |
 
@@ -18,9 +18,10 @@ Requires Python 3.11+ and [uv](https://docs.astral.sh/uv/). Plain pip also works
 
 ```bash
 uv sync
-cp .env.example .env                         # add ANTHROPIC_API_KEY
+cp .env.example .env                         # add ANTHROPIC_API_KEY (or GEMINI_API_KEY)
 uv run python -m ehr_platform.ingestion      # step 1
 uv run python -m ehr_platform.fhir_mapping   # step 2
+uv run python -m ehr_platform.summarization  # step 3
 uv run pytest
 ```
 
@@ -193,3 +194,83 @@ SQLite at `var/ehr.db`:
 ### Tests
 
 15 tests: resource mapping, references, status defaults, lab results, derived visits, the validator catching bad codes, missing fields, broken references, bad dates and duplicate entries, and the SQLite store.
+
+## Step 3: AI summaries
+
+```bash
+uv run python -m ehr_platform.summarization                       # Claude (default)
+uv run python -m ehr_platform.summarization --provider gemini     # Gemini
+uv run python -m ehr_platform.summarization --dry-run             # what would be sent, rough cost
+uv run python -m ehr_platform.summarization --cached-only         # saved summaries only, no API calls
+```
+
+Reads the Bundles from `var/ehr.db`. Writes one summary per patient to `var/summaries/` and the SQLite cache, plus `var/summaries/quality_report.md`.
+
+### Summary contents
+
+| Field | Content |
+|---|---|
+| `overview` | Two or three sentences for a search result |
+| `chief_concern` | Main reason for the most recent care |
+| `key_diagnoses` | Up to 5, each with the ids of the records that support it |
+| `recent_media` | Up to 5 recent imaging, lab and pathology records, one line each |
+| `anomalies` | Up to 5 abnormal results or record contradictions, marked `clinical` or `data_quality` |
+| `confidence` | `high`, `medium` or `low`, with a one-sentence reason |
+| `disclaimer` | Fixed text added by code, not by the model: AI-generated, not a clinical decision |
+
+### How the prompt keeps summaries short and accurate
+
+| Rule | How |
+|---|---|
+| Fixed format | Structured output: the model must return the schema above |
+| Grounded | Only facts written in the records. Thin or non-clinical records are called out, not filled in. |
+| Traceable | Every record in the prompt carries its id. Diagnoses, media and anomalies must cite ids. |
+| Short | Target 180 words. A summary over 200 words is regenerated once with a request to shorten it. |
+| Minimum data | Names and MRNs are not sent. Sex, birth date and the records are enough. |
+| No wasted calls | Patients with no notes or reports get a fixed "no clinical records" summary without an API call. |
+
+### Cache
+
+SQLite table `summaries`, keyed by patient id, record hash, model and prompt version. The record hash covers every resource in the patient's Bundle, so a summary is only regenerated when a record changes or the prompt changes.
+
+### Quality checks
+
+Every summary is checked automatically. These checks are how summary quality was validated.
+
+| Check | Fails when |
+|---|---|
+| `under_word_limit` | Over 200 words |
+| `citations_exist` | A cited id is not a record of this patient |
+| `findings_cited` | A diagnosis or clinical anomaly cites nothing |
+| `numbers_grounded` | A number or date is not in the records (ages worked out from the birth date are allowed) |
+| `abnormal_results_reported` | A lab report with a high or low value is missing from the anomalies |
+| `data_quality_reported` | A data quality flag from step 1 is not mentioned |
+
+### Providers
+
+| Provider | Default model | Notes |
+|---|---|---|
+| Claude | `claude-opus-5-5` | Default. Server-side refusal fallback turned on. |
+| Gemini | `gemini-3.5-flash` | Free tier: 20 requests per day per model. Rate limits are retried with a wait. |
+
+The sample run uses Gemini because no paid Claude credit was available. Both providers use the same prompt, schema, cache and checks. The Gemini free tier may use prompts to improve Google products, which is fine for synthetic data but not for real patient data.
+
+### Result so far
+
+The free tier allows 20 summaries per day, so the sample run finishes over the next few days.
+
+| Patients | AI summaries | No records (no call) | Pending |
+|---|---|---|---|
+| 64 | 15 | 9 | 40 |
+
+| Check | Passed |
+|---|---|
+| All 6 checks | 15 of 15 summaries |
+| Words | 53 to 120, median 102 |
+| Confidence | 1 high, 12 medium, 2 low |
+
+The summaries also caught problems step 1 missed, such as a patient with eight near-identical progress notes and a note dated 2026 for a 2024 care episode.
+
+### Tests
+
+21 tests with a fake model client, so no API key is needed: context building, cache hits and misses, the length retry, every quality check, refusals and blocked responses, and rate-limit retries.
