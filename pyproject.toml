@@ -9,9 +9,14 @@ authors = [
 requires-python = ">=3.11"
 dependencies = [
     "anthropic>=2.11",
+    "chromadb>=1.0",
+    "fastapi>=0.115",
     "fhir-resources>=8.3",
     "google-genai>=1.0",
     "pydantic>=2.9",
+    "sentence-transformers>=3",
+    "torch>=2.4",
+    "uvicorn[standard]>=0.30",
 ]
 
 [dependency-groups]
@@ -25,3 +30,12 @@ testpaths = ["tests"]
 [build-system]
 requires = ["uv_build>=0.13.7,<0.14.0"]
 build-backend = "uv_build"
+
+# CPU-only PyTorch: search runs on CPU, and this avoids a multi-GB CUDA download on Linux.
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu", marker = "sys_platform != 'darwin'" }]
