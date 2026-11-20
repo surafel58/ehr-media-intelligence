@@ -5,6 +5,10 @@ annotated-types==0.8.0
     # via pydantic
 colorama==0.4.6 ; sys_platform == 'win32'
     # via pytest
+fhir-core==1.1.12
+    # via fhir-resources
+fhir-resources==8.3.0
+    # via ehr-platform
 iniconfig==2.3.1
     # via pytest
 packaging==26.3
@@ -12,7 +16,9 @@ packaging==26.3
 pluggy==1.7.0
     # via pytest
 pydantic==2.14.4
-    # via ehr-platform
+    # via
+    #   ehr-platform
+    #   fhir-core
 pydantic-core==2.50.5
     # via pydantic
 pygments==2.21.0
