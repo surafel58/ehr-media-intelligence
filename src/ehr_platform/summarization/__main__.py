@@ -84,6 +84,8 @@ def main() -> None:
     report = write_outputs(run, config.SUMMARY_DIR)
     print(f"\nGenerated: {len(run.generated)}  from cache: {len(run.from_cache)}  failed: {len(run.failed)}"
           f"  pending: {len(run.pending)}")
+    if run.stopped:
+        print(f"Stopped early: {run.stopped}. Run again after the quota resets for the {len(run.pending)} pending.")
     print(f"Summaries in {config.SUMMARY_DIR}\nQuality report: {report}")
 
 

@@ -298,3 +298,34 @@ def test_cached_only_accepts_a_saved_summary_from_another_model(cache):
     summarize_all(bundles, cache, "gemini-test", FakeClaude())
     run = summarize_all(bundles, cache, "claude-opus-5-5", call=None, cached_only=True)
     assert run.pending == [] and run.summaries["hapi-1"].model == "gemini-test"
+
+
+def test_daily_quota_stops_the_run_and_leaves_the_rest_pending(cache):
+    from ehr_platform.summarization.client import QuotaExhausted
+
+    class OneThenQuota(FakeClaude):
+        def __call__(self, text):
+            if self.calls:
+                self.calls.append(text)
+                raise QuotaExhausted("daily quota used up")
+            return super().__call__(text)
+
+    bundles = {f"p{i}": make_bundles(note_text=f"Visit number {i}, chest pain.")["hapi-1"] for i in range(4)}
+    claude = OneThenQuota()
+    run = summarize_all(bundles, cache, "claude-opus-5-5", claude, workers=1)
+    assert len(run.generated) == 1 and run.failed == {}
+    assert len(run.pending) == 3 and "quota" in run.stopped
+    assert len(claude.calls) == 2  # no calls after the quota error
+
+
+def test_gemini_daily_quota_raises_at_once_instead_of_waiting_hours():
+    from ehr_platform.summarization.client import QuotaExhausted
+
+    daily = genai_errors.ClientError(429, {"error": {"code": 429, "status": "RESOURCE_EXHAUSTED",
+                                                     "message": "Quota exceeded. Please retry in 72338s.",
+                                                     "details": [{"violations": [{"quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier"}]}]}})
+    client, calls = gemini_client(daily)
+    waits = []
+    with pytest.raises(QuotaExhausted):
+        GeminiSummarizer(client=client, sleep=waits.append).call("records")
+    assert waits == [] and len(calls) == 1
