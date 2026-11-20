@@ -259,3 +259,14 @@ def test_demographic_data_quality_note_needs_no_citation():
     summary = good_summary()
     summary.anomalies.append(Anomaly(kind="data_quality", text="Sex recorded as unknown", source_ids=[]))
     assert {c.name: c.passed for c in run_checks(summary, ctx)}["findings_cited"]
+
+
+def test_cached_summary_gets_current_checks_saved(cache):
+    bundles = make_bundles()
+    summarize_all(bundles, cache, "claude-opus-5-5", FakeClaude())
+    ctx = build_context(bundles["hapi-1"])
+    stale = cache.get("hapi-1", ctx.record_hash, "claude-opus-5-5", "v1")
+    stale.quality = []
+    cache.put(stale)
+    summarize_all(bundles, cache, "claude-opus-5-5", call=None, cached_only=True)
+    assert len(cache.get("hapi-1", ctx.record_hash, "claude-opus-5-5", "v1").quality) == 6
