@@ -10,7 +10,7 @@ Cleans raw EHR exports, maps them to FHIR R4, writes AI summaries per patient, a
 | 2. FHIR R4 mapping | Done | `src/ehr_platform/fhir_mapping/` |
 | 3. AI summaries | Done (sample run in progress, see below) | `src/ehr_platform/summarization/` |
 | 4. Semantic search | Done | `src/ehr_platform/search/`, `src/ehr_platform/api/` |
-| 5. Frontend | Not started | `frontend/` |
+| 5. Frontend | Done | `frontend/` |
 
 ## Setup
 
@@ -25,6 +25,8 @@ uv run python -m ehr_platform.summarization  # step 3
 uv run python -m ehr_platform.search         # step 4: build the index
 uv run python -m ehr_platform.api            # step 4: API on http://127.0.0.1:8000/docs
 uv run pytest
+
+cd frontend && pnpm install && pnpm build    # step 5: the API then serves the UI at http://127.0.0.1:8000
 ```
 
 ## Data
@@ -275,7 +277,7 @@ The summaries also caught problems step 1 missed, such as a patient with eight n
 
 ### Tests
 
-21 tests with a fake model client, so no API key is needed: context building, cache hits and misses, the length retry, every quality check, refusals and blocked responses, and rate-limit retries.
+22 tests with a fake model client, so no API key is needed: context building, cache hits and misses, the length retry, every quality check, refusals and blocked responses, and rate-limit retries.
 
 ## Step 4: Semantic search
 
@@ -314,7 +316,7 @@ curl -X POST "http://127.0.0.1:8000/search?resource_type=DiagnosticReport&date_f
 |---|---|
 | `POST /search` | Body `{"query": "..."}`. Query parameters: `resource_type` (`DocumentReference`, `DiagnosticReport`, `Patient` for AI summaries), `date_from`, `date_to`, `limit` (default 5), `per_patient` (default 2). Returns ranked records with score, snippet, patient name and MRN, and the patient's AI summary overview. |
 | `GET /patients/{id}` | Patient details, full AI summary with disclaimer and quality checks, and every linked FHIR resource |
-| `GET /resources/{type}/{id}` | One FHIR resource with its attachment text decoded |
+| `GET /resources/{type}/{id}` | One FHIR resource with its attachment text decoded, and for a report, its result values |
 | `GET /health` | Index size and model |
 
 Interactive docs at `http://127.0.0.1:8000/docs`.
@@ -339,4 +341,87 @@ The model loads once at startup (about 6 seconds), not per request.
 
 ### Tests
 
-17 tests: chunking, records, ranking, both filters, collapsing copies, the per-patient cap, a 50-record speed test, and every endpoint including bad input.
+18 tests: chunking, records, ranking, both filters, collapsing copies, the per-patient cap, a 50-record speed test, and every endpoint including bad input.
+
+## Step 5: Frontend
+
+![Search results, light theme](docs/screenshots/results-light.png)
+
+```bash
+cd frontend
+pnpm install
+pnpm build    # the API serves the built UI at http://127.0.0.1:8000
+pnpm dev      # or: dev server on http://127.0.0.1:5173, API calls proxied to port 8000
+```
+
+### Stack
+
+| Part | Choice |
+|---|---|
+| App | React 19, TypeScript, Vite |
+| Styling | Tailwind CSS v4, shadcn/ui on Radix primitives |
+| Data | Fetch API through SWR: cached, de-duplicated requests |
+| Font | Atkinson Hyperlegible Next, made for low-vision legibility, self-hosted |
+| Package manager | pnpm |
+
+### Design
+
+| Choice | Why |
+|---|---|
+| The search field is the main element | Clinicians come to search. Results update as they type (250 ms pause). |
+| Results as chart entries, not cards | A date column, the record, and patient identity on every result, so the right patient is always clear |
+| Patient banner at the top of the drawer | Name, MRN, sex, birth date and data quality flags first, as in an EHR |
+| AI text is always marked | A tinted note with a teal edge, the disclaimer, the model name and how many checks passed |
+| Abnormal values in red with the word | "6.3 mmol/L, high". Color is never the only signal. |
+| Light and dark themes | Cool clinical white and deep teal night. The choice is saved, and set before first paint so nothing flashes. |
+
+| | |
+|---|---|
+| ![Patient drawer](docs/screenshots/drawer-light.png) | ![Dark theme](docs/screenshots/results-dark.png) |
+| ![Patient drawer, dark](docs/screenshots/drawer-dark.png) | ![Phone width](docs/screenshots/results-mobile.png) |
+
+### Features
+
+| Feature | Detail |
+|---|---|
+| Search | Calls `POST /search` as you type. Query words highlighted in each snippet. |
+| Result entry | Patient name and MRN, sex and age, record date, type badge with the FHIR resource type, relevance score, AI summary snippet, count of copies of the same note |
+| Patient drawer | Full AI summary with disclaimer. Every diagnosis and anomaly links to the record it cites. Linked FHIR resources grouped by type; each opens to show its text or lab values. |
+| Filters | Record type (all, notes, lab and imaging reports, AI summaries) and a date range picker |
+| States | Loading skeletons, a start screen with example searches, a "no matches" screen that suggests what to change, and a clear error when the API is down |
+| Keyboard | `/` focuses search, arrow keys move between results, Enter opens, Escape closes or clears |
+| Accessibility | Labels on every control, live region announcing result counts, visible focus rings, headings in order, reduced motion respected |
+
+### Performance
+
+| Measure | Value |
+|---|---|
+| First load (gzip) | 130 KB JavaScript, 11 KB CSS |
+| Loaded on demand | Patient drawer (7 KB) and date calendar (21 KB), preloaded on hover or focus |
+| Patient details | Preloaded when a result is hovered or focused, so the drawer opens with data |
+
+### Tests
+
+```bash
+cd frontend
+pnpm exec playwright install chromium   # once, or point PW_BROWSER_PATH at an installed Chrome, Edge or Brave
+pnpm e2e
+```
+
+13 Playwright tests in `frontend/e2e/`, run against the real API and data. They fail on any browser console error.
+
+| Test | Checks |
+|---|---|
+| Start screen | Heading, search focused, example searches, index status |
+| Results | Up to 5, sorted by relevance, every field present, query words highlighted, result count announced |
+| AI summary snippets | Shown on result entries |
+| Example searches | Run a search |
+| Keyboard | `/`, arrow keys, Enter, Escape |
+| Patient drawer | Banner, AI summary, disclaimer, check count, linked resources, lab values |
+| Citations | Open the cited record |
+| Type filter | Only `DiagnosticReport` results |
+| Date filter | Empty result screen, then clearing filters |
+| Service down | Error message and retry button |
+| Theme | Dark theme toggles and is remembered after reload |
+| Phone width | No sideways scrolling, full-width drawer |
+| Accessibility | axe-core scan (WCAG 2.2 AA rules): no serious or critical issues on results and drawer, light and dark |
