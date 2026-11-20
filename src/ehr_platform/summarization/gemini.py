@@ -10,6 +10,7 @@ import os
 import re
 import time
 
+import httpx2
 from google import genai
 from google.genai import errors, types
 
@@ -31,9 +32,13 @@ def _retry_delay(exc: Exception, attempt: int) -> float:
 
 class GeminiSummarizer:
     def __init__(self, model: str = config.GEMINI_MODEL, client: genai.Client | None = None, max_retries: int = 6,
-                 sleep=time.sleep):
+                 sleep=time.sleep, timeout_s: int = 180):
         self.model = model
-        self.client = client or genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
+        self.client = client or genai.Client(
+            api_key=os.environ.get("GEMINI_API_KEY"),
+            http_options=types.HttpOptions(api_version="v1beta", timeout=timeout_s * 1000,
+                                           retry_options=types.HttpRetryOptions(attempts=1)),
+        )
         self.max_retries = max_retries
         self.sleep = sleep
 
@@ -50,6 +55,11 @@ class GeminiSummarizer:
                     self.sleep(_retry_delay(exc, attempt))
                     continue
                 raise SummaryError(f"Gemini error {exc.code}: {exc.message}") from exc
+            except (httpx2.TransportError, TimeoutError, OSError) as exc:  # slow or dropped connection
+                if attempt < self.max_retries:
+                    self.sleep(min(60.0, 5.0 * 2 ** attempt))
+                    continue
+                raise SummaryError(f"Gemini did not answer: {type(exc).__name__}") from exc
 
         candidate = (response.candidates or [None])[0]
         finish = getattr(getattr(candidate, "finish_reason", None), "name", None)
