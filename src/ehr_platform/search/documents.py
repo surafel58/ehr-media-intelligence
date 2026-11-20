@@ -97,8 +97,11 @@ def summary_record(summary: PatientSummary, latest_date: str | None) -> Record:
              "Diagnoses: " + "; ".join(d.text for d in s.key_diagnoses),
              "Recent media: " + "; ".join(m.result for m in s.recent_media),
              "Anomalies: " + "; ".join(a.text for a in s.anomalies)]
+    # The chief concern makes a more useful result title than a repeat of the "AI summary" badge.
+    concern = s.chief_concern.strip()
+    title = concern if concern and concern.lower() not in ("not specified", "no clinical records") else "Patient summary"
     record = Record(record_id=f"summary-{summary.patient_id}", patient_id=summary.patient_id,
-                    resource_type="Patient", kind="summary", title="AI summary", date=latest_date,
+                    resource_type="Patient", kind="summary", title=title, date=latest_date,
                     text="\n".join(parts))
     record.chunks = chunk(record.text, record.title)
     return record
