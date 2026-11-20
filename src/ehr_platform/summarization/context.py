@@ -36,6 +36,8 @@ class PatientContext:
     flags: list[str] = field(default_factory=list)                 # data quality flags worth reporting
     has_records: bool = False
     omitted: int = 0
+    birth_date: str | None = None
+    record_dates: list[str] = field(default_factory=list)
 
 
 def record_hash(bundle: dict) -> str:
@@ -94,6 +96,7 @@ def build_context(bundle: dict) -> PatientContext:
     if patient:
         lines.append(f"sex: {patient.get('gender', 'unknown')}")
         lines.append(f"birth date: {patient.get('birthDate', 'unknown')}")
+        ctx.birth_date = patient.get("birthDate")
         for ext in patient.get("extension", []):
             if "valueAge" in ext:
                 lines.append(f"age stated in the report: {ext['valueAge']['value']}")
@@ -101,6 +104,7 @@ def build_context(bundle: dict) -> PatientContext:
 
     records = [r for r in resources if r["resourceType"] in ("DocumentReference", "DiagnosticReport")]
     records.sort(key=lambda r: _date(r) or "", reverse=True)
+    ctx.record_dates = [d for r in records if (d := _date(r))]
     ctx.has_records = bool(records)
 
     body: list[str] = []

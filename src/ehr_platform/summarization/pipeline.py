@@ -71,6 +71,7 @@ def summarize_all(bundles: dict[str, dict], cache: SummaryCache, model: str,
         use_model = model if ctx.has_records else NO_RECORDS_MODEL
         cached = None if force else cache.get(pid, ctx.record_hash, use_model, PROMPT_VERSION)
         if cached:
+            cached.quality = run_checks(cached.summary, ctx)  # checks are cheap, keep them current
             run.summaries[pid] = cached
             run.from_cache.append(pid)
         elif not ctx.has_records:

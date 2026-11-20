@@ -4,12 +4,14 @@ They test what can be checked without a clinician:
   length       under the word limit
   citations    every cited id is a real record of this patient, and every finding cites something
   grounding    every number and date in the summary appears in the source records
+               (ages worked out from the birth date also count)
   recall       every lab report with an abnormal value, and every data quality flag, is reported
 """
 
 from __future__ import annotations
 
 import re
+from datetime import date
 
 from .context import PatientContext
 from .prompt import WORD_LIMIT
@@ -41,6 +43,15 @@ def _numbers(text: str) -> set[str]:
     return {n for n in _NUMBER.findall(text) if len(n) >= 2 or "." in n}
 
 
+def derived_ages(ctx: PatientContext, today: date | None = None) -> set[str]:
+    """Ages that follow from the birth date: at each record date, and today."""
+    if not ctx.birth_date or len(ctx.birth_date) != 10:
+        return set()
+    born = date.fromisoformat(ctx.birth_date)
+    points = [date.fromisoformat(d) for d in ctx.record_dates if len(d) == 10] + [today or date.today()]
+    return {str(p.year - born.year - ((p.month, p.day) < (born.month, born.day))) for p in points}
+
+
 def run_checks(s: ClinicalSummary, ctx: PatientContext) -> list[QualityCheck]:
     checks: list[QualityCheck] = []
     words = word_count(s)
@@ -55,7 +66,8 @@ def run_checks(s: ClinicalSummary, ctx: PatientContext) -> list[QualityCheck]:
                                detail=f"uncited: {'; '.join(uncited)}" if uncited else ""))
 
     dates = {m.date for m in s.recent_media if m.date}
-    ungrounded = sorted(n for n in _numbers(summary_text(s)) | dates if n not in ctx.text)
+    ages = derived_ages(ctx)
+    ungrounded = sorted(n for n in _numbers(summary_text(s)) | dates if n not in ctx.text and n not in ages)
     checks.append(QualityCheck(name="numbers_grounded", passed=not ungrounded,
                                detail=f"not in records: {', '.join(ungrounded)}" if ungrounded else ""))
 

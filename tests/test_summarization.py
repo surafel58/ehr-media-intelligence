@@ -236,3 +236,13 @@ def test_gemini_blocked_response_raises():
     client, _ = gemini_client(gemini_response(finish="SAFETY"))
     with pytest.raises(SummaryError, match="blocked"):
         GeminiSummarizer(client=client).call("records")
+
+
+def test_age_worked_out_from_birth_date_counts_as_grounded():
+    ctx = build_context(make_bundles()["hapi-1"])  # born 1972-11-02, records dated 2024-03-16
+    summary = good_summary()
+    summary.overview = "A 51-year-old man with chest pain assessed as stable angina."
+    checks = {c.name: c for c in run_checks(summary, ctx)}
+    assert checks["numbers_grounded"].passed
+    summary.overview = "A 49-year-old man with chest pain."
+    assert not {c.name: c for c in run_checks(summary, ctx)}["numbers_grounded"].passed
