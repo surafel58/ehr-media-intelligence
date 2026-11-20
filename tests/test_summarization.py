@@ -246,3 +246,16 @@ def test_age_worked_out_from_birth_date_counts_as_grounded():
     assert checks["numbers_grounded"].passed
     summary.overview = "A 49-year-old man with chest pain."
     assert not {c.name: c for c in run_checks(summary, ctx)}["numbers_grounded"].passed
+
+
+def test_cached_only_makes_no_calls_and_lists_pending(cache):
+    run = summarize_all(make_bundles(), cache, "claude-opus-5-5", call=None, cached_only=True)
+    assert run.pending == ["hapi-1"]
+    assert list(run.summaries) == ["hapi-2"]  # no records, needs no call
+
+
+def test_demographic_data_quality_note_needs_no_citation():
+    ctx = build_context(make_bundles()["hapi-1"])
+    summary = good_summary()
+    summary.anomalies.append(Anomaly(kind="data_quality", text="Sex recorded as unknown", source_ids=[]))
+    assert {c.name: c.passed for c in run_checks(summary, ctx)}["findings_cited"]
