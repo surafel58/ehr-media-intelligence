@@ -4,6 +4,8 @@ Cleans raw EHR exports, maps them to FHIR R4, writes AI summaries per patient, a
 
 ## Quick start
 
+**Demo video (53 seconds):** [docs/demo.mp4](docs/demo.mp4) shows a search, the patient drawer with its AI summary and lab values, the record type filter, and the dark theme.
+
 Needs Python 3.11+ with [uv](https://docs.astral.sh/uv/), and Node 20+ with [pnpm](https://pnpm.io/) for the UI.
 
 ```bash

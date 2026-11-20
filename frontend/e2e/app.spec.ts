@@ -30,7 +30,7 @@ async function search(page: Page, query: string) {
 
 async function scan(page: Page, label: string) {
   // Measure the settled page: a fade-in in progress would make every color look too faint.
-  await page.evaluate(() => Promise.all(document.getAnimations().map((a) => a.finished)))
+  await page.evaluate(() => Promise.all(document.getAnimations().filter((a) => a.effect?.getComputedTiming().iterations !== Infinity).map((a) => a.finished.catch(() => null))))
   const { violations } = await new AxeBuilder({ page })
     .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])
     .analyze()
@@ -270,7 +270,7 @@ for (const width of [320, 375, 768, 1024, 1440, 1920]) {
     expect(d.width).toBeLessThanOrEqual(width + 0.5)
     if (width < 640) expect(Math.round(d.width)).toBe(width)
     else expect(d.width).toBeLessThan(width)
-    await page.evaluate(() => Promise.all(document.getAnimations().map((a) => a.finished)))
+    await page.evaluate(() => Promise.all(document.getAnimations().filter((a) => a.effect?.getComputedTiming().iterations !== Infinity).map((a) => a.finished.catch(() => null))))
     await expect(drawer.getByRole("heading", { name: "AI summary" })).toBeVisible()
     const drawerSideways = await drawer.evaluate((el) => el.scrollWidth - el.clientWidth)
     expect(drawerSideways).toBeLessThanOrEqual(0) // nothing inside the drawer sticks out
