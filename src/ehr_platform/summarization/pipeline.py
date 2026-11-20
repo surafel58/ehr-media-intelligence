@@ -8,7 +8,7 @@ from datetime import datetime, timezone
 from typing import Callable
 
 from .cache import SummaryCache
-from .client import ClaudeResult, SummaryError
+from .client import LLMResult, SummaryError
 from .context import PatientContext, build_context
 from .prompt import PROMPT_VERSION, WORD_LIMIT, shorten_message, user_message
 from .quality import run_checks, word_count
@@ -26,7 +26,7 @@ def no_records_summary() -> ClinicalSummary:
     )
 
 
-def generate(ctx: PatientContext, call: Callable[[str], ClaudeResult]) -> tuple[ClinicalSummary, Usage]:
+def generate(ctx: PatientContext, call: Callable[[str], LLMResult]) -> tuple[ClinicalSummary, Usage]:
     """One API call, plus one retry if the summary is over the word limit."""
     usage = Usage()
     result = call(user_message(ctx.text))
@@ -60,7 +60,7 @@ class RunResult:
 
 
 def summarize_all(bundles: dict[str, dict], cache: SummaryCache, model: str,
-                  call: Callable[[str], ClaudeResult] | None, force: bool = False, workers: int = 3,
+                  call: Callable[[str], LLMResult] | None, force: bool = False, workers: int = 3,
                   on_done: Callable[[str, str], None] | None = None) -> RunResult:
     """Summarize each Bundle. `call` sends one prompt to Claude; it is only used on a cache miss."""
     run = RunResult()

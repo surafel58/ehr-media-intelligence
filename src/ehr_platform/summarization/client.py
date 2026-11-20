@@ -15,11 +15,11 @@ FALLBACK_MODELS = {"claude-opus-5-5", "claude-opus-5", "claude-sonnet-5-5", "cla
 
 
 class SummaryError(Exception):
-    """Claude did not return a usable summary."""
+    """The model did not return a usable summary."""
 
 
 @dataclass
-class ClaudeResult:
+class LLMResult:
     summary: ClinicalSummary
     input_tokens: int
     output_tokens: int
@@ -32,7 +32,7 @@ class ClaudeSummarizer:
         self.effort = effort
         self.client = client or anthropic.Anthropic(max_retries=5)
 
-    def call(self, user_text: str) -> ClaudeResult:
+    def call(self, user_text: str) -> LLMResult:
         kwargs = dict(
             model=self.model,
             max_tokens=16000,
@@ -52,6 +52,6 @@ class ClaudeSummarizer:
             raise SummaryError("output hit max_tokens before the summary was complete")
         if response.parsed_output is None:
             raise SummaryError(f"no structured output (stop_reason={response.stop_reason})")
-        return ClaudeResult(summary=response.parsed_output,
-                            input_tokens=response.usage.input_tokens,
-                            output_tokens=response.usage.output_tokens)
+        return LLMResult(summary=response.parsed_output,
+                         input_tokens=response.usage.input_tokens,
+                         output_tokens=response.usage.output_tokens)

@@ -21,6 +21,12 @@ def cost(summaries: list[PatientSummary]) -> float:
     return total
 
 
+def cost_label(summaries: list[PatientSummary]) -> str:
+    if summaries and all(s.model.startswith("gemini") for s in summaries):
+        return "free tier"
+    return f"${cost(summaries):.2f}"
+
+
 def write_outputs(run: RunResult, out_dir: Path) -> Path:
     out_dir.mkdir(parents=True, exist_ok=True)
     for old in out_dir.glob("*.json"):
@@ -35,8 +41,10 @@ def write_outputs(run: RunResult, out_dir: Path) -> Path:
     words = sorted(s.word_count for s in ai)
     confidence = Counter(s.summary.confidence for s in ai)
 
+    models = sorted({s.model for s in ai})
     lines = [
         "# Summary quality report", "",
+        f"Model: {', '.join(f'`{m}`' for m in models) or 'none'}", "",
         "| Patients | AI summaries | No records | From cache | Failed | Retries for length |",
         "|---|---|---|---|---|---|",
         f"| {len(run.summaries) + len(run.failed)} | {len(ai)} | {len(summaries) - len(ai)} | {len(run.from_cache)} "
@@ -47,7 +55,7 @@ def write_outputs(run: RunResult, out_dir: Path) -> Path:
             "| Words min | Words median | Words max | Input tokens | Output tokens | Cost of these calls |",
             "|---|---|---|---|---|---|",
             f"| {words[0]} | {words[len(words) // 2]} | {words[-1]} | {sum(s.usage.input_tokens for s in ai):,} "
-            f"| {sum(s.usage.output_tokens for s in ai):,} | ${cost(ai):.2f} |", "",
+            f"| {sum(s.usage.output_tokens for s in ai):,} | {cost_label(ai)} |", "",
             "## Automatic checks", "", "| Check | Passed |", "|---|---|",
             *[f"| `{name}` | {passed[name]} of {len(ai)} |" for name in check_names], "",
             "## Confidence", "", "| Level | Summaries |", "|---|---|",

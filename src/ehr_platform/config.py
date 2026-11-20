@@ -28,4 +28,6 @@ def load_env(path: Path = ROOT / ".env") -> None:
 
 load_env()
 
+LLM_PROVIDER = os.environ.get("LLM_PROVIDER", "claude")  # claude or gemini
 CLAUDE_MODEL = os.environ.get("CLAUDE_MODEL", "claude-opus-5-5")
+GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.8-flash")
