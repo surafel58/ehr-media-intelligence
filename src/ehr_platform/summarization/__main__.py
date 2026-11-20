@@ -7,7 +7,7 @@ import sys
 from .. import config
 from ..fhir_mapping import FhirStore
 from .cache import SummaryCache
-from .context import build_context
+from .context import build_context, record_hash
 from .pipeline import summarize_all
 from .prompt import PROMPT_VERSION
 from .report import PRICES, write_outputs
@@ -48,6 +48,9 @@ def main() -> None:
         bundles = {pid: b for pid in ids if (b := store.bundle(pid))}
 
     with SummaryCache() as cache:
+        imported = cache.import_file(config.SAVED_SUMMARIES)
+        if imported:
+            print(f"Loaded {imported} saved summaries from {config.SAVED_SUMMARIES.name}")
         if args.dry_run:
             contexts = [build_context(b) for b in bundles.values()]
             need = [c for c in contexts if c.has_records
@@ -73,6 +76,10 @@ def main() -> None:
         print(f"Summarizing {len(bundles)} patients with {model}...", flush=True)
         run = summarize_all(bundles, cache, model, call, force=args.force, cached_only=args.cached_only,
                             workers=args.workers or settings["workers"], on_done=progress)
+        if any(run.summaries[pid].model != "rule-based" for pid in run.generated):
+            # Keep the shipped file current, so the app works without an API key.
+            saved = cache.export(config.SAVED_SUMMARIES, {pid: record_hash(b) for pid, b in bundles.items()})
+            print(f"Saved {saved} summaries to {config.SAVED_SUMMARIES.relative_to(config.ROOT)}")
 
     report = write_outputs(run, config.SUMMARY_DIR)
     print(f"\nGenerated: {len(run.generated)}  from cache: {len(run.from_cache)}  failed: {len(run.failed)}"

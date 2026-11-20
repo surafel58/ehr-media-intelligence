@@ -74,6 +74,8 @@ def summarize_all(bundles: dict[str, dict], cache: SummaryCache, model: str,
         ctx.patient_id = pid  # the store key, also for bundles with no Patient entry
         use_model = model if ctx.has_records else NO_RECORDS_MODEL
         cached = None if force else cache.get(pid, ctx.record_hash, use_model, PROMPT_VERSION)
+        if cached is None and cached_only and ctx.has_records:
+            cached = cache.latest(pid, ctx.record_hash)  # any model, as long as it summarized these exact records
         if cached:
             fresh = run_checks(cached.summary, ctx)  # checks are cheap, keep them current
             if fresh != cached.quality:

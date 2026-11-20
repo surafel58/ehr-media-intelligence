@@ -10,6 +10,7 @@ CLEAN_DIR = VAR_DIR / "clean"
 FHIR_DIR = VAR_DIR / "fhir"
 SUMMARY_DIR = VAR_DIR / "summaries"
 DB_PATH = VAR_DIR / "ehr.db"
+SAVED_SUMMARIES = ROOT / "data" / "summaries.json"  # AI summaries shipped with the repo
 
 HAPI_EXPORT = RAW_DIR / "hapi_export.json"
 MTSAMPLES_CSV = RAW_DIR / "mtsamples.csv"
