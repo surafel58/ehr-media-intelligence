@@ -80,16 +80,16 @@ function ResultEntry({ result, index, query, showSummary, onOpen, onPreload }: E
       aria-labelledby={titleId}
       data-patient={patient.id}
       data-kind={result.kind}
-      className="group relative grid grid-cols-[3.75rem_1fr] gap-x-4 gap-y-3 rounded-lg px-2 py-4 transition-colors duration-150 hover:bg-accent/60 has-focus-visible:bg-accent/60 sm:grid-cols-[4.5rem_1fr_5.5rem] sm:px-3"
+      className="group relative grid grid-cols-1 gap-x-4 gap-y-2 rounded-lg px-2 py-4 transition-colors duration-150 hover:bg-accent/60 has-focus-visible:bg-accent/60 sm:grid-cols-[4.5rem_1fr_5.5rem] sm:gap-y-3 sm:px-3"
     >
-      <div className="pt-0.5 tabular-nums">
+      <div className="text-sm tabular-nums sm:pt-0.5">
         {date ? (
           <>
-            <span className="block text-[15px] leading-tight font-semibold">{date.dayMonth}</span>
-            <span className="block text-sm text-muted-foreground">{date.year}</span>
+            <span className="font-semibold sm:block sm:text-[15px] sm:leading-tight">{date.dayMonth}</span>{" "}
+            <span className="text-muted-foreground sm:block">{date.year}</span>
           </>
         ) : (
-          <span className="block text-sm leading-tight text-muted-foreground">No date</span>
+          <span className="leading-tight text-muted-foreground sm:block">No date</span>
         )}
       </div>
 
@@ -139,7 +139,7 @@ function ResultEntry({ result, index, query, showSummary, onOpen, onPreload }: E
 
         {showSummary && result.summary_snippet ? (
           // A labeled line, like the other metadata on the entry. The label marks it as AI, not a box.
-          <div role="note" aria-label="AI summary" className="flex gap-2 pt-0.5 text-sm">
+          <div role="note" aria-label="AI summary" className="flex flex-col gap-0.5 pt-0.5 text-sm sm:flex-row sm:gap-2">
             <span className="flex shrink-0 items-center gap-1 self-start leading-[1.55] font-semibold text-note">
               <ClipboardListIcon aria-hidden="true" className="size-3.5" />
               AI summary
@@ -149,7 +149,7 @@ function ResultEntry({ result, index, query, showSummary, onOpen, onPreload }: E
         ) : null}
       </div>
 
-      <div className="col-start-2 flex items-center gap-2 sm:col-start-auto sm:flex-col sm:items-end sm:gap-1.5 sm:pt-0.5">
+      <div className="flex items-center gap-2 sm:flex-col sm:items-end sm:gap-1.5 sm:pt-0.5">
         <span className="text-[15px] font-semibold tabular-nums">
           {percent}%<span className="sr-only"> relevance</span>
         </span>

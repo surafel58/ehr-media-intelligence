@@ -154,10 +154,10 @@ function SummarySection({ detail, onShowRecord }: { detail: PatientDetail; onSho
           data-focus-ring
           title={`${date}${r.title}`}
           onClick={() => onShowRecord(id)}
-          className="inline-flex max-w-full rounded-sm text-sm whitespace-pre text-primary underline-offset-2 hover:underline"
+          className="flex max-w-full min-w-0 rounded-sm text-sm whitespace-pre text-primary underline-offset-2 hover:underline sm:max-w-80"
         >
           <span className="shrink-0 tabular-nums">{date}</span>
-          <span className="max-w-60 truncate">{r.title}</span>
+          <span className="min-w-0 truncate">{r.title}</span>
         </button>
       )
     })
@@ -197,7 +197,7 @@ function SummarySection({ detail, onShowRecord }: { detail: PatientDetail; onSho
                   {summary.key_diagnoses.map((d) => (
                     <li key={d.text}>
                       <span className="font-semibold">{d.text}</span>
-                      <span className="ml-2 inline-flex flex-wrap gap-x-2">{cite(d.source_ids)}</span>
+                      <span className="flex min-w-0 flex-wrap gap-x-3">{cite(d.source_ids)}</span>
                     </li>
                   ))}
                 </ul>
@@ -215,7 +215,7 @@ function SummarySection({ detail, onShowRecord }: { detail: PatientDetail; onSho
                         <span className="tabular-nums text-muted-foreground">{m.date ? formatDate(m.date) : "No date"}</span>
                         <span className="ml-2">{m.result}</span>
                       </span>
-                      <span>{cite([m.source_id])}</span>
+                      <span className="flex min-w-0">{cite([m.source_id])}</span>
                     </li>
                   ))}
                 </ul>
@@ -234,9 +234,9 @@ function SummarySection({ detail, onShowRecord }: { detail: PatientDetail; onSho
                       ) : (
                         <InfoIcon aria-label="Data quality" className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
                       )}
-                      <span>
+                      <span className="min-w-0">
                         {a.text}
-                        <span className="ml-2 inline-flex flex-wrap gap-x-2">{cite(a.source_ids)}</span>
+                        <span className="flex min-w-0 flex-wrap gap-x-3">{cite(a.source_ids)}</span>
                       </span>
                     </li>
                   ))}
@@ -354,7 +354,7 @@ function RecordBody({ type, id }: { type: string; id: string }) {
             {data.results.map((r, i) => (
               <tr key={`${r.name}-${i}`} className="border-b border-border/60 last:border-b-0">
                 <th scope="row" className="py-1 pr-3 font-normal">{r.name}</th>
-                <td className="py-1 text-right tabular-nums">{r.value ? <ValueText value={r.value} /> : "No value"}</td>
+                <td className="py-1 text-right whitespace-nowrap tabular-nums">{r.value ? <ValueText value={r.value} /> : "No value"}</td>
               </tr>
             ))}
           </tbody>
