@@ -371,7 +371,7 @@ pnpm dev      # or: dev server on http://127.0.0.1:5173, API calls proxied to po
 | The search field is the main element | Clinicians come to search. Results update as they type (250 ms pause). |
 | Results as chart entries, not cards | A date column, the record, and patient identity on every result, so the right patient is always clear |
 | Patient banner at the top of the drawer | Name, MRN, sex, birth date and data quality flags first, as in an EHR |
-| AI text is always marked | A tinted note with a teal edge, the disclaimer, the model name and how many checks passed |
+| AI text is always labeled | "AI summary" label on result entries, a separate panel in the drawer with the disclaimer, the model name and how many checks passed. Each summary appears once per result list. |
 | Abnormal values in red with the word | "6.3 mmol/L, high". Color is never the only signal. |
 | Light and dark themes | Cool clinical white and deep teal night. The choice is saved, and set before first paint so nothing flashes. |
 

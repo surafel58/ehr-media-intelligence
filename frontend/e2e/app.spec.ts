@@ -29,6 +29,8 @@ async function search(page: Page, query: string) {
 }
 
 async function scan(page: Page, label: string) {
+  // Measure the settled page: a fade-in in progress would make every color look too faint.
+  await page.evaluate(() => Promise.all(document.getAnimations().map((a) => a.finished)))
   const { violations } = await new AxeBuilder({ page })
     .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])
     .analyze()
@@ -76,9 +78,22 @@ test("typing shows up to five ranked results with every field", async ({ page })
   await page.screenshot({ path: `${SHOTS}/results-light.png`, fullPage: true })
 })
 
-test("result cards show the patient's AI summary snippet", async ({ page }) => {
-  await search(page, "heart failure with a leg wound")
-  await expect(results(page).filter({ hasText: "AI summary:" }).first()).toBeVisible()
+test("each patient's AI summary appears once: as its own result or as a snippet", async ({ page }) => {
+  await search(page, "abnormal blood glucose")
+  const rows = await results(page).all()
+  const summarized = new Set<string>()
+  for (const row of rows) {
+    if ((await row.getAttribute("data-kind")) === "summary") summarized.add((await row.getAttribute("data-patient"))!)
+  }
+  let snippets = 0
+  for (const row of rows) {
+    const patient = (await row.getAttribute("data-patient"))!
+    const notes = await row.getByRole("note", { name: "AI summary" }).count()
+    if ((await row.getAttribute("data-kind")) === "summary" || summarized.has(patient)) expect(notes).toBe(0)
+    snippets += notes
+  }
+  expect(summarized.size).toBeGreaterThan(0) // summaries are searchable records
+  expect(snippets).toBeGreaterThan(0) // and patients without one in the list still get the snippet
 })
 
 test("example queries run a search", async ({ page }) => {
