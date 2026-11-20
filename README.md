@@ -408,7 +408,7 @@ pnpm exec playwright install chromium   # once, or point PW_BROWSER_PATH at an i
 pnpm e2e
 ```
 
-13 Playwright tests in `frontend/e2e/`, run against the real API and data. They fail on any browser console error.
+19 Playwright tests in `frontend/e2e/`, run against the real API and data. They fail on any browser console error.
 
 | Test | Checks |
 |---|---|
@@ -424,4 +424,5 @@ pnpm e2e
 | Service down | Error message and retry button |
 | Theme | Dark theme toggles and is remembered after reload |
 | Phone width | No sideways scrolling, full-width drawer |
+| Screen widths | 320, 375, 768, 1024, 1440 and 1920 px: no sideways scrolling on the page or inside the drawer, date picker fits on screen, drawer full width on phones and a side panel above 640 px |
 | Accessibility | axe-core scan (WCAG 2.2 AA rules): no serious or critical issues on results and drawer, light and dark |
