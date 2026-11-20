@@ -37,11 +37,20 @@ function moveFocus(event: KeyboardEvent<HTMLOListElement>) {
 }
 
 export function ResultList({ results, query, onOpen, onPreload }: ListProps) {
+  // A patient whose AI summary is itself a result does not get the same text again under their other records.
+  const summarized = new Set(results.filter((r) => r.kind === "summary").map((r) => r.patient.id))
   return (
     <ol aria-label="Search results" onKeyDown={moveFocus} className="flex flex-col">
       {results.map((result, index) => (
         <li key={result.record_id} className="border-b last:border-b-0">
-          <ResultEntry result={result} index={index} query={query} onOpen={onOpen} onPreload={onPreload} />
+          <ResultEntry
+            result={result}
+            index={index}
+            query={query}
+            showSummary={result.kind !== "summary" && !summarized.has(result.patient.id)}
+            onOpen={onOpen}
+            onPreload={onPreload}
+          />
         </li>
       ))}
     </ol>
@@ -52,11 +61,12 @@ interface EntryProps {
   result: SearchResult
   index: number
   query: string
+  showSummary: boolean
   onOpen: (result: SearchResult) => void
   onPreload: (patientId: string) => void
 }
 
-function ResultEntry({ result, index, query, onOpen, onPreload }: EntryProps) {
+function ResultEntry({ result, index, query, showSummary, onOpen, onPreload }: EntryProps) {
   const date = splitDate(result.date)
   const Icon = KIND_ICON[result.kind]
   const percent = Math.round(result.score * 100)
@@ -68,6 +78,8 @@ function ResultEntry({ result, index, query, onOpen, onPreload }: EntryProps) {
   return (
     <article
       aria-labelledby={titleId}
+      data-patient={patient.id}
+      data-kind={result.kind}
       className="group relative grid grid-cols-[3.75rem_1fr] gap-x-4 gap-y-3 rounded-lg px-2 py-4 transition-colors duration-150 hover:bg-accent/60 has-focus-visible:bg-accent/60 sm:grid-cols-[4.5rem_1fr_5.5rem] sm:px-3"
     >
       <div className="pt-0.5 tabular-nums">
@@ -125,13 +137,14 @@ function ResultEntry({ result, index, query, onOpen, onPreload }: EntryProps) {
           ) : null}
         </p>
 
-        {result.summary_snippet && result.kind !== "summary" ? (
-          <div className="rounded-md border-l-2 border-note bg-note-soft px-3 py-1.5 text-sm">
-            {/* The clamp sits on the inner text so the box padding cannot reveal a cut-off third line. */}
-            <p className="line-clamp-2">
-              <span className="font-semibold text-note">AI summary: </span>
-              {result.summary_snippet}
-            </p>
+        {showSummary && result.summary_snippet ? (
+          // A labeled line, like the other metadata on the entry. The label marks it as AI, not a box.
+          <div role="note" aria-label="AI summary" className="flex gap-2 pt-0.5 text-sm">
+            <span className="flex shrink-0 items-center gap-1 self-start leading-[1.55] font-semibold text-note">
+              <ClipboardListIcon aria-hidden="true" className="size-3.5" />
+              AI summary
+            </span>
+            <p className="line-clamp-2 text-muted-foreground">{result.summary_snippet}</p>
           </div>
         ) : null}
       </div>

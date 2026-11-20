@@ -182,7 +182,7 @@ function SummarySection({ detail, onShowRecord }: { detail: PatientDetail; onSho
         <Badge variant="outline">{summary.confidence[0].toUpperCase() + summary.confidence.slice(1)} confidence</Badge>
       </div>
 
-      <div className="flex flex-col gap-4 rounded-lg border-l-2 border-note bg-note-soft px-4 py-4">
+      <div className="flex flex-col gap-4 rounded-lg border bg-card px-4 py-4">
         <p className="text-[15px] leading-relaxed">{summary.overview}</p>
         <dl className="flex flex-col gap-3 text-sm">
           <div>
