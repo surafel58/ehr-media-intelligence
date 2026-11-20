@@ -8,6 +8,7 @@ authors = [
 ]
 requires-python = ">=3.11"
 dependencies = [
+    "anthropic>=2.11",
     "fhir-resources>=8.3",
     "pydantic>=2.9",
 ]
