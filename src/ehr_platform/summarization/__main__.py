@@ -35,6 +35,8 @@ def main() -> None:
     parser.add_argument("--workers", type=int, help="parallel API calls")
     parser.add_argument("--force", action="store_true", help="ignore the cache")
     parser.add_argument("--dry-run", action="store_true", help="show what would be sent and the rough cost")
+    parser.add_argument("--cached-only", action="store_true",
+                        help="no API calls: report saved summaries, list the rest as pending")
     args = parser.parse_args()
     settings = PROVIDERS[args.provider]
     model = args.model or settings["model"]
@@ -58,20 +60,23 @@ def main() -> None:
             print(f"Model: {model}  rough input tokens: {tokens_in:,}  rough cost: ${estimate:.2f}")
             return
 
-        if not os.environ.get(settings["key"]):
-            print(f"{settings['key']} is not set. Add it to .env (see .env.example).", file=sys.stderr)
-            sys.exit(1)
-        summarizer = make_summarizer(args.provider, model)
+        call = None
+        if not args.cached_only:
+            if not os.environ.get(settings["key"]):
+                print(f"{settings['key']} is not set. Add it to .env (see .env.example).", file=sys.stderr)
+                sys.exit(1)
+            call = make_summarizer(args.provider, model).call
 
         def progress(pid: str, status: str) -> None:
             print(f"  {status:<6} {pid}", flush=True)
 
         print(f"Summarizing {len(bundles)} patients with {model}...", flush=True)
-        run = summarize_all(bundles, cache, model, summarizer.call, force=args.force,
+        run = summarize_all(bundles, cache, model, call, force=args.force, cached_only=args.cached_only,
                             workers=args.workers or settings["workers"], on_done=progress)
 
     report = write_outputs(run, config.SUMMARY_DIR)
-    print(f"\nGenerated: {len(run.generated)}  from cache: {len(run.from_cache)}  failed: {len(run.failed)}")
+    print(f"\nGenerated: {len(run.generated)}  from cache: {len(run.from_cache)}  failed: {len(run.failed)}"
+          f"  pending: {len(run.pending)}")
     print(f"Summaries in {config.SUMMARY_DIR}\nQuality report: {report}")
 
 

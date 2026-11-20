@@ -57,12 +57,16 @@ class RunResult:
     from_cache: list[str] = field(default_factory=list)
     generated: list[str] = field(default_factory=list)
     failed: dict[str, str] = field(default_factory=dict)
+    pending: list[str] = field(default_factory=list)  # not in the cache and no API call was allowed
 
 
 def summarize_all(bundles: dict[str, dict], cache: SummaryCache, model: str,
                   call: Callable[[str], LLMResult] | None, force: bool = False, workers: int = 3,
-                  on_done: Callable[[str, str], None] | None = None) -> RunResult:
-    """Summarize each Bundle. `call` sends one prompt to Claude; it is only used on a cache miss."""
+                  on_done: Callable[[str, str], None] | None = None, cached_only: bool = False) -> RunResult:
+    """Summarize each Bundle. `call` sends one prompt to the LLM; it is only used on a cache miss.
+
+    With cached_only, nothing is sent: patients without a cached summary are listed as pending.
+    """
     run = RunResult()
     todo: list[PatientContext] = []
     for pid, bundle in bundles.items():
@@ -81,8 +85,11 @@ def summarize_all(bundles: dict[str, dict], cache: SummaryCache, model: str,
         else:
             todo.append(ctx)
 
+    if cached_only:
+        run.pending = [ctx.patient_id for ctx in todo]
+        return run
     if todo and call is None:
-        raise SummaryError(f"{len(todo)} patients need a summary but no Claude client was given")
+        raise SummaryError(f"{len(todo)} patients need a summary but no LLM client was given")
     with ThreadPoolExecutor(max_workers=max(1, workers)) as pool:
         futures = {pool.submit(generate, ctx, call): ctx for ctx in todo}
         for future in as_completed(futures):

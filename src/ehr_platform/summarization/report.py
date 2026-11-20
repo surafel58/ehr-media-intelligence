@@ -45,10 +45,11 @@ def write_outputs(run: RunResult, out_dir: Path) -> Path:
     lines = [
         "# Summary quality report", "",
         f"Model: {', '.join(f'`{m}`' for m in models) or 'none'}", "",
-        "| Patients | AI summaries | No records | From cache | Failed | Retries for length |",
-        "|---|---|---|---|---|---|",
-        f"| {len(run.summaries) + len(run.failed)} | {len(ai)} | {len(summaries) - len(ai)} | {len(run.from_cache)} "
-        f"| {len(run.failed)} | {sum(1 for s in ai if s.usage.attempts > 1)} |", "",
+        "| Patients | AI summaries | No records | From cache | Failed | Pending | Retries for length |",
+        "|---|---|---|---|---|---|---|",
+        f"| {len(run.summaries) + len(run.failed) + len(run.pending)} | {len(ai)} | {len(summaries) - len(ai)} "
+        f"| {len(run.from_cache)} | {len(run.failed)} | {len(run.pending)} "
+        f"| {sum(1 for s in ai if s.usage.attempts > 1)} |", "",
     ]
     if ai:
         lines += [
