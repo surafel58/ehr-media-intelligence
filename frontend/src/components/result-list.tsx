@@ -37,11 +37,20 @@ function moveFocus(event: KeyboardEvent<HTMLOListElement>) {
 }
 
 export function ResultList({ results, query, onOpen, onPreload }: ListProps) {
+  // A patient whose AI summary is itself a result does not get the same text again under their other records.
+  const summarized = new Set(results.filter((r) => r.kind === "summary").map((r) => r.patient.id))
   return (
     <ol aria-label="Search results" onKeyDown={moveFocus} className="flex flex-col">
       {results.map((result, index) => (
         <li key={result.record_id} className="border-b last:border-b-0">
-          <ResultEntry result={result} index={index} query={query} onOpen={onOpen} onPreload={onPreload} />
+          <ResultEntry
+            result={result}
+            index={index}
+            query={query}
+            showSummary={result.kind !== "summary" && !summarized.has(result.patient.id)}
+            onOpen={onOpen}
+            onPreload={onPreload}
+          />
         </li>
       ))}
     </ol>
@@ -52,11 +61,12 @@ interface EntryProps {
   result: SearchResult
   index: number
   query: string
+  showSummary: boolean
   onOpen: (result: SearchResult) => void
   onPreload: (patientId: string) => void
 }
 
-function ResultEntry({ result, index, query, onOpen, onPreload }: EntryProps) {
+function ResultEntry({ result, index, query, showSummary, onOpen, onPreload }: EntryProps) {
   const date = splitDate(result.date)
   const Icon = KIND_ICON[result.kind]
   const percent = Math.round(result.score * 100)
@@ -68,16 +78,18 @@ function ResultEntry({ result, index, query, onOpen, onPreload }: EntryProps) {
   return (
     <article
       aria-labelledby={titleId}
-      className="group relative grid grid-cols-[3.75rem_1fr] gap-x-4 gap-y-3 rounded-lg px-2 py-4 transition-colors duration-150 hover:bg-accent/60 has-focus-visible:bg-accent/60 sm:grid-cols-[4.5rem_1fr_5.5rem] sm:px-3"
+      data-patient={patient.id}
+      data-kind={result.kind}
+      className="group relative grid grid-cols-1 gap-x-4 gap-y-2 rounded-lg px-2 py-4 transition-colors duration-150 hover:bg-accent/60 has-focus-visible:bg-accent/60 sm:grid-cols-[4.5rem_1fr_5.5rem] sm:gap-y-3 sm:px-3"
     >
-      <div className="pt-0.5 tabular-nums">
+      <div className="text-sm tabular-nums sm:pt-0.5">
         {date ? (
           <>
-            <span className="block text-[15px] leading-tight font-semibold">{date.dayMonth}</span>
-            <span className="block text-sm text-muted-foreground">{date.year}</span>
+            <span className="font-semibold sm:block sm:text-[15px] sm:leading-tight">{date.dayMonth}</span>{" "}
+            <span className="text-muted-foreground sm:block">{date.year}</span>
           </>
         ) : (
-          <span className="block text-sm leading-tight text-muted-foreground">No date</span>
+          <span className="leading-tight text-muted-foreground sm:block">No date</span>
         )}
       </div>
 
@@ -125,18 +137,19 @@ function ResultEntry({ result, index, query, onOpen, onPreload }: EntryProps) {
           ) : null}
         </p>
 
-        {result.summary_snippet && result.kind !== "summary" ? (
-          <div className="rounded-md border-l-2 border-note bg-note-soft px-3 py-1.5 text-sm">
-            {/* The clamp sits on the inner text so the box padding cannot reveal a cut-off third line. */}
-            <p className="line-clamp-2">
-              <span className="font-semibold text-note">AI summary: </span>
-              {result.summary_snippet}
-            </p>
+        {showSummary && result.summary_snippet ? (
+          // A labeled line, like the other metadata on the entry. The label marks it as AI, not a box.
+          <div role="note" aria-label="AI summary" className="flex flex-col gap-0.5 pt-0.5 text-sm sm:flex-row sm:gap-2">
+            <span className="flex shrink-0 items-center gap-1 self-start leading-[1.55] font-semibold text-note">
+              <ClipboardListIcon aria-hidden="true" className="size-3.5" />
+              AI summary
+            </span>
+            <p className="line-clamp-2 text-muted-foreground">{result.summary_snippet}</p>
           </div>
         ) : null}
       </div>
 
-      <div className="col-start-2 flex items-center gap-2 sm:col-start-auto sm:flex-col sm:items-end sm:gap-1.5 sm:pt-0.5">
+      <div className="flex items-center gap-2 sm:flex-col sm:items-end sm:gap-1.5 sm:pt-0.5">
         <span className="text-[15px] font-semibold tabular-nums">
           {percent}%<span className="sr-only"> relevance</span>
         </span>

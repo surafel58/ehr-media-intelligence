@@ -20,6 +20,7 @@ from pydantic import BaseModel, Field
 from .. import config
 from ..fhir_mapping import FhirStore
 from ..summarization import SummaryCache
+from ..summarization.context import record_hash
 from ..summarization.schema import DISCLAIMER, ClinicalSummary, QualityCheck
 from ..search import SearchIndex
 
@@ -181,7 +182,8 @@ def create_app(index: SearchIndex | None = None, db_path: Path = config.DB_PATH)
             for hit in hits:
                 if hit.patient_id not in people:
                     people[hit.patient_id] = patient_info(store.resource("Patient", hit.patient_id), hit.patient_id)
-                    summary = cache.latest(hit.patient_id)
+                    bundle = store.bundle(hit.patient_id)
+                    summary = cache.latest(hit.patient_id, record_hash(bundle)) if bundle else None
                     overviews[hit.patient_id] = summary.summary.overview if summary else None
                 results.append(SearchResult(
                     record_id=hit.record_id, resource_type=hit.resource_type, kind=hit.kind, title=hit.title,
@@ -200,7 +202,7 @@ def create_app(index: SearchIndex | None = None, db_path: Path = config.DB_PATH)
                 raise HTTPException(status_code=404, detail="patient not found")
             resources = [e["resource"] for e in bundle["entry"]]
             pres = next((r for r in resources if r["resourceType"] == "Patient"), None)
-            summary = cache.latest(patient_id)
+            summary = cache.latest(patient_id, record_hash(bundle))
         linked = [LinkedResource(resource_type=r["resourceType"], id=r["id"], title=_title(r), date=_date(r),
                                  status=r.get("status"),
                                  detail=observation_line(r) if r["resourceType"] == "Observation" else None)

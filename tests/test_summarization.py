@@ -270,3 +270,62 @@ def test_cached_summary_gets_current_checks_saved(cache):
     cache.put(stale)
     summarize_all(bundles, cache, "claude-opus-5-5", call=None, cached_only=True)
     assert len(cache.get("hapi-1", ctx.record_hash, "claude-opus-5-5", "v1").quality) == 6
+
+
+def test_export_and_import_round_trip(cache, tmp_path):
+    bundles = make_bundles()
+    summarize_all(bundles, cache, "claude-opus-5-5", FakeClaude())
+    hashes = {pid: record_hash(b) for pid, b in bundles.items()}
+    path = tmp_path / "summaries.json"
+    assert cache.export(path, hashes) == 1  # the rule-based "no records" summary is not shipped
+
+    with SummaryCache(tmp_path / "fresh.db") as fresh:
+        assert fresh.import_file(path) == 1
+        assert fresh.import_file(path) == 0  # never overwrites or duplicates
+        assert fresh.latest("hapi-1", hashes["hapi-1"]).summary.chief_concern == "Chest pain"
+
+
+def test_latest_ignores_summaries_of_older_records(cache):
+    old = make_bundles(note_text="Old visit.")["hapi-1"]
+    summarize_all({"hapi-1": old}, cache, "claude-opus-5-5", FakeClaude())
+    current = make_bundles()["hapi-1"]
+    assert cache.latest("hapi-1", record_hash(old)) is not None
+    assert cache.latest("hapi-1", record_hash(current)) is None
+
+
+def test_cached_only_accepts_a_saved_summary_from_another_model(cache):
+    bundles = make_bundles()
+    summarize_all(bundles, cache, "gemini-test", FakeClaude())
+    run = summarize_all(bundles, cache, "claude-opus-5-5", call=None, cached_only=True)
+    assert run.pending == [] and run.summaries["hapi-1"].model == "gemini-test"
+
+
+def test_daily_quota_stops_the_run_and_leaves_the_rest_pending(cache):
+    from ehr_platform.summarization.client import QuotaExhausted
+
+    class OneThenQuota(FakeClaude):
+        def __call__(self, text):
+            if self.calls:
+                self.calls.append(text)
+                raise QuotaExhausted("daily quota used up")
+            return super().__call__(text)
+
+    bundles = {f"p{i}": make_bundles(note_text=f"Visit number {i}, chest pain.")["hapi-1"] for i in range(4)}
+    claude = OneThenQuota()
+    run = summarize_all(bundles, cache, "claude-opus-5-5", claude, workers=1)
+    assert len(run.generated) == 1 and run.failed == {}
+    assert len(run.pending) == 3 and "quota" in run.stopped
+    assert len(claude.calls) == 2  # no calls after the quota error
+
+
+def test_gemini_daily_quota_raises_at_once_instead_of_waiting_hours():
+    from ehr_platform.summarization.client import QuotaExhausted
+
+    daily = genai_errors.ClientError(429, {"error": {"code": 429, "status": "RESOURCE_EXHAUSTED",
+                                                     "message": "Quota exceeded. Please retry in 72338s.",
+                                                     "details": [{"violations": [{"quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier"}]}]}})
+    client, calls = gemini_client(daily)
+    waits = []
+    with pytest.raises(QuotaExhausted):
+        GeminiSummarizer(client=client, sleep=waits.append).call("records")
+    assert waits == [] and len(calls) == 1

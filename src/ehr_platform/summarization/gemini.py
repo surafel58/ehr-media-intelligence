@@ -15,7 +15,7 @@ from google import genai
 from google.genai import errors, types
 
 from .. import config
-from .client import LLMResult, SummaryError
+from .client import LLMResult, QuotaExhausted, SummaryError
 from .prompt import SYSTEM_PROMPT
 from .schema import ClinicalSummary
 
@@ -23,11 +23,18 @@ BLOCKED = {"SAFETY", "PROHIBITED_CONTENT", "BLOCKLIST", "SPII", "RECITATION"}
 RETRY_CODES = {429, 500, 503}
 
 
+MAX_WAIT_S = 120  # a longer wait means the daily quota is used up, not a per-minute limit
+
+
 def _retry_delay(exc: Exception, attempt: int) -> float:
     m = re.search(r"retry in ([\d.]+)s|retryDelay\W+(\d+)s", str(exc))
     if m:
         return float(m.group(1) or m.group(2)) + 1
     return min(60.0, 5.0 * 2 ** attempt)
+
+
+def _daily_quota(exc: errors.APIError, attempt: int) -> bool:
+    return exc.code == 429 and ("PerDay" in str(exc) or _retry_delay(exc, attempt) > MAX_WAIT_S)
 
 
 class GeminiSummarizer:
@@ -51,6 +58,8 @@ class GeminiSummarizer:
                 response = self.client.models.generate_content(model=self.model, contents=user_text, config=cfg)
                 break
             except errors.APIError as exc:
+                if _daily_quota(exc, attempt):  # waiting would take hours: stop and let the run end
+                    raise QuotaExhausted(f"Gemini daily quota for {self.model} is used up") from exc
                 if exc.code in RETRY_CODES and attempt < self.max_retries:
                     self.sleep(_retry_delay(exc, attempt))
                     continue

@@ -2,19 +2,24 @@
 
 from __future__ import annotations
 
+import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from typing import Callable
 
 from .cache import SummaryCache
-from .client import LLMResult, SummaryError
+from .client import LLMResult, QuotaExhausted, SummaryError
 from .context import PatientContext, build_context
 from .prompt import PROMPT_VERSION, WORD_LIMIT, shorten_message, user_message
 from .quality import run_checks, word_count
 from .schema import ClinicalSummary, PatientSummary, Usage
 
 NO_RECORDS_MODEL = "rule-based"
+
+
+class _Skipped(Exception):
+    """A task that did not run because the quota ran out first."""
 
 
 def no_records_summary() -> ClinicalSummary:
@@ -57,7 +62,8 @@ class RunResult:
     from_cache: list[str] = field(default_factory=list)
     generated: list[str] = field(default_factory=list)
     failed: dict[str, str] = field(default_factory=dict)
-    pending: list[str] = field(default_factory=list)  # not in the cache and no API call was allowed
+    pending: list[str] = field(default_factory=list)  # not summarized yet: no calls allowed, or the quota ran out
+    stopped: str | None = None  # why the run ended early, e.g. the daily quota
 
 
 def summarize_all(bundles: dict[str, dict], cache: SummaryCache, model: str,
@@ -74,6 +80,8 @@ def summarize_all(bundles: dict[str, dict], cache: SummaryCache, model: str,
         ctx.patient_id = pid  # the store key, also for bundles with no Patient entry
         use_model = model if ctx.has_records else NO_RECORDS_MODEL
         cached = None if force else cache.get(pid, ctx.record_hash, use_model, PROMPT_VERSION)
+        if cached is None and cached_only and ctx.has_records:
+            cached = cache.latest(pid, ctx.record_hash)  # any model, as long as it summarized these exact records
         if cached:
             fresh = run_checks(cached.summary, ctx)  # checks are cheap, keep them current
             if fresh != cached.quality:
@@ -93,12 +101,30 @@ def summarize_all(bundles: dict[str, dict], cache: SummaryCache, model: str,
         return run
     if todo and call is None:
         raise SummaryError(f"{len(todo)} patients need a summary but no LLM client was given")
+    stop = threading.Event()  # set once the quota is gone, so no task sends another request
+
+    def task(ctx: PatientContext):
+        if stop.is_set():
+            raise _Skipped()
+        try:
+            return generate(ctx, call)
+        except QuotaExhausted:
+            stop.set()
+            raise
+
     with ThreadPoolExecutor(max_workers=max(1, workers)) as pool:
-        futures = {pool.submit(generate, ctx, call): ctx for ctx in todo}
+        futures = {pool.submit(task, ctx): ctx for ctx in todo}
         for future in as_completed(futures):
             ctx = futures[future]
             try:
                 summary, usage = future.result()
+            except _Skipped:
+                run.pending.append(ctx.patient_id)
+                continue
+            except QuotaExhausted as exc:  # the rest would fail too: leave them for the next quota
+                run.stopped = str(exc)
+                run.pending.append(ctx.patient_id)
+                continue
             except Exception as exc:  # one failed patient must not stop the run
                 run.failed[ctx.patient_id] = f"{type(exc).__name__}: {exc}"
                 if on_done:

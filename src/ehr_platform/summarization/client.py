@@ -18,6 +18,10 @@ class SummaryError(Exception):
     """The model did not return a usable summary."""
 
 
+class QuotaExhausted(SummaryError):
+    """The provider's daily quota is used up. The run should stop, not retry for hours."""
+
+
 @dataclass
 class LLMResult:
     summary: ClinicalSummary

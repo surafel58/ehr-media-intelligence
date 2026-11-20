@@ -9,6 +9,7 @@ from ehr_platform.fhir_mapping import FhirStore, build_bundles, check
 from ehr_platform.ingestion.models import Document, Identifier, LabResult, Patient
 from ehr_platform.search import HashEmbedder, SearchIndex, chunk, collect_records, records_from_bundle
 from ehr_platform.summarization import SummaryCache
+from ehr_platform.summarization.context import record_hash
 from ehr_platform.summarization.schema import ClinicalSummary, Finding, PatientSummary
 
 
@@ -48,10 +49,12 @@ def env(tmp_path):
     ]
     db = tmp_path / "ehr.db"
     with FhirStore(db) as store, SummaryCache(db) as cache:
+        hashes = {}
         for pb in build_bundles(patients, [], documents):
             store.save(pb.patient_id, pb.bundle, check(pb.bundle, pb.patient_id))
+            hashes[pb.patient_id] = record_hash(pb.bundle)
         cache.put(PatientSummary(
-            patient_id="hapi-1", record_hash="h", model="test-model", prompt_version="v1",
+            patient_id="hapi-1", record_hash=hashes["hapi-1"], model="test-model", prompt_version="v1",
             generated_at=datetime.now(timezone.utc), word_count=20,
             summary=ClinicalSummary(overview="Stable angina with a stress test planned. Glucose high.",
                                     chief_concern="Chest pain",

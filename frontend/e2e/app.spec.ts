@@ -29,6 +29,8 @@ async function search(page: Page, query: string) {
 }
 
 async function scan(page: Page, label: string) {
+  // Measure the settled page: a fade-in in progress would make every color look too faint.
+  await page.evaluate(() => Promise.all(document.getAnimations().map((a) => a.finished)))
   const { violations } = await new AxeBuilder({ page })
     .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])
     .analyze()
@@ -76,9 +78,22 @@ test("typing shows up to five ranked results with every field", async ({ page })
   await page.screenshot({ path: `${SHOTS}/results-light.png`, fullPage: true })
 })
 
-test("result cards show the patient's AI summary snippet", async ({ page }) => {
-  await search(page, "heart failure with a leg wound")
-  await expect(results(page).filter({ hasText: "AI summary:" }).first()).toBeVisible()
+test("each patient's AI summary appears once: as its own result or as a snippet", async ({ page }) => {
+  await search(page, "abnormal blood glucose")
+  const rows = await results(page).all()
+  const summarized = new Set<string>()
+  for (const row of rows) {
+    if ((await row.getAttribute("data-kind")) === "summary") summarized.add((await row.getAttribute("data-patient"))!)
+  }
+  let snippets = 0
+  for (const row of rows) {
+    const patient = (await row.getAttribute("data-patient"))!
+    const notes = await row.getByRole("note", { name: "AI summary" }).count()
+    if ((await row.getAttribute("data-kind")) === "summary" || summarized.has(patient)) expect(notes).toBe(0)
+    snippets += notes
+  }
+  expect(summarized.size).toBeGreaterThan(0) // summaries are searchable records
+  expect(snippets).toBeGreaterThan(0) // and patients without one in the list still get the snippet
 })
 
 test("example queries run a search", async ({ page }) => {
@@ -228,3 +243,37 @@ test("no serious accessibility violations in light and dark", async ({ page }) =
   await expect(page.getByRole("dialog")).toBeVisible()
   await scan(page, "drawer, dark")
 })
+
+for (const width of [320, 375, 768, 1024, 1440, 1920]) {
+  test(`layout holds at ${width}px wide`, async ({ page }) => {
+    await page.setViewportSize({ width, height: width < 768 ? 800 : 900 })
+    await search(page, "abnormal blood glucose")
+    const sideways = () => page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)
+    expect(await sideways()).toBeLessThanOrEqual(0)
+    await expect(results(page).first()).toBeVisible()
+    await page.screenshot({ path: `${SHOTS}/layout-${width}.png`, fullPage: true })
+
+    // Date picker fits on screen
+    await page.getByRole("button", { name: /Date range/ }).click()
+    const picker = page.getByRole("dialog")
+    await expect(picker).toBeVisible()
+    const box = (await picker.boundingBox())!
+    expect(box.x).toBeGreaterThanOrEqual(0)
+    expect(box.x + box.width).toBeLessThanOrEqual(width + 0.5) // sub-pixel rounding when flush to the edge
+    await page.keyboard.press("Escape")
+
+    // Drawer: full width on phones, a side panel on larger screens, never wider than the screen
+    await results(page).first().getByRole("button").click()
+    const drawer = page.getByRole("dialog")
+    await expect(drawer).toBeVisible()
+    const d = (await drawer.boundingBox())!
+    expect(d.width).toBeLessThanOrEqual(width + 0.5)
+    if (width < 640) expect(Math.round(d.width)).toBe(width)
+    else expect(d.width).toBeLessThan(width)
+    await page.evaluate(() => Promise.all(document.getAnimations().map((a) => a.finished)))
+    await expect(drawer.getByRole("heading", { name: "AI summary" })).toBeVisible()
+    const drawerSideways = await drawer.evaluate((el) => el.scrollWidth - el.clientWidth)
+    expect(drawerSideways).toBeLessThanOrEqual(0) // nothing inside the drawer sticks out
+    await page.screenshot({ path: `${SHOTS}/drawer-${width}.png` })
+  })
+}

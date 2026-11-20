@@ -2,6 +2,43 @@
 
 Cleans raw EHR exports, maps them to FHIR R4, writes AI summaries per patient, and makes every record searchable in plain language.
 
+## Quick start
+
+Needs Python 3.11+ with [uv](https://docs.astral.sh/uv/), and Node 20+ with [pnpm](https://pnpm.io/) for the UI.
+
+```bash
+git clone https://github.com/surafel58/ehr-media-intelligence
+cd ehr-media-intelligence
+uv sync
+cd frontend && pnpm install && pnpm build && cd ..
+uv run python -m ehr_platform.demo
+```
+
+Then open http://127.0.0.1:8000. The demo command cleans the raw data, maps it to FHIR, loads the AI summaries and builds the search index, then starts the app. The first run takes a few minutes because it downloads the embedding model.
+
+No API key is needed: the AI summaries generated for this data ship in `data/summaries.json`. They are matched to each patient by a hash of their records, so they only appear while the records are unchanged.
+
+### Searches to try
+
+| Search | Expected top results |
+|---|---|
+| abnormal blood glucose | A blood count with high glucose and base excess, and that patient's AI summary |
+| heart failure with a leg wound | Home health notes and the AI summary for a patient with heart failure and a leg ulcer |
+| bone scan for prostate cancer | A whole body bone scan report, then a prostate pathology report |
+| headache with visual aura | Progress notes about migraine with aura |
+| chronic pain on opioids | The AI summary and notes of a patient on gabapentin and oxycodone |
+
+Click a result to open the patient: banner, AI summary with its sources, and every linked FHIR resource.
+
+### Other ways to check search
+
+| How | Command or link |
+|---|---|
+| From the terminal | `uv run python -m ehr_platform.search --query "abnormal blood glucose"` |
+| API docs | http://127.0.0.1:8000/docs, then `POST /search` and "Try it out" |
+| Backend tests | `uv run pytest` |
+| Browser tests | `cd frontend && pnpm exec playwright install chromium && pnpm e2e` |
+
 ## Progress
 
 | Step | Status | Code |
@@ -12,7 +49,7 @@ Cleans raw EHR exports, maps them to FHIR R4, writes AI summaries per patient, a
 | 4. Semantic search | Done | `src/ehr_platform/search/`, `src/ehr_platform/api/` |
 | 5. Frontend | Done | `frontend/` |
 
-## Setup
+## Step by step
 
 Requires Python 3.11+ and [uv](https://docs.astral.sh/uv/). Plain pip also works with `pip install -r requirements.txt` (it pulls the CPU-only PyTorch build).
 
@@ -371,7 +408,7 @@ pnpm dev      # or: dev server on http://127.0.0.1:5173, API calls proxied to po
 | The search field is the main element | Clinicians come to search. Results update as they type (250 ms pause). |
 | Results as chart entries, not cards | A date column, the record, and patient identity on every result, so the right patient is always clear |
 | Patient banner at the top of the drawer | Name, MRN, sex, birth date and data quality flags first, as in an EHR |
-| AI text is always marked | A tinted note with a teal edge, the disclaimer, the model name and how many checks passed |
+| AI text is always labeled | "AI summary" label on result entries, a separate panel in the drawer with the disclaimer, the model name and how many checks passed. Each summary appears once per result list. |
 | Abnormal values in red with the word | "6.3 mmol/L, high". Color is never the only signal. |
 | Light and dark themes | Cool clinical white and deep teal night. The choice is saved, and set before first paint so nothing flashes. |
 
@@ -408,7 +445,7 @@ pnpm exec playwright install chromium   # once, or point PW_BROWSER_PATH at an i
 pnpm e2e
 ```
 
-13 Playwright tests in `frontend/e2e/`, run against the real API and data. They fail on any browser console error.
+19 Playwright tests in `frontend/e2e/`, run against the real API and data. They fail on any browser console error.
 
 | Test | Checks |
 |---|---|
@@ -424,4 +461,5 @@ pnpm e2e
 | Service down | Error message and retry button |
 | Theme | Dark theme toggles and is remembered after reload |
 | Phone width | No sideways scrolling, full-width drawer |
+| Screen widths | 320, 375, 768, 1024, 1440 and 1920 px: no sideways scrolling on the page or inside the drawer, date picker fits on screen, drawer full width on phones and a side panel above 640 px |
 | Accessibility | axe-core scan (WCAG 2.2 AA rules): no serious or critical issues on results and drawer, light and dark |

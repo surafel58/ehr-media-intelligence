@@ -1,0 +1,1486 @@
+[
+ {
+  "patient_id": "hapi-306812",
+  "record_hash": "30705408236ce130fd7f99f00bf989dfe9b9c2358272cf932c82aab14b988248",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-20T11:12:55.880129Z",
+  "summary": {
+   "overview": "James Morrison's records consist of pre-visit reports for chronic lower back and left hip pain managed with gabapentin, ibuprofen, and oxycodone. On October 21, 2026, check-in data logged a 7/10 pain flare, new cervical mobility restriction, dizziness, and an opioid overuse alert. Reports also cite data quality concerns with 11 to 19 duplicate check-ins logged on October 21.",
+   "chief_concern": "Chronic pain evaluation, opioid overuse alert, and new cervical symptom",
+   "key_diagnoses": [
+    {
+     "text": "Lower back pain",
+     "source_ids": [
+      "hapi-doc-853679",
+      "hapi-doc-725160"
+     ]
+    },
+    {
+     "text": "Left hip pain",
+     "source_ids": [
+      "hapi-doc-853679",
+      "hapi-doc-725160"
+     ]
+    },
+    {
+     "text": "Cervical range of motion restriction",
+     "source_ids": [
+      "hapi-doc-853679",
+      "hapi-doc-847368"
+     ]
+    }
+   ],
+   "recent_media": [],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Opioid overuse alert with dizziness and 7/10 pain on 10/21",
+     "source_ids": [
+      "hapi-doc-853679",
+      "hapi-doc-847368"
+     ]
+    },
+    {
+     "kind": "data_quality",
+     "text": "11 to 19 duplicate AI check-in entries logged on a single day (10/21)",
+     "source_ids": [
+      "hapi-doc-853679",
+      "hapi-doc-847368",
+      "hapi-doc-502451"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "Records consist solely of AI-generated pre-visit summaries of patient check-ins with known data integrity issues on October 21."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 120,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "120 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 12883,
+   "output_tokens": 2854,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "hapi-493777",
+  "record_hash": "098e1f8c8f83759d5762aea43c2655468edeff6e5bd625039d62012c6c63fa7d",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-20T11:12:38.256472Z",
+  "summary": {
+   "overview": "This 81-year-old male presents for routine general examinations and follow-up encounters without acute complaints. His medical history includes coronary heart disease, managed with statin, antiplatelet, and antihypertensive therapy.",
+   "chief_concern": "None (routine general examination)",
+   "key_diagnoses": [
+    {
+     "text": "Coronary heart disease",
+     "source_ids": [
+      "hapi-doc-494065"
+     ]
+    }
+   ],
+   "recent_media": [
+    {
+     "source_id": "hapi-doc-494252",
+     "kind": "lab",
+     "date": "2007-05-12",
+     "result": "Complete blood count panel created"
+    },
+    {
+     "source_id": "hapi-doc-494222",
+     "kind": "lab",
+     "date": "2007-03-04",
+     "result": "Comprehensive metabolic panel and lipid panel created"
+    },
+    {
+     "source_id": "hapi-doc-494091",
+     "kind": "lab",
+     "date": "2004-03-04",
+     "result": "Comprehensive metabolic panel and lipid panel created"
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Documented active smoking and alcoholism without specific treatment interventions",
+     "source_ids": [
+      "hapi-doc-494252",
+      "hapi-doc-494222"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "The records provide structured encounter notes and medication changes but lack explicit numerical laboratory result values."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 79,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "79 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 2780,
+   "output_tokens": 1995,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "hapi-852181",
+  "record_hash": "ccb4a6ddf931020b2bbd7bd3e308397c59bf9189c9cd2f476b15e3ea476fd6f8",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-20T11:09:20.571553Z",
+  "summary": {
+   "overview": "This 68-year-old male has a single lab report from April 2013 demonstrating elevated blood glucose and elevated base excess. No clinical notes or past medical history are included in the record.",
+   "chief_concern": "Not specified",
+   "key_diagnoses": [],
+   "recent_media": [
+    {
+     "source_id": "hapi-report-852186",
+     "kind": "lab",
+     "date": "2013-04-02",
+     "result": "Glucose 6.3 mmol/L (high), Base excess 12.6 mmol/L (high)"
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Elevated blood glucose: 6.3 mmol/L (reference range 3.1-6.2)",
+     "source_ids": [
+      "hapi-report-852186"
+     ]
+    },
+    {
+     "kind": "clinical",
+     "text": "Elevated base excess: 12.6 mmol/L (reference range 7.1-11.2)",
+     "source_ids": [
+      "hapi-report-852186"
+     ]
+    }
+   ],
+   "confidence": "low",
+   "confidence_reason": "Record contains only a single lab result with no clinical notes or history."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 71,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "71 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 514,
+   "output_tokens": 1510,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "hapi-852348",
+  "record_hash": "41c869f0f6a8d59534a8f485289520074a0b2b728e7a9efacf1982e51e8656df",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-20T11:12:45.354405Z",
+  "summary": {
+   "overview": "The record contains a single undated CBC panel report for a female patient born in 1981. No clinical diagnoses, history, or encounter notes are present.",
+   "chief_concern": "CBC panel evaluation",
+   "key_diagnoses": [],
+   "recent_media": [
+    {
+     "source_id": "hapi-report-852421",
+     "kind": "lab",
+     "date": null,
+     "result": "WBC count: 12000 cells/uL"
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Elevated WBC count of 12000 cells/uL",
+     "source_ids": [
+      "hapi-report-852421"
+     ]
+    }
+   ],
+   "confidence": "low",
+   "confidence_reason": "The record contains only a single undated lab report without clinical context or documented diagnoses."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 53,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "53 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 463,
+   "output_tokens": 956,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "hapi-854568",
+  "record_hash": "55428614083099a3aaa12645239472042e3c125cf3534ad44b78607cdc320787",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-20T11:11:04.875558Z",
+  "summary": {
+   "overview": "An 82-year-old female receiving home health care following hospitalization for decompensated heart failure and left lower leg wound debridement. Skilled nursing and physical therapy continue for wound care, heart failure monitoring, and stair training.",
+   "chief_concern": "Recertification for home health skilled nursing and physical therapy",
+   "key_diagnoses": [
+    {
+     "text": "Chronic diastolic heart failure",
+     "source_ids": [
+      "hapi-doc-854579",
+      "hapi-doc-854572"
+     ]
+    },
+    {
+     "text": "Non-pressure chronic ulcer of left lower leg, healing",
+     "source_ids": [
+      "hapi-doc-854579",
+      "hapi-doc-854578"
+     ]
+    },
+    {
+     "text": "Type 2 diabetes mellitus with diabetic polyneuropathy",
+     "source_ids": [
+      "hapi-doc-854579",
+      "hapi-doc-854572"
+     ]
+    },
+    {
+     "text": "Bilateral primary osteoarthritis of knees",
+     "source_ids": [
+      "hapi-doc-854579",
+      "hapi-doc-854572"
+     ]
+    }
+   ],
+   "recent_media": [
+    {
+     "source_id": "hapi-doc-854578",
+     "kind": "lab",
+     "date": "2024-05-06",
+     "result": "Potassium 4.5"
+    },
+    {
+     "source_id": "hapi-doc-854576",
+     "kind": "lab",
+     "date": "2024-04-15",
+     "result": "Potassium 4.4"
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "data_quality",
+     "text": "Documented age of 92 years conflicts with birth date 1941-07-22",
+     "source_ids": [
+      "hapi-doc-854572"
+     ]
+    },
+    {
+     "kind": "data_quality",
+     "text": "Recertification review note header is dated 2026-11-19 for May 2024 care episode",
+     "source_ids": [
+      "hapi-doc-854584"
+     ]
+    }
+   ],
+   "confidence": "high",
+   "confidence_reason": "Detailed, consistent clinical documentation across serial nursing and assessment visits."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 103,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "103 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 10863,
+   "output_tokens": 2697,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "hapi-99470",
+  "record_hash": "0c5570bf394545ef2ee8a069340e4e17a538397bf432e84a04062b98f0e3fbcc",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-20T11:13:07.139452Z",
+  "summary": {
+   "overview": "Hannah Brooks presented with new-onset headaches preceded by visual aura while taking combined oral contraceptives. Estrogen-containing contraception was discontinued due to stroke risk, and she elected to switch to a levonorgestrel 52 mg IUD. The record consists of eight duplicate progress notes filed over a two-week period.",
+   "chief_concern": "New headaches with visual aura on combined oral contraceptives",
+   "key_diagnoses": [
+    {
+     "text": "Migraine with aura",
+     "source_ids": [
+      "hapi-doc-852586",
+      "hapi-doc-843715",
+      "hapi-doc-828996",
+      "hapi-doc-743071",
+      "hapi-doc-718774",
+      "hapi-doc-494378",
+      "hapi-doc-490062",
+      "hapi-doc-471399"
+     ]
+    },
+    {
+     "text": "Contraceptive counseling",
+     "source_ids": [
+      "hapi-doc-852586",
+      "hapi-doc-843715",
+      "hapi-doc-828996",
+      "hapi-doc-743071",
+      "hapi-doc-718774",
+      "hapi-doc-494378",
+      "hapi-doc-490062",
+      "hapi-doc-471399"
+     ]
+    }
+   ],
+   "recent_media": [],
+   "anomalies": [
+    {
+     "kind": "data_quality",
+     "text": "Eight near-identical duplicate progress notes generated across multiple dates",
+     "source_ids": [
+      "hapi-doc-852586",
+      "hapi-doc-843715",
+      "hapi-doc-828996",
+      "hapi-doc-743071",
+      "hapi-doc-718774",
+      "hapi-doc-494378",
+      "hapi-doc-490062",
+      "hapi-doc-471399"
+     ]
+    },
+    {
+     "kind": "data_quality",
+     "text": "Patient sex recorded as unknown in demographics",
+     "source_ids": []
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "The clinical history is clear, but the dataset contains redundant duplicate notes and lacks physical exam or diagnostic test documentation."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 97,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "97 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 6884,
+   "output_tokens": 2021,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "hapi-99471",
+  "record_hash": "f7d806b89af009d87e069674235ad401335ef883320109f75f72533337011498",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-20T11:13:42.499841Z",
+  "summary": {
+   "overview": "Robert King presents for follow-up of uncontrolled hypertension, worsening stage 3a chronic kidney disease, mild hyperkalemia, and bilateral ankle edema. Evaluation notes declining eGFR (52), proteinuria (UACR 120), and elevated potassium (5.1) exacerbated by daily ibuprofen use. Plan includes discontinuing ibuprofen, starting dapagliflozin 10 mg, and switching to acetaminophen.",
+   "chief_concern": "Follow-up of blood pressure, abnormal kidney labs, and evening ankle swelling",
+   "key_diagnoses": [
+    {
+     "text": "Chronic kidney disease, stage 3a",
+     "source_ids": [
+      "hapi-doc-852645"
+     ]
+    },
+    {
+     "text": "Hypertensive chronic kidney disease",
+     "source_ids": [
+      "hapi-doc-852645"
+     ]
+    },
+    {
+     "text": "Uncontrolled hypertension",
+     "source_ids": [
+      "hapi-doc-852645"
+     ]
+    },
+    {
+     "text": "Hyperkalemia",
+     "source_ids": [
+      "hapi-doc-852645"
+     ]
+    },
+    {
+     "text": "Bilateral ankle edema",
+     "source_ids": [
+      "hapi-doc-852645"
+     ]
+    }
+   ],
+   "recent_media": [],
+   "anomalies": [
+    {
+     "kind": "data_quality",
+     "text": "Eight repetitive, near-identical progress notes filed between Nov 4 and Nov 14, 2026",
+     "source_ids": [
+      "hapi-doc-852645",
+      "hapi-doc-843774",
+      "hapi-doc-829055",
+      "hapi-doc-743130",
+      "hapi-doc-718861",
+      "hapi-doc-494437",
+      "hapi-doc-490121",
+      "hapi-doc-471458"
+     ]
+    },
+    {
+     "kind": "clinical",
+     "text": "Elevated potassium 5.1, decreased eGFR 52, UACR 120, and BP 146/88",
+     "source_ids": [
+      "hapi-doc-852645"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "The records provide clear clinical detail but contain eight redundant, near-identical progress notes."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 112,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "112 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 9510,
+   "output_tokens": 1982,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "hapi-99531",
+  "record_hash": "34be9576664b15e2c2a7b5733dd0e4a966da5a7a9f29fefa2a6a518bdeab68b4",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-20T11:13:17.345634Z",
+  "summary": {
+   "overview": "Patient presented with a one-year history of persistent worry, muscle tension, insomnia, and discrete panic episodes. She was diagnosed with generalized anxiety disorder and initiated on escitalopram with a CBT referral. The chart consists entirely of eight duplicate new-patient progress notes filed across two weeks.",
+   "chief_concern": "Help with anxiety",
+   "key_diagnoses": [
+    {
+     "text": "Generalized anxiety disorder",
+     "source_ids": [
+      "hapi-doc-852595"
+     ]
+    },
+    {
+     "text": "Panic disorder",
+     "source_ids": [
+      "hapi-doc-852595"
+     ]
+    },
+    {
+     "text": "Insomnia due to other mental disorder",
+     "source_ids": [
+      "hapi-doc-852595"
+     ]
+    },
+    {
+     "text": "Alcohol use, unspecified, uncomplicated",
+     "source_ids": [
+      "hapi-doc-852595"
+     ]
+    }
+   ],
+   "recent_media": [],
+   "anomalies": [
+    {
+     "kind": "data_quality",
+     "text": "Record contains 8 duplicate intake progress notes recorded on different dates between Oct 29 and Nov 10, 2026.",
+     "source_ids": [
+      "hapi-doc-852595",
+      "hapi-doc-843724",
+      "hapi-doc-829005",
+      "hapi-doc-743080",
+      "hapi-doc-718791",
+      "hapi-doc-494387",
+      "hapi-doc-490071",
+      "hapi-doc-471408"
+     ]
+    },
+    {
+     "kind": "clinical",
+     "text": "Elevated GAD-7 anxiety score of 16.",
+     "source_ids": [
+      "hapi-doc-852595"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "Clinical details for the initial visit are clear, but the file consists of multiple duplicate progress notes."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 104,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "104 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 8076,
+   "output_tokens": 2103,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "hapi-99532",
+  "record_hash": "3f84e9de2b39c3b9d94e78774991bd00b851bab2b348312bd9d69c945c2dfa78",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-20T11:14:04.204158Z",
+  "summary": {
+   "overview": "Kevin O'Brien presented with four months of progressive right medial knee pain aggravated by stairs and standing. Physical examination demonstrated medial joint line tenderness and a small effusion, consistent with medial compartment osteoarthritis. The medical record consists of eight redundant, nearly identical progress notes for this single presentation.",
+   "chief_concern": "Right medial knee pain for four months",
+   "key_diagnoses": [
+    {
+     "text": "Primary osteoarthritis of right knee, medial compartment",
+     "source_ids": [
+      "hapi-doc-852601",
+      "hapi-doc-843730",
+      "hapi-doc-829011",
+      "hapi-doc-743086",
+      "hapi-doc-718797",
+      "hapi-doc-494393",
+      "hapi-doc-490077",
+      "hapi-doc-471414"
+     ]
+    },
+    {
+     "text": "Obesity (BMI 33)",
+     "source_ids": [
+      "hapi-doc-852601",
+      "hapi-doc-843730",
+      "hapi-doc-829011",
+      "hapi-doc-743086",
+      "hapi-doc-718797",
+      "hapi-doc-494393",
+      "hapi-doc-490077",
+      "hapi-doc-471414"
+     ]
+    },
+    {
+     "text": "Suspected medial meniscal tear",
+     "source_ids": [
+      "hapi-doc-852601",
+      "hapi-doc-843730",
+      "hapi-doc-829011",
+      "hapi-doc-743086",
+      "hapi-doc-718797",
+      "hapi-doc-494393",
+      "hapi-doc-490077",
+      "hapi-doc-471414"
+     ]
+    }
+   ],
+   "recent_media": [],
+   "anomalies": [
+    {
+     "kind": "data_quality",
+     "text": "Record contains eight duplicate progress notes filed across consecutive days describing identical encounter findings.",
+     "source_ids": [
+      "hapi-doc-852601",
+      "hapi-doc-843730",
+      "hapi-doc-829011",
+      "hapi-doc-743086",
+      "hapi-doc-718797",
+      "hapi-doc-494393",
+      "hapi-doc-490077",
+      "hapi-doc-471414"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "The records are consistent but contain significant data duplication across eight progress notes for a single clinical evaluation."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 101,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "101 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 7676,
+   "output_tokens": 2105,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "hapi-99534",
+  "record_hash": "f85c3d4eff37707256e730b2f58742be04b543ddd263f5164f6bb180cd1afb92",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-20T11:14:11.945532Z",
+  "summary": {
+   "overview": "Harold Fischer presented with a 6-month history of a non-healing, bleeding right nasal ala papule and scaly patches on his forehead and scalp. Evaluation indicates suspected basal cell carcinoma and actinic keratoses related to 40 years of occupational sun exposure. Shave biopsy and cryotherapy are planned.",
+   "chief_concern": "Non-healing, bleeding nasal lesion for six months",
+   "key_diagnoses": [
+    {
+     "text": "Suspected basal cell carcinoma, right nasal ala",
+     "source_ids": [
+      "hapi-doc-852612",
+      "hapi-doc-843741",
+      "hapi-doc-829022",
+      "hapi-doc-743097",
+      "hapi-doc-718814",
+      "hapi-doc-494404",
+      "hapi-doc-490088",
+      "hapi-doc-471425"
+     ]
+    },
+    {
+     "text": "Actinic keratoses of scalp and forehead",
+     "source_ids": [
+      "hapi-doc-852612",
+      "hapi-doc-843741",
+      "hapi-doc-829022",
+      "hapi-doc-743097",
+      "hapi-doc-718814",
+      "hapi-doc-494404",
+      "hapi-doc-490088",
+      "hapi-doc-471425"
+     ]
+    },
+    {
+     "text": "Chronic sun damage",
+     "source_ids": [
+      "hapi-doc-852612",
+      "hapi-doc-843741",
+      "hapi-doc-829022",
+      "hapi-doc-743097",
+      "hapi-doc-718814",
+      "hapi-doc-494404",
+      "hapi-doc-490088",
+      "hapi-doc-471425"
+     ]
+    }
+   ],
+   "recent_media": [],
+   "anomalies": [
+    {
+     "kind": "data_quality",
+     "text": "Record contains 8 duplicate progress notes logged across consecutive dates without vital signs or pathology results.",
+     "source_ids": [
+      "hapi-doc-852612",
+      "hapi-doc-843741",
+      "hapi-doc-829022",
+      "hapi-doc-743097",
+      "hapi-doc-718814",
+      "hapi-doc-494404",
+      "hapi-doc-490088",
+      "hapi-doc-471425"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "The records consist of repeated duplicate encounter notes for a single presentation without documented vitals or confirmed tissue pathology."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 104,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "104 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 7952,
+   "output_tokens": 2491,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "hapi-99535",
+  "record_hash": "64ce7f75dd20c0e6fa2cf879dd86fc8fbfbe6a8d0c0985e5a5824a87ceaeeb52",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-20T11:14:46.905784Z",
+  "summary": {
+   "overview": "Angela Rivera presented with fatigue, cold intolerance, weight gain, and constipation while on levothyroxine. Recent labs showed elevated TSH at 7.8, attributed partly to poor absorption from taking levothyroxine alongside coffee and calcium. Her dosage was increased to 100 mcg daily with updated timing instructions.",
+   "chief_concern": "Fatigue, cold intolerance, weight gain, and constipation on levothyroxine",
+   "key_diagnoses": [
+    {
+     "text": "Hypothyroidism, unspecified (E03.9)",
+     "source_ids": [
+      "hapi-doc-852616",
+      "hapi-doc-843745",
+      "hapi-doc-829026",
+      "hapi-doc-743101",
+      "hapi-doc-718823",
+      "hapi-doc-494408",
+      "hapi-doc-490092",
+      "hapi-doc-471429"
+     ]
+    }
+   ],
+   "recent_media": [],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Elevated TSH level of 7.8 uIU/mL with low-normal free T4",
+     "source_ids": [
+      "hapi-doc-852616"
+     ]
+    },
+    {
+     "kind": "data_quality",
+     "text": "Eight nearly identical progress notes recorded between Oct 30 and Nov 11, 2026",
+     "source_ids": [
+      "hapi-doc-852616",
+      "hapi-doc-843745",
+      "hapi-doc-829026",
+      "hapi-doc-743101",
+      "hapi-doc-718823",
+      "hapi-doc-494408",
+      "hapi-doc-490092",
+      "hapi-doc-471429"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "The clinical details are clear and detailed, but the record contains repetitive near-duplicate notes across consecutive dates."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 97,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "97 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 6524,
+   "output_tokens": 1767,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "hapi-99537",
+  "record_hash": "f4af8d9a07996c4a11aaaeca12eb4309fa2f05930304f166bcc840e607014ac8",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-20T11:14:47.746274Z",
+  "summary": {
+   "overview": "Samuel Adeyemi presented for follow-up of uncontrolled type 2 diabetes with elevated HbA1c (9.6%) and new albuminuria. Management was intensified by initiating semaglutide and lisinopril alongside existing metformin and empagliflozin. The medical record consists of eight redundant progress notes filed over twelve days.",
+   "chief_concern": "Follow-up for uncontrolled diabetes with polydipsia and nocturia",
+   "key_diagnoses": [
+    {
+     "text": "Type 2 diabetes mellitus with hyperglycemia, uncontrolled",
+     "source_ids": [
+      "hapi-doc-852626"
+     ]
+    },
+    {
+     "text": "Type 2 diabetes mellitus with diabetic kidney complication",
+     "source_ids": [
+      "hapi-doc-852626"
+     ]
+    },
+    {
+     "text": "Obesity (BMI 36.0-36.9)",
+     "source_ids": [
+      "hapi-doc-852626"
+     ]
+    },
+    {
+     "text": "Elevated blood-pressure reading",
+     "source_ids": [
+      "hapi-doc-852626"
+     ]
+    }
+   ],
+   "recent_media": [],
+   "anomalies": [
+    {
+     "kind": "data_quality",
+     "text": "Eight near-identical duplicate progress notes filed between Nov 5 and Nov 17, 2026",
+     "source_ids": [
+      "hapi-doc-852626",
+      "hapi-doc-843755",
+      "hapi-doc-829036",
+      "hapi-doc-743111",
+      "hapi-doc-718833",
+      "hapi-doc-494418",
+      "hapi-doc-490102",
+      "hapi-doc-471439"
+     ]
+    },
+    {
+     "kind": "clinical",
+     "text": "Elevated HbA1c of 9.6% and urine albumin-to-creatinine ratio of 45 mg/g",
+     "source_ids": [
+      "hapi-doc-852626"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "Clinical details are clear but the chart contains eight duplicate progress notes filed across twelve days."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 112,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "112 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 9064,
+   "output_tokens": 2086,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "hapi-99538",
+  "record_hash": "92e6dc4c332fcfe03a519d316adf915d4f781856df9740c17156859f92bc0d40",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-20T11:15:35.639356Z",
+  "summary": {
+   "overview": "Grace Thompson presented for follow-up of worsening hypertension related to caregiving stress and dietary changes. Her losartan dose was increased to 100 mg daily, and she received her first shingles vaccine dose. The record contains eight nearly identical progress notes generated between October and November 2026.",
+   "chief_concern": "Routine blood pressure follow-up",
+   "key_diagnoses": [
+    {
+     "text": "Essential hypertension, uncontrolled",
+     "source_ids": [
+      "hapi-doc-852636",
+      "hapi-doc-843765",
+      "hapi-doc-829046",
+      "hapi-doc-743121",
+      "hapi-doc-718848",
+      "hapi-doc-494428",
+      "hapi-doc-490112",
+      "hapi-doc-471449"
+     ]
+    },
+    {
+     "text": "Situational stress related to caregiving",
+     "source_ids": [
+      "hapi-doc-852636"
+     ]
+    },
+    {
+     "text": "Overweight (BMI 27)",
+     "source_ids": [
+      "hapi-doc-852636"
+     ]
+    },
+    {
+     "text": "Encounter for immunization",
+     "source_ids": [
+      "hapi-doc-852636"
+     ]
+    }
+   ],
+   "recent_media": [],
+   "anomalies": [
+    {
+     "kind": "data_quality",
+     "text": "Multiple duplicate progress notes filed across different dates with identical clinical text.",
+     "source_ids": [
+      "hapi-doc-852636",
+      "hapi-doc-843765",
+      "hapi-doc-829046",
+      "hapi-doc-743121",
+      "hapi-doc-718848",
+      "hapi-doc-494428",
+      "hapi-doc-490112",
+      "hapi-doc-471449"
+     ]
+    },
+    {
+     "kind": "clinical",
+     "text": "Elevated in-office blood pressure of 144/90 and 142/88 mmHg.",
+     "source_ids": [
+      "hapi-doc-852636"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "The record contains redundant duplicate notes across multiple dates without separate clinical updates or attached laboratory reports."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 102,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "102 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 9060,
+   "output_tokens": 2661,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "hapi-99540",
+  "record_hash": "e4bf27741cd8d0fecbcc39c462c2479f2820890bb5be80a656fa1b180a930119",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-20T11:15:20.413061Z",
+  "summary": {
+   "overview": "Daniel Kim presented for follow-up of migraines that increased in frequency to 6 to 8 days per month. He was prescribed propranolol for prevention and counselled to reduce acute medication use, caffeine, and screen time. The medical record consists of identical duplicate progress notes filed across multiple dates.",
+   "chief_concern": "Follow-up for worsening migraines",
+   "key_diagnoses": [
+    {
+     "text": "Migraine without aura, increased frequency",
+     "source_ids": [
+      "hapi-doc-852650",
+      "hapi-doc-843779",
+      "hapi-doc-829060",
+      "hapi-doc-743135",
+      "hapi-doc-718866",
+      "hapi-doc-494442",
+      "hapi-doc-490126",
+      "hapi-doc-471463"
+     ]
+    },
+    {
+     "text": "Medication overuse headache, suspected",
+     "source_ids": [
+      "hapi-doc-852650",
+      "hapi-doc-843779",
+      "hapi-doc-829060",
+      "hapi-doc-743135",
+      "hapi-doc-718866",
+      "hapi-doc-494442",
+      "hapi-doc-490126",
+      "hapi-doc-471463"
+     ]
+    },
+    {
+     "text": "Insufficient sleep syndrome",
+     "source_ids": [
+      "hapi-doc-852650",
+      "hapi-doc-843779",
+      "hapi-doc-829060",
+      "hapi-doc-743135",
+      "hapi-doc-718866",
+      "hapi-doc-494442",
+      "hapi-doc-490126",
+      "hapi-doc-471463"
+     ]
+    }
+   ],
+   "recent_media": [],
+   "anomalies": [
+    {
+     "kind": "data_quality",
+     "text": "Identical progress note text is duplicated across eight separate record entries from October 31 to November 12, 2026.",
+     "source_ids": [
+      "hapi-doc-852650",
+      "hapi-doc-843779",
+      "hapi-doc-829060",
+      "hapi-doc-743135",
+      "hapi-doc-718866",
+      "hapi-doc-494442",
+      "hapi-doc-490126",
+      "hapi-doc-471463"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "The clinical content is clear and consistent but is repeated across multiple redundant entries."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 96,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "96 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 7316,
+   "output_tokens": 2389,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "hapi-99542",
+  "record_hash": "1adb2f2aa54cbf9d283cb50f70eb0f21e014c428d3894b22310b68cb82d0d131",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-20T11:16:17.877163Z",
+  "summary": {
+   "overview": "The patient presented with an acute left first MTP joint gout flare and hyperuricemia with serum uric acid 9.2 mg/dL. Hydrochlorothiazide was discontinued and replaced with losartan for hypertension, and colchicine was initiated for the flare. The record consists of eight near-identical progress notes repeated across multiple dates.",
+   "chief_concern": "Acute severe pain and swelling of the left big toe",
+   "key_diagnoses": [
+    {
+     "text": "Acute gout flare, left first MTP joint",
+     "source_ids": [
+      "hapi-doc-852659"
+     ]
+    },
+    {
+     "text": "Hyperuricemia",
+     "source_ids": [
+      "hapi-doc-852659"
+     ]
+    },
+    {
+     "text": "Essential hypertension",
+     "source_ids": [
+      "hapi-doc-852659"
+     ]
+    }
+   ],
+   "recent_media": [],
+   "anomalies": [
+    {
+     "kind": "data_quality",
+     "text": "Eight duplicate progress notes filed across different dates with identical clinical text and visit details",
+     "source_ids": [
+      "hapi-doc-852659",
+      "hapi-doc-843788",
+      "hapi-doc-829069",
+      "hapi-doc-743144",
+      "hapi-doc-718882",
+      "hapi-doc-494451",
+      "hapi-doc-490135",
+      "hapi-doc-471472"
+     ]
+    },
+    {
+     "kind": "clinical",
+     "text": "Serum uric acid elevated at 9.2 mg/dL",
+     "source_ids": [
+      "hapi-doc-852659"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "The clinical content is clear and consistent but heavily duplicated across eight identical encounter notes."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 105,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "105 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 7988,
+   "output_tokens": 2310,
+   "attempts": 1
+  }
+ }
+]

@@ -95,7 +95,7 @@ export function App() {
                   <span className="font-semibold text-foreground">{results.length}</span> best{" "}
                   {results.length === 1 ? "match" : "matches"} for "{data.query}"
                 </span>
-                <span className="tabular-nums">{busy ? "Updating" : `${Math.round(data.took_ms)} ms`}</span>
+                <span className="whitespace-nowrap tabular-nums">{busy ? "Updating" : `${Math.round(data.took_ms)} ms`}</span>
               </div>
               <div className={busy ? "opacity-60 transition-opacity duration-150" : "transition-opacity duration-150"}>
                 <ResultList results={results} query={data.query} onOpen={openResult} onPreload={preloadPatient} />
