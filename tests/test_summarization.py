@@ -6,7 +6,7 @@ import pytest
 from ehr_platform.fhir_mapping import build_bundles
 from ehr_platform.ingestion.models import Document, Identifier, LabResult, Patient
 from ehr_platform.summarization import DISCLAIMER, SummaryCache, build_context, summarize_all
-from ehr_platform.summarization.client import ClaudeResult, ClaudeSummarizer, SummaryError
+from ehr_platform.summarization.client import LLMResult, ClaudeSummarizer, SummaryError
 from ehr_platform.summarization.context import record_hash
 from ehr_platform.summarization.quality import run_checks, word_count
 from ehr_platform.summarization.schema import Anomaly, ClinicalSummary, Finding, MediaRecord
@@ -53,12 +53,12 @@ class FakeClaude:
         self.summaries = list(summaries or [])
         self.fail_on = fail_on
 
-    def __call__(self, text: str) -> ClaudeResult:
+    def __call__(self, text: str) -> LLMResult:
         self.calls.append(text)
         if self.fail_on and self.fail_on in text:
             raise SummaryError("declined by the model (test)")
         summary = self.summaries.pop(0) if self.summaries else good_summary()
-        return ClaudeResult(summary=summary, input_tokens=1000, output_tokens=300)
+        return LLMResult(summary=summary, input_tokens=1000, output_tokens=300)
 
 
 @pytest.fixture
@@ -182,3 +182,57 @@ def test_client_raises_on_unusable_response(stop_reason):
     client, _ = fake_client(stop_reason=stop_reason, parsed=None)
     with pytest.raises(SummaryError):
         ClaudeSummarizer(model="claude-opus-5-5", client=client).call("records")
+
+
+# ---------------------------------------------------------------- Gemini provider
+
+from google.genai import errors as genai_errors  # noqa: E402
+
+from ehr_platform.summarization.gemini import GeminiSummarizer  # noqa: E402
+
+
+def gemini_response(parsed=None, text=None, finish="STOP"):
+    return SimpleNamespace(
+        candidates=[SimpleNamespace(finish_reason=SimpleNamespace(name=finish))], parsed=parsed, text=text,
+        usage_metadata=SimpleNamespace(prompt_token_count=100, candidates_token_count=50, thoughts_token_count=25))
+
+
+def gemini_client(*responses):
+    queue = list(responses)
+    calls = []
+
+    def generate_content(**kwargs):
+        calls.append(kwargs)
+        item = queue.pop(0)
+        if isinstance(item, Exception):
+            raise item
+        return item
+    return SimpleNamespace(models=SimpleNamespace(generate_content=generate_content)), calls
+
+
+def test_gemini_returns_summary_and_counts_thinking_tokens():
+    client, calls = gemini_client(gemini_response(parsed=good_summary()))
+    result = GeminiSummarizer(model="gemini-test", client=client).call("records")
+    assert result.summary.chief_concern == "Chest pain"
+    assert (result.input_tokens, result.output_tokens) == (100, 75)
+    assert calls[0]["config"].response_schema is ClinicalSummary
+
+
+def test_gemini_reads_json_text_when_not_parsed():
+    client, _ = gemini_client(gemini_response(text=good_summary().model_dump_json()))
+    assert GeminiSummarizer(client=client).call("records").summary.confidence == "medium"
+
+
+def test_gemini_waits_and_retries_on_rate_limit():
+    limit = genai_errors.ClientError(429, {"error": {"code": 429, "message": "Please retry in 2.5s.",
+                                                     "status": "RESOURCE_EXHAUSTED"}})
+    client, calls = gemini_client(limit, gemini_response(parsed=good_summary()))
+    waits = []
+    GeminiSummarizer(client=client, sleep=waits.append).call("records")
+    assert len(calls) == 2 and waits == [3.5]
+
+
+def test_gemini_blocked_response_raises():
+    client, _ = gemini_client(gemini_response(finish="SAFETY"))
+    with pytest.raises(SummaryError, match="blocked"):
+        GeminiSummarizer(client=client).call("records")
