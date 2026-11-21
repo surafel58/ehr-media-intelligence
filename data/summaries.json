@@ -866,6 +866,97 @@
   }
  },
  {
+  "patient_id": "hapi-99533",
+  "record_hash": "ffe1b30996740c4647d9fd8a5556e2e016159ed6d21b54447550c6c00eadaafb",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-21T08:10:06.289493Z",
+  "summary": {
+   "overview": "Sofia Martinez presents with moderate acne vulgaris on her face and upper back for 18 months. Treatment includes adapalene gel, benzoyl peroxide wash, and oral doxycycline 100 mg daily. The record consists of eight duplicate progress notes recorded between October and November 2026.",
+   "chief_concern": "Acne on face and upper back",
+   "key_diagnoses": [
+    {
+     "text": "Moderate acne vulgaris",
+     "source_ids": [
+      "hapi-doc-852605",
+      "hapi-doc-843734",
+      "hapi-doc-829015",
+      "hapi-doc-743090",
+      "hapi-doc-718807",
+      "hapi-doc-494397",
+      "hapi-doc-490081",
+      "hapi-doc-471418"
+     ]
+    }
+   ],
+   "recent_media": [],
+   "anomalies": [
+    {
+     "kind": "data_quality",
+     "text": "Eight near-identical duplicate progress notes filed across two weeks",
+     "source_ids": [
+      "hapi-doc-852605",
+      "hapi-doc-843734",
+      "hapi-doc-829015",
+      "hapi-doc-743090",
+      "hapi-doc-718807",
+      "hapi-doc-494397",
+      "hapi-doc-490081",
+      "hapi-doc-471418"
+     ]
+    },
+    {
+     "kind": "data_quality",
+     "text": "Patient sex listed as unknown in demographics but documented as female in clinical notes",
+     "source_ids": [
+      "hapi-doc-852605"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "The clinical details for acne vulgaris are consistent, but the record contains extensive duplicate progress notes across multiple dates."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 94,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "94 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 5748,
+   "output_tokens": 2558,
+   "attempts": 1
+  }
+ },
+ {
   "patient_id": "hapi-99534",
   "record_hash": "f85c3d4eff37707256e730b2f58742be04b543ddd263f5164f6bb180cd1afb92",
   "model": "gemini-3.5-flash",
@@ -1384,6 +1475,90 @@
   "usage": {
    "input_tokens": 7316,
    "output_tokens": 2389,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "hapi-99541",
+  "record_hash": "a5438fbd066cb22dbbb9320e011fdab56e55b904e59ee62bc1109469701bb3ee",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-21T08:11:51.158341Z",
+  "summary": {
+   "overview": "The record contains multiple identical progress notes from November 2026 documenting acute viral rhinosinusitis with nasal congestion, facial pressure, and yellow discharge. Management focused on symptomatic relief with saline irrigation, fluticasone nasal spray, and acetaminophen without antibiotics. All notes across multiple dates contain duplicate clinical text.",
+   "chief_concern": "Nasal congestion and facial pressure",
+   "key_diagnoses": [
+    {
+     "text": "Acute viral rhinosinusitis",
+     "source_ids": [
+      "hapi-doc-852654",
+      "hapi-doc-843783",
+      "hapi-doc-829064",
+      "hapi-doc-743139",
+      "hapi-doc-718870",
+      "hapi-doc-494446",
+      "hapi-doc-490130",
+      "hapi-doc-471467"
+     ]
+    }
+   ],
+   "recent_media": [],
+   "anomalies": [
+    {
+     "kind": "data_quality",
+     "text": "Multiple identical progress notes generated across sequential visit dates with identical clinical findings",
+     "source_ids": [
+      "hapi-doc-852654",
+      "hapi-doc-843783",
+      "hapi-doc-829064",
+      "hapi-doc-743139",
+      "hapi-doc-718870",
+      "hapi-doc-494446",
+      "hapi-doc-490130",
+      "hapi-doc-471467"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "The records consist of repetitive identical documentation for a single episode of acute sinusitis without diagnostic media."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 84,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "84 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 5728,
+   "output_tokens": 2249,
    "attempts": 1
   }
  },
