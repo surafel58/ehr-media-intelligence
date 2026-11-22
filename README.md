@@ -304,13 +304,15 @@ The free tier allows 20 summaries per day, so the sample run finishes over the n
 
 | Patients | AI summaries | No records (no call) | Pending |
 |---|---|---|---|
-| 64 | 17 | 9 | 38 |
+| 64 | 37 | 9 | 18 |
 
 | Check | Passed |
 |---|---|
-| All 6 checks | 17 of 17 summaries |
-| Words | 53 to 120, median 101 |
-| Confidence | 1 high, 14 medium, 2 low |
+| All 6 checks | 35 of 37 summaries |
+| Words | 51 to 120, median 96 |
+| Confidence | 5 high, 26 medium, 6 low |
+
+The 2 misses are false alarms from the number check, which only accepts numbers exactly as the note writes them: one summary wrote a CT date of 01/28/08 as 2008-01-28, and another wrote "3-1/2 years" as 3.5.
 
 The summaries also caught problems step 1 missed, such as a patient with eight near-identical progress notes and a note dated 2026 for a 2024 care episode.
 
@@ -362,7 +364,7 @@ Interactive docs at `http://127.0.0.1:8000/docs`.
 
 ### Result
 
-189 records (154 notes, 10 lab reports, 8 imaging reports, 17 AI summaries) indexed as 746 chunks.
+209 records (154 notes, 10 lab reports, 8 imaging reports, 37 AI summaries) indexed as 766 chunks.
 
 | Measure | Median | Slowest |
 |---|---|---|

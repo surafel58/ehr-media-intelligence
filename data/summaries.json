@@ -1657,5 +1657,1701 @@
    "output_tokens": 2310,
    "attempts": 1
   }
+ },
+ {
+  "patient_id": "hapi-99543",
+  "record_hash": "90d91f6ad63869e4e3609294f73dc7a0e9cb7269ee5644fcaa1e33a86e208052",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-22T08:05:31.987534Z",
+  "summary": {
+   "overview": "The patient presented for follow-up of a mechanical fall resulting in a left hip contusion. Evaluation revealed symptomatic orthostatic hypotension linked to amlodipine and diphenhydramine, alongside an increased fall risk. Multiple identical progress notes were filed across November 2026.",
+   "chief_concern": "Follow-up after fall with left hip bruising",
+   "key_diagnoses": [
+    {
+     "text": "Orthostatic hypotension, symptomatic",
+     "source_ids": [
+      "hapi-doc-852669"
+     ]
+    },
+    {
+     "text": "Left hip contusion",
+     "source_ids": [
+      "hapi-doc-852669"
+     ]
+    },
+    {
+     "text": "Unsteadiness on feet and increased fall risk",
+     "source_ids": [
+      "hapi-doc-852669"
+     ]
+    },
+    {
+     "text": "Osteoporosis",
+     "source_ids": [
+      "hapi-doc-852669"
+     ]
+    }
+   ],
+   "recent_media": [],
+   "anomalies": [
+    {
+     "kind": "data_quality",
+     "text": "Eight identical progress notes recorded between Nov 5 and Nov 17, 2026",
+     "source_ids": [
+      "hapi-doc-852669",
+      "hapi-doc-843798",
+      "hapi-doc-829079",
+      "hapi-doc-743154",
+      "hapi-doc-718892",
+      "hapi-doc-494461",
+      "hapi-doc-490145",
+      "hapi-doc-471482"
+     ]
+    },
+    {
+     "kind": "clinical",
+     "text": "Symptomatic orthostatic blood pressure drop from 138/80 to 118/70 mmHg",
+     "source_ids": [
+      "hapi-doc-852669"
+     ]
+    },
+    {
+     "kind": "clinical",
+     "text": "Timed Up and Go test slow at 15 seconds",
+     "source_ids": [
+      "hapi-doc-852669"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "Records provide consistent clinical detail but contain multiple duplicate notes."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 101,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "101 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 9960,
+   "output_tokens": 2172,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "hapi-ks-demo-398876da-d620-487c-b2bb-5d096e279411",
+  "record_hash": "a7089e9dfb3df511031d0d7708502c5d03c882f7e4410638e0425a3ac961280e",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-22T08:05:51.531768Z",
+  "summary": {
+   "overview": "This record contains a single demo genetic lab panel from January 2026 with no documented clinical history or patient demographics. Most assessed genetic variants were absent, with one indeterminate result.",
+   "chief_concern": "Genetic variant testing",
+   "key_diagnoses": [],
+   "recent_media": [
+    {
+     "source_id": "hapi-report-ks-demo-398876da-d620-487c-b2bb-5d096e279411",
+     "kind": "lab",
+     "date": "2026-01-01",
+     "result": "Lab panel 2026.1-demo: 29 variants absent, 1 variant indeterminate"
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Indeterminate genetic variant assessment result",
+     "source_ids": [
+      "hapi-report-ks-demo-398876da-d620-487c-b2bb-5d096e279411"
+     ]
+    },
+    {
+     "kind": "data_quality",
+     "text": "Patient sex and birth date are unknown",
+     "source_ids": []
+    }
+   ],
+   "confidence": "low",
+   "confidence_reason": "The record consists only of a single demo lab report with no clinical history or demographics."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 70,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "70 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 489,
+   "output_tokens": 1451,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "hapi-ks-demo-66aa9ecf-d459-469e-8aa2-130d6dd3943b",
+  "record_hash": "ea4ed0ee115a02286f7fbfe807450136aea3d9e8977527ab39c2ed05cbcea875",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-22T08:06:01.682229Z",
+  "summary": {
+   "overview": "This record contains a single demo genetic lab report from January 1, 2026, with no documented patient history or demographics. The panel assessed 30 genetic variants, finding 29 absent and 1 indeterminate.",
+   "chief_concern": "Genetic variant testing",
+   "key_diagnoses": [],
+   "recent_media": [
+    {
+     "source_id": "hapi-report-ks-demo-66aa9ecf-d459-469e-8aa2-130d6dd3943b",
+     "kind": "lab",
+     "date": "2026-01-01",
+     "result": "Genetic variant panel: 29 absent, 1 indeterminate"
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Indeterminate genetic variant assessment",
+     "source_ids": [
+      "hapi-report-ks-demo-66aa9ecf-d459-469e-8aa2-130d6dd3943b"
+     ]
+    }
+   ],
+   "confidence": "low",
+   "confidence_reason": "The record consists solely of a single demo lab report with no clinical history or demographic data."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 63,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "63 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 487,
+   "output_tokens": 1799,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "hapi-ks-demo-7806c82d-31c8-4b55-8c40-22e0986eaceb",
+  "record_hash": "a018d600455e1f67aaa7f41f731c573a30be411ab77c66d7dd88098ba3eb2f1f",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-22T08:06:08.041058Z",
+  "summary": {
+   "overview": "The patient record contains minimal clinical data consisting of a single demo lab report from January 2026. Genetic variant assessment was reported as absent.",
+   "chief_concern": "Demo lab panel evaluation",
+   "key_diagnoses": [],
+   "recent_media": [
+    {
+     "source_id": "hapi-report-ks-demo-7806c82d-31c8-4b55-8c40-22e0986eaceb",
+     "kind": "lab",
+     "date": "2026-01-01",
+     "result": "Genetic variant assessment: Absent (x30)"
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "data_quality",
+     "text": "Record contains demo data and lacks patient demographics",
+     "source_ids": [
+      "hapi-report-ks-demo-7806c82d-31c8-4b55-8c40-22e0986eaceb"
+     ]
+    }
+   ],
+   "confidence": "low",
+   "confidence_reason": "The record contains minimal clinical data and lacks patient demographics."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 51,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "51 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 481,
+   "output_tokens": 1133,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "hapi-ks-demo-b2562112-399d-497d-a2ea-9a9d491db685",
+  "record_hash": "e08ca45378a86bdf4bc0a13383a806560bf6fb074c9203e0dd9f09d25bd41425",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-22T08:06:14.608453Z",
+  "summary": {
+   "overview": "The record contains a single lab report from a demo genetic panel. No demographics, medical history, or documented diagnoses are available.",
+   "chief_concern": "Genetic variant testing",
+   "key_diagnoses": [],
+   "recent_media": [
+    {
+     "source_id": "hapi-report-ks-demo-b2562112-399d-497d-a2ea-9a9d491db685",
+     "kind": "lab",
+     "date": "2026-01-01",
+     "result": "Lab panel 2026.1-demo: 28 absent variants, 2 indeterminate variants"
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Indeterminate genetic variant assessment (x2)",
+     "source_ids": [
+      "hapi-report-ks-demo-b2562112-399d-497d-a2ea-9a9d491db685"
+     ]
+    }
+   ],
+   "confidence": "low",
+   "confidence_reason": "The record contains only a single demo lab report with no clinical history or demographic details."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 54,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "54 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 493,
+   "output_tokens": 1142,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-0020",
+  "record_hash": "848e29894c38c6fb2e721a66eb960d5e2eaed4867c0b84c38a15a8f0c0770ff8",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-22T08:06:20.766729Z",
+  "summary": {
+   "overview": "Patient underwent a whole body radionuclide bone scan for prostate cancer evaluation. The scan revealed abnormal increased tracer activity in the right parietal skull and probable urinary retention. Patient demographics and record date are missing.",
+   "chief_concern": "Prostate cancer evaluation",
+   "key_diagnoses": [
+    {
+     "text": "Prostate cancer",
+     "source_ids": [
+      "mts-doc-0020"
+     ]
+    },
+    {
+     "text": "Urinary retention",
+     "source_ids": [
+      "mts-doc-0020"
+     ]
+    }
+   ],
+   "recent_media": [
+    {
+     "source_id": "mts-doc-0020",
+     "kind": "imaging",
+     "date": null,
+     "result": "Focal increased activity in right parietal skull; probable urinary retention"
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Abnormal increased tracer activity overlying the right parietal region of the skull",
+     "source_ids": [
+      "mts-doc-0020"
+     ]
+    },
+    {
+     "kind": "data_quality",
+     "text": "Patient sex, birth date, and report date are missing",
+     "source_ids": [
+      "mts-doc-0020"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "Record consists of a single undated bone scan with missing patient demographics."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 85,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "85 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 641,
+   "output_tokens": 1244,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-0026",
+  "record_hash": "31e05c109c054dc79fad775693e3a5f00468316cb4ade21f7bcbd29c9790b90b",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-22T08:06:38.061293Z",
+  "summary": {
+   "overview": "This 67-year-old male was admitted for difficulty voiding secondary to an enlarged prostate and bladder neck obstruction. He underwent an uncomplicated cystourethroscopy and transurethral resection of the prostate. He was discharged in satisfactory condition with minimal hematuria and prescribed Bactrim DS.",
+   "chief_concern": "Difficulty voiding",
+   "key_diagnoses": [
+    {
+     "text": "Enlarged prostate with benign bladder neck obstruction",
+     "source_ids": [
+      "mts-doc-0026"
+     ]
+    },
+    {
+     "text": "Difficulty voiding",
+     "source_ids": [
+      "mts-doc-0026"
+     ]
+    }
+   ],
+   "recent_media": [
+    {
+     "source_id": "mts-doc-0026",
+     "kind": "imaging",
+     "date": null,
+     "result": "Chest x-ray: Calcified old granulomatous disease, otherwise normal."
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Chest x-ray showed calcified old granulomatous disease",
+     "source_ids": [
+      "mts-doc-0026"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "The documentation is limited to a single discharge summary with an unknown date and pending pathology."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 83,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "83 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 714,
+   "output_tokens": 1771,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-0035",
+  "record_hash": "f0bf230a0513f468f600e7dc31d8aa74bc50838ea6dc8be7638237c529a11009",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-22T08:06:45.854624Z",
+  "summary": {
+   "overview": "Patient underwent a scrotal ultrasound for urological evaluation of scrotal pain. Imaging revealed trace bilateral hydroceles with an otherwise unremarkable study.",
+   "chief_concern": "Scrotal pain",
+   "key_diagnoses": [
+    {
+     "text": "Trace bilateral hydroceles",
+     "source_ids": [
+      "mts-doc-0035"
+     ]
+    },
+    {
+     "text": "Scrotal pain",
+     "source_ids": [
+      "mts-doc-0035"
+     ]
+    }
+   ],
+   "recent_media": [
+    {
+     "source_id": "mts-doc-0035",
+     "kind": "imaging",
+     "date": null,
+     "result": "Trace bilateral hydroceles, otherwise unremarkable scrotal ultrasound"
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Trace bilateral hydroceles",
+     "source_ids": [
+      "mts-doc-0035"
+     ]
+    },
+    {
+     "kind": "data_quality",
+     "text": "Missing record date and patient demographics",
+     "source_ids": [
+      "mts-doc-0035"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "Record contains clear imaging details, but lacks patient demographics and document date."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 56,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "56 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 619,
+   "output_tokens": 1449,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-0039",
+  "record_hash": "9792ca99e19b32bb3b94999d5d53cdb8fadabd394fc0cf4afce91a3bfe011af6",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-22T08:07:15.801307Z",
+  "summary": {
+   "overview": "A 4-year-old boy presented with sudden left testicular pain that spontaneously resolved. Scrotal ultrasound initially showed poor left testicular blood flow that normalized on repeat imaging, consistent with testicular torsion-detorsion. Urgent scrotal exploration and bilateral testicular fixation are planned.",
+   "chief_concern": "Left testicular pain",
+   "key_diagnoses": [
+    {
+     "text": "Possible testicular torsion-detorsion",
+     "source_ids": [
+      "mts-doc-0039"
+     ]
+    },
+    {
+     "text": "Mild epididymal swelling",
+     "source_ids": [
+      "mts-doc-0039"
+     ]
+    }
+   ],
+   "recent_media": [
+    {
+     "source_id": "mts-doc-0039",
+     "kind": "imaging",
+     "date": null,
+     "result": "Scrotal US: Initial poor left testicular flow; repeat US showed normalized flow."
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Initial scrotal ultrasound showed absent/poor left testicular blood flow and mild echotexture changes.",
+     "source_ids": [
+      "mts-doc-0039"
+     ]
+    }
+   ],
+   "confidence": "high",
+   "confidence_reason": "Detailed note providing consistent clinical history, physical exam, ultrasound findings, and surgical plan."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 86,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "86 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 1299,
+   "output_tokens": 1408,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-0071",
+  "record_hash": "7f297c445816e2f1416bea8b5b1f3e3c6e81a782a92dbac42952c88b9b5078b7",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-22T08:07:24.308732Z",
+  "summary": {
+   "overview": "This patient record consists of a single urology pathology report detailing high-grade prostate adenocarcinoma. Findings show a Gleason score of 9 with seminal vesicle invasion, positive surgical margins, and left pelvic obturator lymph node metastasis. Post-operative documentation also notes erectile dysfunction.",
+   "chief_concern": "Post-operative pathology evaluation for prostate adenocarcinoma",
+   "key_diagnoses": [
+    {
+     "text": "Prostate adenocarcinoma, Gleason score 9 (T3b N1 MX)",
+     "source_ids": [
+      "mts-doc-0071"
+     ]
+    },
+    {
+     "text": "Erectile dysfunction",
+     "source_ids": [
+      "mts-doc-0071"
+     ]
+    }
+   ],
+   "recent_media": [
+    {
+     "source_id": "mts-doc-0071",
+     "kind": "pathology",
+     "date": null,
+     "result": "Prostate adenocarcinoma Gleason 9 with positive margins and left lymph node metastasis"
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Gleason score 9 prostate adenocarcinoma with positive surgical margins and left obturator lymph node metastasis",
+     "source_ids": [
+      "mts-doc-0071"
+     ]
+    },
+    {
+     "kind": "data_quality",
+     "text": "Missing patient demographics (sex, birth date) and record date",
+     "source_ids": [
+      "mts-doc-0071"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "Pathology findings are detailed, but the record consists of a single undated document missing demographics."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 108,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "108 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 1065,
+   "output_tokens": 1735,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-0210",
+  "record_hash": "83a3350172398543d3f9ce37c198bf496f1406f70874d8aebdb3fcc7328266c2",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-22T08:07:32.585319Z",
+  "summary": {
+   "overview": "Patient was brought urgently from the emergency room intubated following cardiac arrest and an abnormal EKG. Urgent cardiac catheterization revealed normal coronary arteries without disease. A hematoma was noted at the right femoral access site following sheath removal.",
+   "chief_concern": "Cardiac arrest and abnormal EKG",
+   "key_diagnoses": [
+    {
+     "text": "Cardiac arrest",
+     "source_ids": [
+      "mts-doc-0210"
+     ]
+    },
+    {
+     "text": "Abnormal EKG",
+     "source_ids": [
+      "mts-doc-0210"
+     ]
+    },
+    {
+     "text": "Cath site hematoma",
+     "source_ids": [
+      "mts-doc-0210"
+     ]
+    }
+   ],
+   "recent_media": [
+    {
+     "source_id": "mts-doc-0210",
+     "kind": "imaging",
+     "date": null,
+     "result": "Coronary angiogram showing normal coronary arteries"
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Cardiac arrest and abnormal EKG requiring intubation",
+     "source_ids": [
+      "mts-doc-0210"
+     ]
+    },
+    {
+     "kind": "clinical",
+     "text": "Hematoma at catheterization site",
+     "source_ids": [
+      "mts-doc-0210"
+     ]
+    },
+    {
+     "kind": "data_quality",
+     "text": "Patient demographics and procedure date are missing",
+     "source_ids": [
+      "mts-doc-0210"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "The record provides a single detailed procedure note but lacks encounter dates and patient demographics."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 89,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "89 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 633,
+   "output_tokens": 1844,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-1282",
+  "record_hash": "d55f39bbfd7eaeb8362605345fde284afe6334d673d2517d746b589b310e3c5f",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-22T08:07:38.491226Z",
+  "summary": {
+   "overview": "This female patient was discharged from outpatient speech therapy after attending 9 of 12 authorized sessions. Clinical swallow evaluation showed swallowing within functional limits, with progress in turn-taking and narrative recall. Persistent deficits include significant left neglect causing visual scanning and reading comprehension difficulties, along with impaired sustained attention.",
+   "chief_concern": "Discharge from outpatient speech therapy",
+   "key_diagnoses": [
+    {
+     "text": "Left neglect",
+     "source_ids": [
+      "mts-doc-1282"
+     ]
+    },
+    {
+     "text": "Reading comprehension difficulty",
+     "source_ids": [
+      "mts-doc-1282"
+     ]
+    },
+    {
+     "text": "Impaired sustained attention",
+     "source_ids": [
+      "mts-doc-1282"
+     ]
+    }
+   ],
+   "recent_media": [],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Significant left neglect impairing visual scanning and reading comprehension",
+     "source_ids": [
+      "mts-doc-1282"
+     ]
+    },
+    {
+     "kind": "clinical",
+     "text": "Incomplete therapy course due to patient non-attendance (attended 9 of 12 sessions)",
+     "source_ids": [
+      "mts-doc-1282"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "Record consists of a single speech therapy discharge note without broader medical history."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 96,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "96 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 648,
+   "output_tokens": 1132,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-1283",
+  "record_hash": "68572b253375b7f5ae81bd91b74f279b4f65a19e47f7ce7452265b7c652ca219",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-22T08:07:46.468883Z",
+  "summary": {
+   "overview": "A 67-year-old female was discharged from outpatient speech therapy after completing 60 sessions for global aphasia and swallowing dysfunction. She successfully transitioned back to oral intake without aspiration and improved receptive language, but reached a progress plateau with persistent expressive deficits.",
+   "chief_concern": "Discharge from outpatient speech therapy",
+   "key_diagnoses": [
+    {
+     "text": "Global aphasia",
+     "source_ids": [
+      "mts-doc-1283"
+     ]
+    },
+    {
+     "text": "Dysphagia",
+     "source_ids": [
+      "mts-doc-1283"
+     ]
+    }
+   ],
+   "recent_media": [
+    {
+     "source_id": "mts-doc-1283",
+     "kind": "imaging",
+     "date": null,
+     "result": "Modified barium swallow study: no aspiration."
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Persistent unintelligible speech and expressive language impairment (aphasia quotient 26.4 on 12/01/08)",
+     "source_ids": [
+      "mts-doc-1283"
+     ]
+    },
+    {
+     "kind": "clinical",
+     "text": "Gastrostomy tube remains in place despite taking all intake by mouth",
+     "source_ids": [
+      "mts-doc-1283"
+     ]
+    }
+   ],
+   "confidence": "high",
+   "confidence_reason": "The single discharge note provides detailed objective scores, timelines, and clinical progress summaries."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 91,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "91 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 1064,
+   "output_tokens": 1536,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-1287",
+  "record_hash": "ffeaf6a3011b8a6260bf6a4014d955be8885a315aefa78da21d853fffc384232",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-22T08:07:54.762183Z",
+  "summary": {
+   "overview": "The patient is a 67-year-old female seen for follow-up of uterine papillary serous carcinoma status post total abdominal hysterectomy, bilateral salpingo-oophorectomy, and chemotherapy. She currently shows no clinical or radiological evidence of disease. Plan includes routine monitoring, evaluation of elevated blood pressure, and Kegel exercises for urinary incontinence.",
+   "chief_concern": "Follow-up for uterine papillary serous carcinoma",
+   "key_diagnoses": [
+    {
+     "text": "Uterine papillary serous carcinoma, s/p TAH/BSO and chemotherapy",
+     "source_ids": [
+      "mts-doc-1287"
+     ]
+    },
+    {
+     "text": "Elevated blood pressure",
+     "source_ids": [
+      "mts-doc-1287"
+     ]
+    },
+    {
+     "text": "Urinary incontinence",
+     "source_ids": [
+      "mts-doc-1287"
+     ]
+    },
+    {
+     "text": "Right upper extremity numbness",
+     "source_ids": [
+      "mts-doc-1287"
+     ]
+    }
+   ],
+   "recent_media": [
+    {
+     "source_id": "mts-doc-1287",
+     "kind": "imaging",
+     "date": "2008-01-28",
+     "result": "CT chest, abdomen, pelvis: No local or distant metastasis; right probably chronic gonadal vein thrombosis"
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Right probably chronic gonadal vein thrombosis",
+     "source_ids": [
+      "mts-doc-1287"
+     ]
+    },
+    {
+     "kind": "clinical",
+     "text": "Elevated blood pressure (143/83 mmHg)",
+     "source_ids": [
+      "mts-doc-1287"
+     ]
+    }
+   ],
+   "confidence": "high",
+   "confidence_reason": "The progress note provides clear details on patient history, exam findings, imaging results, and follow-up plan."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 113,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "113 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": false,
+    "detail": "not in records: 2008-01-28"
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 1016,
+   "output_tokens": 1688,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-1289",
+  "record_hash": "6e29e9aa653a7d885a49a08253e6c7418286ca303981066fa140c7fb2521e417",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-22T08:08:01.377690Z",
+  "summary": {
+   "overview": "Ms. Connor is a 50-year-old female seen for a wound check following abdominoperineal resection (APR) with ileostomy for refractory ulcerative colitis. Her perineal wound is healed and ileostomy is functioning well, though she reports intermittent abdominal pain and minor right arm numbness. She is recovering well overall with significant quality-of-life improvement.",
+   "chief_concern": "Wound check post-APR and evaluation of intermittent abdominal pain",
+   "key_diagnoses": [
+    {
+     "text": "Refractory ulcerative colitis, status post APR with ileostomy",
+     "source_ids": [
+      "mts-doc-1289"
+     ]
+    },
+    {
+     "text": "Perineal wound infection, healed",
+     "source_ids": [
+      "mts-doc-1289"
+     ]
+    },
+    {
+     "text": "Intermittent postoperative abdominal pain",
+     "source_ids": [
+      "mts-doc-1289"
+     ]
+    },
+    {
+     "text": "Right hand and arm numbness, postoperative",
+     "source_ids": [
+      "mts-doc-1289"
+     ]
+    }
+   ],
+   "recent_media": [],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Low body temperature reading of 95.8 F",
+     "source_ids": [
+      "mts-doc-1289"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "The record contains detailed clinical information for the encounter, but consists of only a single document with an unknown date."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 109,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "109 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 1192,
+   "output_tokens": 1567,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-1290",
+  "record_hash": "f7504482882c4b0a377e635350fb887313b910d9c1205833f9611f3823fc867e",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-22T08:08:16.612309Z",
+  "summary": {
+   "overview": "Patient presented for follow-up regarding weight loss management on phentermine. She experienced a weight plateau with a one-pound gain since her last visit, near her lowest weight of 136 lbs. Phentermine discontinuation will be considered if weight loss does not resume within a month.",
+   "chief_concern": "Follow-up on weight loss on phentermine",
+   "key_diagnoses": [
+    {
+     "text": "Weight loss plateau on phentermine",
+     "source_ids": [
+      "mts-doc-1290"
+     ]
+    }
+   ],
+   "recent_media": [],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Slightly elevated diastolic blood pressure",
+     "source_ids": [
+      "mts-doc-1290"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "The record consists of a single progress note lacking exact dates, explicit demographic data, and specific numerical vitals."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 78,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "78 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 746,
+   "output_tokens": 1025,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-1293",
+  "record_hash": "6c6fa8974238fa46a7cb241643154b1fd2b9890e3c129d4dda360397797de0fc",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-22T08:08:27.437785Z",
+  "summary": {
+   "overview": "A 29-year-old male presented for evaluation of localized swelling in his right hand and forearm after a wasp sting to the wrist. He reported a history of similar localized reactions without anaphylaxis. He was treated with IM Solu-Medrol, OTC Benadryl, ice, and elevation.",
+   "chief_concern": "Right hand and arm swelling after wasp sting",
+   "key_diagnoses": [
+    {
+     "text": "Wasp sting to right wrist area",
+     "source_ids": [
+      "mts-doc-1293"
+     ]
+    }
+   ],
+   "recent_media": [],
+   "anomalies": [],
+   "confidence": "high",
+   "confidence_reason": "The record provides clear documentation of the presentation, physical examination, diagnosis, and treatment plan."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 71,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "71 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 779,
+   "output_tokens": 1324,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-1294",
+  "record_hash": "4a7ff657ae2f836ea65527f98713f7f7509d80d2f3267ab079ce5ff38f72b6f9",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-22T08:08:34.130109Z",
+  "summary": {
+   "overview": "A 14-year-old female was evaluated for possible tethered cord following several months of bilateral lateral leg pain worsening at night. She has a history of prior lipomyomeningocele repairs at 3 days and 3.5 years of age. Examination showed L4 to S1 sensory loss, and a repeat lumbar spine MRI was recommended.",
+   "chief_concern": "Evaluation of possible tethered cord",
+   "key_diagnoses": [
+    {
+     "text": "Possible tethered cord",
+     "source_ids": [
+      "mts-doc-1294"
+     ]
+    },
+    {
+     "text": "History of lipomyomeningocele repair",
+     "source_ids": [
+      "mts-doc-1294"
+     ]
+    },
+    {
+     "text": "Asthma",
+     "source_ids": [
+      "mts-doc-1294"
+     ]
+    }
+   ],
+   "recent_media": [],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Diminished sensation from L4 to S1",
+     "source_ids": [
+      "mts-doc-1294"
+     ]
+    },
+    {
+     "kind": "clinical",
+     "text": "Bilateral lateral leg pain worsening at night",
+     "source_ids": [
+      "mts-doc-1294"
+     ]
+    },
+    {
+     "kind": "data_quality",
+     "text": "Missing note date and patient birth date",
+     "source_ids": [
+      "mts-doc-1294"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "Documentation is limited to a single encounter note with an unspecified date."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 96,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "96 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": false,
+    "detail": "not in records: 3.5"
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 756,
+   "output_tokens": 1516,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-1295",
+  "record_hash": "5e40df0d41a0379ac12a12f4e25124f10107178ca78c2372decab48d1967e1ee",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-22T08:08:47.392129Z",
+  "summary": {
+   "overview": "A 13-year-old male presented with a one-day history of sore throat, congestion, hoarseness, and low-grade fever. Exam showed swollen red nares and posterior pharyngeal drainage, while strep testing and sinus radiology were negative. He was diagnosed with an upper respiratory infection and advised to pursue symptomatic care.",
+   "chief_concern": "Sore throat and nasal congestion",
+   "key_diagnoses": [
+    {
+     "text": "Upper respiratory infection",
+     "source_ids": [
+      "mts-doc-1295"
+     ]
+    },
+    {
+     "text": "History of high blood pressure episodes",
+     "source_ids": [
+      "mts-doc-1295"
+     ]
+    }
+   ],
+   "recent_media": [
+    {
+     "source_id": "mts-doc-1295",
+     "kind": "lab",
+     "date": null,
+     "result": "Strep test and strep culture negative"
+    },
+    {
+     "source_id": "mts-doc-1295",
+     "kind": "imaging",
+     "date": null,
+     "result": "Water's View of sinuses negative for sinusitis or acute infection"
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "History of high blood pressure episodes and 14-pound weight gain over past year",
+     "source_ids": [
+      "mts-doc-1295"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "The record provides clear documentation of the evaluation, but consists of only a single undated encounter note."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 107,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "107 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 818,
+   "output_tokens": 1956,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-1486",
+  "record_hash": "a216c40d2467aad80a13bc4ba3078ee7bdc18a651fd633f619a5bb04649cc0ac",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-22T08:08:54.448151Z",
+  "summary": {
+   "overview": "Patient evaluated for left neck swelling. X-ray of neck soft tissues showed a patent airway with no tonsillar or prevertebral swelling, but confirmed slight soft tissue asymmetry with enlargement on the left side.",
+   "chief_concern": "Left neck swelling",
+   "key_diagnoses": [
+    {
+     "text": "Left neck soft tissue enlargement",
+     "source_ids": [
+      "mts-doc-1486"
+     ]
+    }
+   ],
+   "recent_media": [
+    {
+     "source_id": "mts-doc-1486",
+     "kind": "imaging",
+     "date": null,
+     "result": "Neck X-ray: patent airway, slight left soft tissue asymmetry/enlargement."
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Slight soft tissue asymmetry with enlargement on the left side of the neck",
+     "source_ids": [
+      "mts-doc-1486"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "Records consist of a single undated imaging report without patient demographic information."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 75,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "75 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 762,
+   "output_tokens": 1426,
+   "attempts": 1
+  }
  }
 ]
