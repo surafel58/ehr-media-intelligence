@@ -3353,5 +3353,1543 @@
    "output_tokens": 1426,
    "attempts": 1
   }
+ },
+ {
+  "patient_id": "mts-1488",
+  "record_hash": "2bb668a59d68ee91bb3c3358bb93b92ac2a85263e236666c9302f87808bb56a5",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-23T08:06:11.413247Z",
+  "summary": {
+   "overview": "Obstetrical ultrasound evaluation demonstrated an active intrauterine cephalic pregnancy at 37 weeks 4 days gestational age with normal fetal anatomy and a biophysical profile of 8/8. The study noted mild oligohydramnios with an amniotic fluid index of 4 cm.",
+   "chief_concern": "Obstetrical ultrasound evaluation",
+   "key_diagnoses": [
+    {
+     "text": "Active intrauterine pregnancy",
+     "source_ids": [
+      "mts-doc-1488"
+     ]
+    },
+    {
+     "text": "Mild oligohydramnios",
+     "source_ids": [
+      "mts-doc-1488"
+     ]
+    }
+   ],
+   "recent_media": [
+    {
+     "source_id": "mts-doc-1488",
+     "kind": "imaging",
+     "date": null,
+     "result": "37w4d live fetus, BPP 8/8, normal fetal anatomy, mild oligohydramnios (AFI 4cm)"
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Amniotic fluid index of 4 cm indicating mild oligohydramnios",
+     "source_ids": [
+      "mts-doc-1488"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "The record consists of a single undated obstetrical ultrasound report without broader medical history."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 82,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "82 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 1129,
+   "output_tokens": 1240,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-1490",
+  "record_hash": "27a3c742f74accaa2db3aec87f5d85ec956fa454c86579f14b81529d2f486eac",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-23T08:06:25.138636Z",
+  "summary": {
+   "overview": "A single undated obstetrical ultrasound report is available for a patient with unknown demographics. The record shows a viable fetus at approximately 33-34 weeks gestation in cephalic lie with normal cardiac activity. Anatomical evaluation notes normal amniotic fluid and an anterior Grade I placenta.",
+   "chief_concern": "Obstetrical ultrasound evaluation",
+   "key_diagnoses": [
+    {
+     "text": "Intrauterine pregnancy, ~33-34 weeks gestation",
+     "source_ids": [
+      "mts-doc-1490"
+     ]
+    }
+   ],
+   "recent_media": [
+    {
+     "source_id": "mts-doc-1490",
+     "kind": "imaging",
+     "date": null,
+     "result": "OB ultrasound: FHR 150 bpm, cephalic lie, ~33-34 weeks biometry, normal fluid, anterior placenta."
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "data_quality",
+     "text": "Patient sex, birth date, and record date are missing",
+     "source_ids": [
+      "mts-doc-1490"
+     ]
+    },
+    {
+     "kind": "data_quality",
+     "text": "Femur length (FL) measurement is incomplete in biometry text",
+     "source_ids": [
+      "mts-doc-1490"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "Only a single undated obstetrical ultrasound is available with missing demographic data and incomplete biometry."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 99,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "99 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": false,
+    "detail": "not in records: 33-34"
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 554,
+   "output_tokens": 1503,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-1491",
+  "record_hash": "e7fc95776ced522d8b8bf0a750b2c6c47c369a73a47c8c9426d196c39f625758",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-23T08:06:43.561303Z",
+  "summary": {
+   "overview": "A pregnant patient underwent an obstetric ultrasound for nausea, vomiting, and diarrhea. The scan identified a 6-week intrauterine gestational sac, but absent fetal heart tones raised concern for an inevitable abortion. Correlation with beta-hCG and close follow-up were recommended.",
+   "chief_concern": "Nausea, vomiting, and diarrhea in pregnancy",
+   "key_diagnoses": [
+    {
+     "text": "Intrauterine pregnancy at 6 weeks 0 days, unconfirmed viability",
+     "source_ids": [
+      "mts-doc-1491"
+     ]
+    },
+    {
+     "text": "Possible inevitable abortion",
+     "source_ids": [
+      "mts-doc-1491"
+     ]
+    }
+   ],
+   "recent_media": [
+    {
+     "source_id": "mts-doc-1491",
+     "kind": "imaging",
+     "date": null,
+     "result": "OB ultrasound showing 6w0d gestational sac without fetal heart rate"
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Absent fetal heart rate at 6 weeks expected gestational age",
+     "source_ids": [
+      "mts-doc-1491"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "The record contains only a single ultrasound report with an unknown date."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 89,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "89 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 750,
+   "output_tokens": 1309,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-1492",
+  "record_hash": "b63860e29824e8a52164a1afd81661c4c469e2a0a3a0ee97e070aa273cb684a0",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-23T08:06:59.068717Z",
+  "summary": {
+   "overview": "Single obstetric ultrasound report available without patient demographics or report dates. The scan demonstrates normal fetal cardiac activity at 140 BPM, a variable fetal position, a posterior placenta without previa, and a normal uterus.",
+   "chief_concern": "Obstetric ultrasound evaluation",
+   "key_diagnoses": [
+    {
+     "text": "Normal fetal cardiac activity",
+     "source_ids": [
+      "mts-doc-1492"
+     ]
+    }
+   ],
+   "recent_media": [
+    {
+     "source_id": "mts-doc-1492",
+     "kind": "imaging",
+     "date": null,
+     "result": "OB Ultrasound: Fetal HR 140 BPM, variable position, posterior placenta, normal uterus"
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "data_quality",
+     "text": "Patient sex, birth date, report date, and cervix evaluation are missing or incomplete",
+     "source_ids": [
+      "mts-doc-1492"
+     ]
+    }
+   ],
+   "confidence": "low",
+   "confidence_reason": "Only a single brief imaging report without dates or complete patient demographics is present."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 80,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "80 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 468,
+   "output_tokens": 1041,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-1493",
+  "record_hash": "200e5abda04529b3535ddea3f00c658eaa8ed1ec432618bcd6aa29d4abac65ff",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-23T08:07:16.564397Z",
+  "summary": {
+   "overview": "Patient record consists of an obstetrical ultrasound report evaluating Twin A. Findings demonstrate normal fetal cardiac activity at 166 BPM, cephalic presentation, and a posterior fused placenta. Fetal biometry shows gestational age parameters ranging from 32 to 35 weeks.",
+   "chief_concern": "Obstetrical ultrasound evaluation",
+   "key_diagnoses": [
+    {
+     "text": "Twin pregnancy",
+     "source_ids": [
+      "mts-doc-1493"
+     ]
+    }
+   ],
+   "recent_media": [
+    {
+     "source_id": "mts-doc-1493",
+     "kind": "imaging",
+     "date": null,
+     "result": "OB Ultrasound (Twin A): FHR 166 BPM, cephalic lie, posterior fused placenta Grade I-II."
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "data_quality",
+     "text": "Incomplete femur length (FL) biometry value and missing record date.",
+     "source_ids": [
+      "mts-doc-1493"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "Single imaging report provides detailed biometry for Twin A, but patient demographics, record date, and femur length are incomplete."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 87,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "87 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 577,
+   "output_tokens": 1388,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-1770",
+  "record_hash": "1729b27171b6cac5afc418e6351b545e5d0949ddb7adf240e6d0355ec4c1280a",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-23T08:07:33.870396Z",
+  "summary": {
+   "overview": "A 22-year-old female was hospitalized for severe disorganization, mood lability, inappropriate behaviors, and psychosis. She was treated with antipsychotic medications and developed secondary prolactinemia. She was discharged symptomatic against medical advice following a court drop by prosecution.",
+   "chief_concern": "Increasing mood lability, disorganization, and inappropriate behaviors",
+   "key_diagnoses": [
+    {
+     "text": "Schizoaffective disorder, bipolar type",
+     "source_ids": [
+      "mts-doc-1770"
+     ]
+    },
+    {
+     "text": "Hepatitis C",
+     "source_ids": [
+      "mts-doc-1770"
+     ]
+    }
+   ],
+   "recent_media": [],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Prolactinemia secondary to medication",
+     "source_ids": [
+      "mts-doc-1770"
+     ]
+    },
+    {
+     "kind": "clinical",
+     "text": "Discharged against medical advice while remaining disorganized and delusional",
+     "source_ids": [
+      "mts-doc-1770"
+     ]
+    }
+   ],
+   "confidence": "high",
+   "confidence_reason": "The single psychiatric discharge summary provides a clear and detailed clinical picture."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 75,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "75 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 1019,
+   "output_tokens": 1309,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-1881",
+  "record_hash": "46edf6a1b205218239b00a2bbdbd499ad0108ab873aeb025577a6d1f9d8c849f",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-23T08:07:47.921349Z",
+  "summary": {
+   "overview": "A 5-year 3-month-old female presented for a routine well-child checkup with no parental concerns reported. Developmental milestones were normal per Denver II testing, and physical examination findings were unremarkable. Anticipatory guidance was provided, routine immunizations were administered, and a school physical was completed.",
+   "chief_concern": "Routine 5-year 3-month well-child check",
+   "key_diagnoses": [
+    {
+     "text": "Well 5-year-old child",
+     "source_ids": [
+      "mts-doc-1881"
+     ]
+    }
+   ],
+   "recent_media": [],
+   "anomalies": [
+    {
+     "kind": "data_quality",
+     "text": "Patient header lists sex and birth date as unknown, but clinical note documents a 5-year 3-month-old female",
+     "source_ids": [
+      "mts-doc-1881"
+     ]
+    }
+   ],
+   "confidence": "high",
+   "confidence_reason": "The record contains a complete and detailed documentation of a routine pediatric checkup."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 81,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "81 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 1051,
+   "output_tokens": 1403,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-1883",
+  "record_hash": "09a80ecce91aa51c2314cc5c64e542d446e12d2c87fbecbdfaacf431752307e4",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-23T08:07:58.416229Z",
+  "summary": {
+   "overview": "A 2-week-old female infant presented for a routine well-child check with maternal concern regarding occasional spitting up. Physical examination findings were normal with appropriate growth and development. Patient header metadata incorrectly states patient age as 23, confusing it with the mother's age.",
+   "chief_concern": "Well-child check and spitting up",
+   "key_diagnoses": [
+    {
+     "text": "Well 2-week-old infant",
+     "source_ids": [
+      "mts-doc-1883"
+     ]
+    }
+   ],
+   "recent_media": [],
+   "anomalies": [
+    {
+     "kind": "data_quality",
+     "text": "Demographic header lists age as 23, but clinical note describes a 2-week-old infant",
+     "source_ids": [
+      "mts-doc-1883"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "The record consists of a single pediatric encounter note with an age discrepancy in the header metadata."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 80,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "80 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 1185,
+   "output_tokens": 1337,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-2501",
+  "record_hash": "76e3d51d9375152912ec69fffcee19fe6e5199a55a1546e600266f631fdf5506",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-23T08:08:07.019055Z",
+  "summary": {
+   "overview": "A 59-year-old female presented for a routine well-woman checkup. She has a history of a past hysterectomy, rosacea, tremors managed with Inderal LA, and a recent urinary tract infection. Exam was overall unremarkable except for vaginal mucosal atrophy and reported lingering headaches from a prior fall.",
+   "chief_concern": "Well-woman checkup",
+   "key_diagnoses": [
+    {
+     "text": "Status post hysterectomy",
+     "source_ids": [
+      "mts-doc-2501"
+     ]
+    },
+    {
+     "text": "Recent urinary tract infection",
+     "source_ids": [
+      "mts-doc-2501"
+     ]
+    },
+    {
+     "text": "Tremors",
+     "source_ids": [
+      "mts-doc-2501"
+     ]
+    },
+    {
+     "text": "Rosacea",
+     "source_ids": [
+      "mts-doc-2501"
+     ]
+    },
+    {
+     "text": "Post-traumatic headaches",
+     "source_ids": [
+      "mts-doc-2501"
+     ]
+    }
+   ],
+   "recent_media": [],
+   "anomalies": [
+    {
+     "kind": "data_quality",
+     "text": "Review of systems denies headaches and tremors, contradicting documented history of tremors and post-fall headaches in HPI and exam.",
+     "source_ids": [
+      "mts-doc-2501"
+     ]
+    },
+    {
+     "kind": "clinical",
+     "text": "Atrophic vaginal mucosa found on pelvic exam.",
+     "source_ids": [
+      "mts-doc-2501"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "Record consists of a single note with an unknown date and internal contradictions between the review of systems and physical examination."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 106,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "106 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 1454,
+   "output_tokens": 1490,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-2536",
+  "record_hash": "aa6ffe9c69c815d4fb78cfc67ad4775646a11f6836d4ea3a15298dc78a55efb9",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-23T08:08:26.540574Z",
+  "summary": {
+   "overview": "Patient underwent a total abdominal hysterectomy on 6/10/2009 for severe menometrorrhagia, severe anemia, and a symptomatic fibroid uterus. Pathology confirmed extensive adenomyosis, and she was discharged home in stable condition on postoperative day 5.",
+   "chief_concern": "Total abdominal hysterectomy for menometrorrhagia and fibroids",
+   "key_diagnoses": [
+    {
+     "text": "Severe menometrorrhagia",
+     "source_ids": [
+      "mts-doc-2536"
+     ]
+    },
+    {
+     "text": "Severe anemia",
+     "source_ids": [
+      "mts-doc-2536"
+     ]
+    },
+    {
+     "text": "Symptomatic fibroid uterus",
+     "source_ids": [
+      "mts-doc-2536"
+     ]
+    },
+    {
+     "text": "Extensive adenomyosis",
+     "source_ids": [
+      "mts-doc-2536"
+     ]
+    }
+   ],
+   "recent_media": [
+    {
+     "source_id": "mts-doc-2536",
+     "kind": "lab",
+     "date": null,
+     "result": "Discharge Hb 7.9 g/dL, Hct 25.2% (admission Hb 10.5, Hct 32.8)"
+    },
+    {
+     "source_id": "mts-doc-2536",
+     "kind": "pathology",
+     "date": "2009-06-10",
+     "result": "Extensive adenomyosis"
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Discharge hemoglobin/hematocrit dropped to 7.9/25.2 from admission levels of 10.5/32.8",
+     "source_ids": [
+      "mts-doc-2536"
+     ]
+    }
+   ],
+   "confidence": "high",
+   "confidence_reason": "The record provides a complete and consistent discharge summary detailing the patient's surgical course, lab findings, and diagnoses."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 91,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "91 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": false,
+    "detail": "not in records: 2009-06-10"
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 982,
+   "output_tokens": 1846,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-2553",
+  "record_hash": "d98eb0dbf39b805659212c35ecd3aeb123eeceacd4cd223630ecb5a33c10c305",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-23T08:08:36.232131Z",
+  "summary": {
+   "overview": "Pathology report evaluates a right ovarian cyst specimen measuring 13x12x7 cm. Gross examination and frozen section confirmed a benign cystic ovary. Patient demographics and encounter dates are missing.",
+   "chief_concern": "Right ovarian cyst pathology evaluation",
+   "key_diagnoses": [
+    {
+     "text": "Benign cystic ovary",
+     "source_ids": [
+      "mts-doc-2553"
+     ]
+    }
+   ],
+   "recent_media": [
+    {
+     "source_id": "mts-doc-2553",
+     "kind": "pathology",
+     "date": null,
+     "result": "Benign cystic ovary (13x12x7 cm right ovarian cyst)"
+    }
+   ],
+   "anomalies": [],
+   "confidence": "medium",
+   "confidence_reason": "The record contains a single pathology report with clear diagnostic findings but lacks dates and patient demographics."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 61,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "61 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 560,
+   "output_tokens": 1191,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-3081",
+  "record_hash": "5ce804d318b01b655501bead871b894b6cd93723e73ad53330bee068d944d732",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-23T08:08:48.675292Z",
+  "summary": {
+   "overview": "A 37-year-old female underwent a left lower lobe lung resection after a mass was found during preoperative evaluation for a colectomy. Pathology confirmed primary lung sarcomatoid carcinoma with vascular invasion and hilar lymph node metastasis (stage pT1N1MX).",
+   "chief_concern": "Left lower lobe lung mass",
+   "key_diagnoses": [
+    {
+     "text": "Primary lung sarcomatoid carcinoma (pT1N1MX)",
+     "source_ids": [
+      "mts-doc-3081"
+     ]
+    },
+    {
+     "text": "History of colectomy for adenoma",
+     "source_ids": [
+      "mts-doc-3081"
+     ]
+    }
+   ],
+   "recent_media": [
+    {
+     "source_id": "mts-doc-3081",
+     "kind": "pathology",
+     "date": null,
+     "result": "Sarcomatoid carcinoma, 2.7 cm, vascular invasion (+), 1/4 hilar lymph nodes positive, margins clear"
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Vascular invasion present and metastasis in 1 of 4 hilar lymph nodes",
+     "source_ids": [
+      "mts-doc-3081"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "Documentation is limited to a single pathology report without dates."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 88,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "88 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 920,
+   "output_tokens": 1409,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-3084",
+  "record_hash": "34be665b4f3358f17437c784baa88dd55c3a3343440189d38a7ef962fd029f39",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-23T08:09:01.474300Z",
+  "summary": {
+   "overview": "Single pathology report detailing a right upper lobe lobectomy for mucinous bronchioloalveolar carcinoma. The tumor measured 3.6 cm with well-differentiated histology, negative surgical margins, and no hilar lymph node involvement. Non-neoplastic lung tissue showed emphysema.",
+   "chief_concern": "Right upper lobe lung mass / lobectomy",
+   "key_diagnoses": [
+    {
+     "text": "Bronchioloalveolar carcinoma, mucinous type, right upper lobe",
+     "source_ids": [
+      "mts-doc-3084"
+     ]
+    },
+    {
+     "text": "Emphysema",
+     "source_ids": [
+      "mts-doc-3084"
+     ]
+    }
+   ],
+   "recent_media": [
+    {
+     "source_id": "mts-doc-3084",
+     "kind": "pathology",
+     "date": null,
+     "result": "Right upper lobe lobectomy showing mucinous bronchioloalveolar carcinoma (3.6 cm, negative margins, 0/1 positive lymph nodes)"
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Non-neoplastic lung demonstrates emphysema",
+     "source_ids": [
+      "mts-doc-3084"
+     ]
+    },
+    {
+     "kind": "data_quality",
+     "text": "Patient demographics (sex, birth date) and record date are unknown",
+     "source_ids": [
+      "mts-doc-3084"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "Record consists of a single pathology report lacking dates and patient demographics."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 92,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "92 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 809,
+   "output_tokens": 1698,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-3087",
+  "record_hash": "5dd1db09361df37a8b1640399c3be3dce51d9acb839093582f8b6abb1121fa3d",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-23T08:09:22.479921Z",
+  "summary": {
+   "overview": "A 21-year-old female presented for evaluation of a right thumb worker's compensation injury caused by a crushing mechanism. Examination revealed distal thumb swelling, subungual hematoma, and mild cellulitis, with X-ray showing no fracture. She was treated with a tetanus booster, oral antibiotics, and work restrictions.",
+   "chief_concern": "Worker's compensation right thumb injury",
+   "key_diagnoses": [
+    {
+     "text": "Blunt trauma to distal right thumb without fracture",
+     "source_ids": [
+      "mts-doc-3087"
+     ]
+    },
+    {
+     "text": "Mild cellulitis of right thumb",
+     "source_ids": [
+      "mts-doc-3087"
+     ]
+    }
+   ],
+   "recent_media": [
+    {
+     "source_id": "mts-doc-3087",
+     "kind": "imaging",
+     "date": null,
+     "result": "X-ray of right thumb shows no fracture or foreign body"
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Subungual hematoma and mild cellulitis at site of right thumb injury",
+     "source_ids": [
+      "mts-doc-3087"
+     ]
+    }
+   ],
+   "confidence": "high",
+   "confidence_reason": "The single clinical record provides a detailed evaluation, physical exam, imaging result, and clear management plan."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 100,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "100 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 1341,
+   "output_tokens": 1213,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-3200",
+  "record_hash": "a1387ae79b9d0032cc16a245e87663989d9a92d0662e65f47e1f395b7608e09d",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-23T08:09:35.688707Z",
+  "summary": {
+   "overview": "A 68-year-old male with a history of atrial fibrillation presented to the emergency department with a three-day history of cough and sputum production. He was diagnosed with a viral respiratory illness and discharged on cough syrup without antibiotics.",
+   "chief_concern": "Cough for three days with sputum production",
+   "key_diagnoses": [
+    {
+     "text": "Viral respiratory illness",
+     "source_ids": [
+      "mts-doc-3200"
+     ]
+    },
+    {
+     "text": "Atrial fibrillation",
+     "source_ids": [
+      "mts-doc-3200"
+     ]
+    }
+   ],
+   "recent_media": [],
+   "anomalies": [
+    {
+     "kind": "data_quality",
+     "text": "Patient birth date and encounter date are unknown",
+     "source_ids": [
+      "mts-doc-3200"
+     ]
+    }
+   ],
+   "confidence": "high",
+   "confidence_reason": "The single encounter note provides detailed history, exam, and management documentation."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 69,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "69 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 1099,
+   "output_tokens": 1465,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-3206",
+  "record_hash": "dfaf4b4979a85dbb29c952f7bb39688724c7dc8fb10a7b0c6990515d0ed0ed64",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-23T08:09:47.843577Z",
+  "summary": {
+   "overview": "A 29-year-old male presented to the emergency department with a 3-day history of left upper and lower toothache. He was diagnosed with odontalgia and multiple dental caries, treated with IM Dilaudid, and discharged home with Percocet and clindamycin.",
+   "chief_concern": "Left-sided toothache",
+   "key_diagnoses": [
+    {
+     "text": "Odontalgia",
+     "source_ids": [
+      "mts-doc-3206"
+     ]
+    },
+    {
+     "text": "Multiple dental caries",
+     "source_ids": [
+      "mts-doc-3206"
+     ]
+    },
+    {
+     "text": "Chronic knee pain",
+     "source_ids": [
+      "mts-doc-3206"
+     ]
+    }
+   ],
+   "recent_media": [],
+   "anomalies": [],
+   "confidence": "high",
+   "confidence_reason": "Detailed single ER note clearly documenting history, examination, treatment, and discharge instructions."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 59,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "59 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 1599,
+   "output_tokens": 955,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-3884",
+  "record_hash": "5d52d5ba20c49927f85de6ef17252d1268348a9e0700b438c4e806b892a3e762",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-23T08:09:57.816712Z",
+  "summary": {
+   "overview": "A 44-year-old male with end-stage renal disease on hemodialysis, congestive heart failure, and hypertension was admitted for recurrent syncope. He was treated for likely orthostatic hypotension and postdialytic volume depletion, but left against medical advice prior to completing a nuclear stress test.",
+   "chief_concern": "Syncope and lightheadedness",
+   "key_diagnoses": [
+    {
+     "text": "End-stage renal disease requiring hemodialysis",
+     "source_ids": [
+      "mts-doc-3884"
+     ]
+    },
+    {
+     "text": "Syncope",
+     "source_ids": [
+      "mts-doc-3884"
+     ]
+    },
+    {
+     "text": "Congestive heart failure with dilated cardiomyopathy",
+     "source_ids": [
+      "mts-doc-3884"
+     ]
+    },
+    {
+     "text": "Hypertension",
+     "source_ids": [
+      "mts-doc-3884"
+     ]
+    },
+    {
+     "text": "Orthostatic hypotension",
+     "source_ids": [
+      "mts-doc-3884"
+     ]
+    }
+   ],
+   "recent_media": [],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Hypotension noted on admission",
+     "source_ids": [
+      "mts-doc-3884"
+     ]
+    },
+    {
+     "kind": "clinical",
+     "text": "Discharged against medical advice, refusing scheduled nuclear perfusion stress test",
+     "source_ids": [
+      "mts-doc-3884"
+     ]
+    }
+   ],
+   "confidence": "medium",
+   "confidence_reason": "The record consists of a single discharge summary with missing document dates and incomplete diagnostic workup due to AMA discharge."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 94,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "94 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 1327,
+   "output_tokens": 1626,
+   "attempts": 1
+  }
+ },
+ {
+  "patient_id": "mts-4085",
+  "record_hash": "07b8884e1bcffa584ad436a7432c08cc16b1e80b1dd239a5cf84fa53669c6b65",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-23T08:10:19.236379Z",
+  "summary": {
+   "overview": "A 62-year-old female was transferred for wound care, nutritional support, and rehabilitation following complex gastrointestinal surgery. Her postoperative course was complicated by respiratory failure, sepsis, an anastomotic leak, intestinal fistula, and abdominal wound dehiscence. She has since stabilized, had her tracheostomy removed, and is receiving TPN and tube feeds.",
+   "chief_concern": "Wound care, rehabilitation, and medical management following surgical complications",
+   "key_diagnoses": [
+    {
+     "text": "Abdominal wound dehiscence with open abdominal defect",
+     "source_ids": [
+      "mts-doc-4085"
+     ]
+    },
+    {
+     "text": "Anastomotic leak and intestinal fistula",
+     "source_ids": [
+      "mts-doc-4085"
+     ]
+    },
+    {
+     "text": "Status post esophagogastrectomy and bypass takedown",
+     "source_ids": [
+      "mts-doc-4085"
+     ]
+    },
+    {
+     "text": "Morbid obesity (BMI 44)",
+     "source_ids": [
+      "mts-doc-4085"
+     ]
+    },
+    {
+     "text": "Diabetes with peripheral neuropathy",
+     "source_ids": [
+      "mts-doc-4085"
+     ]
+    }
+   ],
+   "recent_media": [
+    {
+     "source_id": "mts-doc-4085",
+     "kind": "pathology",
+     "date": null,
+     "result": "Helicobacter pylori gastritis on partial stomach resection"
+    },
+    {
+     "source_id": "mts-doc-4085",
+     "kind": "imaging",
+     "date": "2008-07-25",
+     "result": "CT abdomen/pelvis showed no abscess formation"
+    },
+    {
+     "source_id": "mts-doc-4085",
+     "kind": "lab",
+     "date": "2008-07-14",
+     "result": "Sputum culture positive for ESBL Klebsiella"
+    },
+    {
+     "source_id": "mts-doc-4085",
+     "kind": "lab",
+     "date": "2008-07-10",
+     "result": "Low prealbumin level of 7"
+    }
+   ],
+   "anomalies": [
+    {
+     "kind": "clinical",
+     "text": "Postoperative anastomotic leak, intestinal fistula, and wound dehiscence",
+     "source_ids": [
+      "mts-doc-4085"
+     ]
+    },
+    {
+     "kind": "clinical",
+     "text": "Low prealbumin level of 7",
+     "source_ids": [
+      "mts-doc-4085"
+     ]
+    },
+    {
+     "kind": "data_quality",
+     "text": "Patient birth date is unrecorded",
+     "source_ids": [
+      "mts-doc-4085"
+     ]
+    }
+   ],
+   "confidence": "high",
+   "confidence_reason": "The consultation note provides detailed clinical context regarding surgical history, postoperative complications, and transfer status."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 141,
+  "quality": [
+   {
+    "name": "under_word_limit",
+    "passed": true,
+    "detail": "141 words"
+   },
+   {
+    "name": "citations_exist",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "findings_cited",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "numbers_grounded",
+    "passed": false,
+    "detail": "not in records: 2008-07-10, 2008-07-14, 2008-07-25"
+   },
+   {
+    "name": "abnormal_results_reported",
+    "passed": true,
+    "detail": ""
+   },
+   {
+    "name": "data_quality_reported",
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "usage": {
+   "input_tokens": 2249,
+   "output_tokens": 2515,
+   "attempts": 1
+  }
  }
 ]
