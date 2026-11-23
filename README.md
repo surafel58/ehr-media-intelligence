@@ -1,6 +1,10 @@
 # EHR Media Intelligence Platform
 
+[![Tests](https://github.com/surafel58/ehr-media-intelligence/actions/workflows/ci.yml/badge.svg)](https://github.com/surafel58/ehr-media-intelligence/actions/workflows/ci.yml)
+
 Cleans raw EHR exports, maps them to FHIR R4, writes AI summaries per patient, and makes every record searchable in plain language.
+
+![Search results for "abnormal blood glucose"](docs/screenshots/results-light.png)
 
 ## Quick start
 
@@ -26,7 +30,7 @@ No API key is needed: the AI summaries generated for this data ship in `data/sum
 |---|---|
 | abnormal blood glucose | A blood count with high glucose and base excess, and that patient's AI summary |
 | heart failure with a leg wound | Home health notes and the AI summary for a patient with heart failure and a leg ulcer |
-| bone scan for prostate cancer | A whole body bone scan report, then a prostate pathology report |
+| bone scan for prostate cancer | The AI summary of a bone scan for prostate cancer, then the bone scan report and a prostate pathology report |
 | headache with visual aura | Progress notes about migraine with aura |
 | chronic pain on opioids | The AI summary and notes of a patient on gabapentin and oxycodone |
 
@@ -40,6 +44,17 @@ Click a result to open the patient: banner, AI summary with its sources, and eve
 | API docs | http://127.0.0.1:8000/docs, then `POST /search` and "Try it out" |
 | Backend tests | `uv run pytest` |
 | Browser tests | `cd frontend && pnpm exec playwright install chromium && pnpm e2e` |
+
+### Example output
+
+Two patients from the sample data, as stored after step 3. No install needed to read them.
+
+| Patient | FHIR R4 Bundle | AI summary |
+|---|---|---|
+| Headaches with visual aura: 8 visits and notes, gender and MRN missing | [notes-patient-bundle.json](docs/examples/notes-patient-bundle.json) | [notes-patient-summary.json](docs/examples/notes-patient-summary.json) |
+| Abnormal blood glucose: a lab report with two high results | [lab-patient-bundle.json](docs/examples/lab-patient-bundle.json) | [lab-patient-summary.json](docs/examples/lab-patient-summary.json) |
+
+Each summary cites the record ids it came from and lists the result of every quality check. Note text sits base64 encoded in `attachment.data`, as FHIR requires.
 
 ## Architecture
 
@@ -77,7 +92,7 @@ Steps 1 to 4 build the data once. The app only reads it: FastAPI searches Chroma
 
 | Data | Leaves the machine |
 |---|---|
-| Patient name and MRN | Never. They are left out of the summary prompt. |
+| Patient name and MRN fields | Never. They are left out of the summary prompt, though a note's own text can still mention the name. |
 | Record text | Only to write summaries, sent to Claude or Gemini as written. With the shipped summaries, nothing is sent. |
 | Search queries | Never. Embeddings run locally for indexing and for queries. |
 
@@ -425,8 +440,6 @@ The model loads once at startup (about 6 seconds), not per request.
 18 tests: chunking, records, ranking, both filters, collapsing copies, the per-patient cap, a 50-record speed test, and every endpoint including bad input.
 
 ## Step 5: Frontend
-
-![Search results, light theme](docs/screenshots/results-light.png)
 
 ```bash
 cd frontend

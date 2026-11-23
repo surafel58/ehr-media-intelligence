@@ -1,0 +1,208 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-hapi-852181",
+  "type": "collection",
+  "timestamp": "2026-11-20T14:13:15Z",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:f348c00d-f77a-524b-ab51-97a1059daf42",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "hapi-852181",
+        "meta": {
+          "source": "https://hapi.fhir.org/baseR4"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR",
+                  "display": "Medical record number"
+                }
+              ]
+            },
+            "value": "738472983",
+            "system": "urn:oid:2.16.840.1.113883.2.4.6.3"
+          },
+          {
+            "value": "urn:uuid:732b50b7-6e41-4a6c-bae5-495b645e126c",
+            "system": "urn:ietf:rfc:3986"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "van de Heuvel",
+            "given": [
+              "Pieter"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1944-11-17"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:afc8a216-a727-5907-b2ed-bacec0e89299",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "hapi-report-852186",
+        "meta": {
+          "source": "https://hapi.fhir.org/baseR4"
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "LAB",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Complete blood count (hemogram) panel - Blood by Automated count"
+        },
+        "subject": {
+          "reference": "urn:uuid:f348c00d-f77a-524b-ab51-97a1059daf42"
+        },
+        "effectiveDateTime": "2013-04-02",
+        "result": [
+          {
+            "reference": "urn:uuid:a3e2d842-4664-506a-aff6-46e6b9bad4e8",
+            "display": "Glucose [Moles/volume] in Blood"
+          },
+          {
+            "reference": "urn:uuid:bc1544f9-52ed-584b-a373-19e7b4f1b40f",
+            "display": "Base excess in Blood by calculation"
+          }
+        ],
+        "presentedForm": [
+          {
+            "contentType": "text/plain",
+            "language": "en",
+            "data": "Q29yZSBsYWI=",
+            "title": "Complete blood count (hemogram) panel - Blood by Automated count"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a3e2d842-4664-506a-aff6-46e6b9bad4e8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "hapi-obs-852184",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Glucose [Moles/volume] in Blood",
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "15074-8",
+              "display": "Glucose [Moles/volume] in Blood"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:f348c00d-f77a-524b-ab51-97a1059daf42"
+        },
+        "effectiveDateTime": "2013-04-02",
+        "valueQuantity": {
+          "value": 6.3,
+          "unit": "mmol/L"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 3.1
+            },
+            "high": {
+              "value": 6.2
+            }
+          }
+        ],
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bc1544f9-52ed-584b-a373-19e7b4f1b40f",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "hapi-obs-852185",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Base excess in Blood by calculation",
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11555-0",
+              "display": "Base excess in Blood by calculation"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:f348c00d-f77a-524b-ab51-97a1059daf42"
+        },
+        "effectiveDateTime": "2013-04-02",
+        "valueQuantity": {
+          "value": 12.6,
+          "unit": "mmol/L"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 7.1
+            },
+            "high": {
+              "value": 11.2
+            }
+          }
+        ],
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

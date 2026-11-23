@@ -99,7 +99,7 @@ test("each patient's AI summary appears once: as its own result or as a snippet"
 test("example queries run a search", async ({ page }) => {
   await page.getByRole("button", { name: "bone scan for prostate cancer" }).click()
   await expect(searchBox(page)).toHaveValue("bone scan for prostate cancer")
-  await expect(results(page).first()).toContainText("Bone Scan")
+  await expect(results(page).first()).toContainText(/bone scan/i)
 })
 
 test("keyboard: slash focuses search, arrows move, enter opens, escape closes", async ({ page }) => {
