@@ -41,13 +41,53 @@ Click a result to open the patient: banner, AI summary with its sources, and eve
 | Backend tests | `uv run pytest` |
 | Browser tests | `cd frontend && pnpm exec playwright install chromium && pnpm e2e` |
 
+## Architecture
+
+```mermaid
+flowchart TD
+    hapi["HAPI FHIR export<br>patients, notes, lab reports"]
+    mts["MTSamples CSV<br>transcribed reports"]
+    ingest["Step 1: Ingest and clean<br>duplicates, MRN conflicts, dates"]
+    fhir["Step 2: Map to FHIR R4<br>validated Bundles"]
+    db[("SQLite<br>Bundles, summary cache")]
+    summ["Step 3: AI summaries<br>cited sources, 6 checks"]
+    llm(["LLM API<br>Claude or Gemini"])
+    saved[("data/summaries.json<br>shipped with the repo")]
+    index["Step 4: Search index<br>local MiniLM embeddings"]
+    chroma[("Chroma<br>record chunks")]
+    api["FastAPI<br>/search, /patients, /resources"]
+    ui["React UI<br>served by the API"]
+
+    hapi --> ingest
+    mts --> ingest
+    ingest --> fhir
+    fhir --> db
+    db --> summ
+    summ <-- "name and MRN left out" --> llm
+    summ <--> saved
+    summ --> db
+    db --> index
+    index --> chroma
+    chroma --> api
+    db --> api
+    api --> ui
+```
+
+Steps 1 to 4 build the data once. The app only reads it: FastAPI searches Chroma, then loads the records and summaries from SQLite.
+
+| Data | Leaves the machine |
+|---|---|
+| Patient name and MRN | Never. They are left out of the summary prompt. |
+| Record text | Only to write summaries, sent to Claude or Gemini as written. With the shipped summaries, nothing is sent. |
+| Search queries | Never. Embeddings run locally for indexing and for queries. |
+
 ## Progress
 
 | Step | Status | Code |
 |---|---|---|
 | 1. Ingestion and cleaning | Done | `src/ehr_platform/ingestion/` |
 | 2. FHIR R4 mapping | Done | `src/ehr_platform/fhir_mapping/` |
-| 3. AI summaries | Done (sample run in progress, see below) | `src/ehr_platform/summarization/` |
+| 3. AI summaries | Done | `src/ehr_platform/summarization/` |
 | 4. Semantic search | Done | `src/ehr_platform/search/`, `src/ehr_platform/api/` |
 | 5. Frontend | Done | `frontend/` |
 
