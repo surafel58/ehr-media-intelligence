@@ -4,6 +4,8 @@ Cleans raw EHR exports, maps them to FHIR R4, writes AI summaries per patient, a
 
 ## Quick start
 
+**Demo video (53 seconds):** [docs/demo.mp4](docs/demo.mp4) shows a search, the patient drawer with its AI summary and lab values, the record type filter, and the dark theme.
+
 Needs Python 3.11+ with [uv](https://docs.astral.sh/uv/), and Node 20+ with [pnpm](https://pnpm.io/) for the UI.
 
 ```bash
@@ -296,19 +298,21 @@ Every summary is checked automatically. These checks are how summary quality was
 
 The sample run uses Gemini because no paid Claude credit was available. Both providers use the same prompt, schema, cache and checks. The Gemini free tier may use prompts to improve Google products, which is fine for synthetic data but not for real patient data.
 
-### Result so far
+### Result
 
-The free tier allows 20 summaries per day, so the sample run finishes over the next few days.
+The free tier allows 20 summaries per day, so the sample run took four days (Nov 20 to 23).
 
-| Patients | AI summaries | No records (no call) | Pending |
+| Patients | AI summaries | No records (no call) | Failed |
 |---|---|---|---|
-| 64 | 15 | 9 | 40 |
+| 64 | 55 | 9 | 0 |
 
 | Check | Passed |
 |---|---|
-| All 6 checks | 15 of 15 summaries |
-| Words | 53 to 120, median 102 |
-| Confidence | 1 high, 12 medium, 2 low |
+| All 6 checks | 50 of 55 summaries |
+| Words | 51 to 141, median 91 |
+| Confidence | 12 high, 36 medium, 7 low |
+
+All 5 misses come from the number check, which only accepts numbers exactly as the note writes them. Three have dates rewritten in ISO form (01/28/08 as 2008-01-28, 6/10/2009 as 2009-06-10, and similar). One is "3-1/2 years" written as 3.5. The last is an ultrasound read as "about 33-34 weeks" where the note gives three measures of 33 weeks and 0 to 6 days: a rounded range, not an invented number.
 
 The summaries also caught problems step 1 missed, such as a patient with eight near-identical progress notes and a note dated 2026 for a 2024 care episode.
 
@@ -360,12 +364,12 @@ Interactive docs at `http://127.0.0.1:8000/docs`.
 
 ### Result
 
-187 records (154 notes, 10 lab reports, 8 imaging reports, 15 AI summaries) indexed as 744 chunks.
+227 records (154 notes, 10 lab reports, 8 imaging reports, 55 AI summaries) indexed as 784 chunks.
 
 | Measure | Median | Slowest |
 |---|---|---|
-| Search inside the index (30 queries) | 12 ms | 31 ms |
-| Full API request over HTTP (20 queries) | 95 ms | 123 ms |
+| Search inside the index (30 queries) | 26 ms | 48 ms |
+| Full API request over HTTP (20 queries) | 45 ms | 67 ms |
 
 The model loads once at startup (about 6 seconds), not per request.
 
