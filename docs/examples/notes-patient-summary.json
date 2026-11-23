@@ -1,0 +1,102 @@
+{
+  "patient_id": "hapi-99470",
+  "record_hash": "0c5570bf394545ef2ee8a069340e4e17a538397bf432e84a04062b98f0e3fbcc",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-20T11:13:07.139452Z",
+  "summary": {
+    "overview": "Hannah Brooks presented with new-onset headaches preceded by visual aura while taking combined oral contraceptives. Estrogen-containing contraception was discontinued due to stroke risk, and she elected to switch to a levonorgestrel 52 mg IUD. The record consists of eight duplicate progress notes filed over a two-week period.",
+    "chief_concern": "New headaches with visual aura on combined oral contraceptives",
+    "key_diagnoses": [
+      {
+        "text": "Migraine with aura",
+        "source_ids": [
+          "hapi-doc-852586",
+          "hapi-doc-843715",
+          "hapi-doc-828996",
+          "hapi-doc-743071",
+          "hapi-doc-718774",
+          "hapi-doc-494378",
+          "hapi-doc-490062",
+          "hapi-doc-471399"
+        ]
+      },
+      {
+        "text": "Contraceptive counseling",
+        "source_ids": [
+          "hapi-doc-852586",
+          "hapi-doc-843715",
+          "hapi-doc-828996",
+          "hapi-doc-743071",
+          "hapi-doc-718774",
+          "hapi-doc-494378",
+          "hapi-doc-490062",
+          "hapi-doc-471399"
+        ]
+      }
+    ],
+    "recent_media": [],
+    "anomalies": [
+      {
+        "kind": "data_quality",
+        "text": "Eight near-identical duplicate progress notes generated across multiple dates",
+        "source_ids": [
+          "hapi-doc-852586",
+          "hapi-doc-843715",
+          "hapi-doc-828996",
+          "hapi-doc-743071",
+          "hapi-doc-718774",
+          "hapi-doc-494378",
+          "hapi-doc-490062",
+          "hapi-doc-471399"
+        ]
+      },
+      {
+        "kind": "data_quality",
+        "text": "Patient sex recorded as unknown in demographics",
+        "source_ids": []
+      }
+    ],
+    "confidence": "medium",
+    "confidence_reason": "The clinical history is clear, but the dataset contains redundant duplicate notes and lacks physical exam or diagnostic test documentation."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 97,
+  "quality": [
+    {
+      "name": "under_word_limit",
+      "passed": true,
+      "detail": "97 words"
+    },
+    {
+      "name": "citations_exist",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "findings_cited",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "numbers_grounded",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "abnormal_results_reported",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "data_quality_reported",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "usage": {
+    "input_tokens": 6884,
+    "output_tokens": 2021,
+    "attempts": 1
+  }
+}

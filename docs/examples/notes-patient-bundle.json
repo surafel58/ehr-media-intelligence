@@ -1,0 +1,717 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-hapi-99470",
+  "type": "collection",
+  "timestamp": "2026-11-20T14:13:15Z",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:14992414-4714-5a49-86dd-f977f1fb5f3b",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "hapi-99470",
+        "meta": {
+          "source": "https://hapi.fhir.org/baseR4",
+          "tag": [
+            {
+              "system": "urn:ehr-media-intelligence:data-quality",
+              "code": "missing_gender"
+            },
+            {
+              "system": "urn:ehr-media-intelligence:data-quality",
+              "code": "missing_mrn"
+            }
+          ]
+        },
+        "identifier": [
+          {
+            "value": "f7cc0181-ee7b-5481-ae4a-d2f2f34a5d4f",
+            "system": "https://clerkmd.com/demo-roster"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Brooks",
+            "given": [
+              "Hannah"
+            ]
+          }
+        ],
+        "gender": "unknown",
+        "birthDate": "1992-12-15"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bac54d27-29d9-5545-9e68-6d79767c6d0e",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "hapi-enc-471395",
+        "meta": {
+          "source": "https://hapi.fhir.org/baseR4"
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB"
+        },
+        "type": [
+          {
+            "text": "Office visit, established patient, moderate-complexity decision making"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:14992414-4714-5a49-86dd-f977f1fb5f3b"
+        },
+        "period": {
+          "start": "2026-10-29T21:33:00Z",
+          "end": "2026-10-29T21:36:58Z"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:eb94fd86-7d7b-596f-a88d-cb77acc72c62",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "hapi-enc-490058",
+        "meta": {
+          "source": "https://hapi.fhir.org/baseR4"
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB"
+        },
+        "type": [
+          {
+            "text": "Office visit, established patient, moderate-complexity decision making"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:14992414-4714-5a49-86dd-f977f1fb5f3b"
+        },
+        "period": {
+          "start": "2026-10-30T21:33:00Z",
+          "end": "2026-10-30T21:36:58Z"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7a57cb4d-1ea3-5fb9-86fd-c5d4ea4017ed",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "hapi-enc-494374",
+        "meta": {
+          "source": "https://hapi.fhir.org/baseR4"
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB"
+        },
+        "type": [
+          {
+            "text": "Office visit, established patient, moderate-complexity decision making"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:14992414-4714-5a49-86dd-f977f1fb5f3b"
+        },
+        "period": {
+          "start": "2026-11-02T21:33:00Z",
+          "end": "2026-11-02T21:36:58Z"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:429954b9-0050-5426-8de7-efccb4a53d12",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "hapi-enc-718770",
+        "meta": {
+          "source": "https://hapi.fhir.org/baseR4"
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB"
+        },
+        "type": [
+          {
+            "text": "Office visit, established patient, moderate-complexity decision making"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:14992414-4714-5a49-86dd-f977f1fb5f3b"
+        },
+        "period": {
+          "start": "2026-11-04T21:33:00Z",
+          "end": "2026-11-04T21:36:58Z"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c554419f-c073-5e32-aeeb-fbef41fce793",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "hapi-enc-743067",
+        "meta": {
+          "source": "https://hapi.fhir.org/baseR4"
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB"
+        },
+        "type": [
+          {
+            "text": "Office visit, established patient, moderate-complexity decision making"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:14992414-4714-5a49-86dd-f977f1fb5f3b"
+        },
+        "period": {
+          "start": "2026-11-05T21:33:00Z",
+          "end": "2026-11-05T21:36:58Z"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0ce20b40-dbf2-5c1a-a56c-afaa5b012c76",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "hapi-enc-828992",
+        "meta": {
+          "source": "https://hapi.fhir.org/baseR4"
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB"
+        },
+        "type": [
+          {
+            "text": "Office visit, established patient, moderate-complexity decision making"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:14992414-4714-5a49-86dd-f977f1fb5f3b"
+        },
+        "period": {
+          "start": "2026-11-06T21:33:00Z",
+          "end": "2026-11-06T21:36:58Z"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2b7aac6c-3e49-5ae8-9abf-d59a38f626c2",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "hapi-enc-843711",
+        "meta": {
+          "source": "https://hapi.fhir.org/baseR4"
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB"
+        },
+        "type": [
+          {
+            "text": "Office visit, established patient, moderate-complexity decision making"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:14992414-4714-5a49-86dd-f977f1fb5f3b"
+        },
+        "period": {
+          "start": "2026-11-09T21:33:00Z",
+          "end": "2026-11-09T21:36:58Z"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0425dbbd-301d-52c0-b8ce-f7ac9a1fcc14",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "hapi-enc-852582",
+        "meta": {
+          "source": "https://hapi.fhir.org/baseR4"
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB"
+        },
+        "type": [
+          {
+            "text": "Office visit, established patient, moderate-complexity decision making"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:14992414-4714-5a49-86dd-f977f1fb5f3b"
+        },
+        "period": {
+          "start": "2026-11-10T21:33:00Z",
+          "end": "2026-11-10T21:36:58Z"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8261e5f7-38db-5e5f-af45-843fa37b2fef",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "hapi-doc-852586",
+        "meta": {
+          "source": "https://hapi.fhir.org/baseR4"
+        },
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11506-3",
+              "display": "Progress note"
+            }
+          ],
+          "text": "Progress note"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note",
+                "display": "Clinical Note"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:14992414-4714-5a49-86dd-f977f1fb5f3b"
+        },
+        "date": "2026-11-11T01:09:00Z",
+        "description": "Progress note",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "language": "en",
+              "data": "UHJvZ3Jlc3Mgbm90ZSwgU3VucmlzZSBGYW1pbHkgTWVkaWNpbmUKUGF0aWVudDogSGFubmFoIEJyb29rcyAoRE9CIDE5OTItMTItMTUpCkNsaW5pY2lhbjogRHIuIEhhbm5haCBPa2Fmb3IKVmlzaXQ6IE5vdiAxMCwgMjAyNiAyOjMzIFBNIE1TVApTaWduZWQ6IE5vdiAxMCwgMjAyNiA2OjA5IFBNIE1TVCBieSBEci4gSGFubmFoIE9rYWZvcgpEcmFmdGVkIGJ5IENsZXJrTUQncyBBSSBzY3JpYmUgZnJvbSB0aGUgdmlzaXQgcmVjb3JkaW5nLCB0aGVuIHJldmlld2VkIGFuZCBzaWduZWQgYnkgdGhlIGNsaW5pY2lhbi4KCkNISUVGIENPTVBMQUlOVApOZXcgaGVhZGFjaGVzIHRoaXMgeWVhciBwcmVjZWRlZCBieSB2aXN1YWwgc3ltcHRvbXMgKHppZ3phZyBsaW5lcywgYmx1cnJ5IHZpc2lvbiksIGluIGEgcGF0aWVudCBjdXJyZW50bHkgdGFraW5nIHRoZSBjb21iaW5lZCBvcmFsIGNvbnRyYWNlcHRpdmUgcGlsbC4KCkhJU1RPUlkgT0YgUFJFU0VOVCBJTExORVNTClBhdGllbnQgcmVwb3J0cyBvbnNldCB0aGlzIHllYXIgb2YgaGVhZGFjaGVzIHByZWNlZGVkIGJ5IHZpc3VhbCBkaXN0dXJiYW5jZSBkZXNjcmliZWQgYXMgemlnemFnIGxpbmVzIGFuZCBibHVycnkgdmlzaW9uLiBTaGUgaGFzIG5ldmVyIGhhZCB0aGVzZSBzeW1wdG9tcyBiZWZvcmUuIFNoZSBoYXMgYmVlbiBvbiB0aGUgY29tYmluZWQgb3JhbCBjb250cmFjZXB0aXZlIHBpbGwgZm9yIGEgZmV3IHllYXJzIHdpdGhvdXQgcHJpb3IgaXNzdWUuIE5vIHNtb2tpbmcgaGlzdG9yeSBhbmQgbm8gb3RoZXIgaGVhbHRoIHByb2JsZW1zLiBSZWdhcmRpbmcgZnV0dXJlIGZlcnRpbGl0eSBwbGFucywgc2hlIGRvZXMgbm90IHdhbnQgY2hpbGRyZW4gcmlnaHQgYXdheSwgcG9zc2libHkgaW4gdHdvIHRvIHRocmVlIHllYXJzLiBDbGluaWNpYW4gY291bnNlbGxlZCB0aGF0IGVzdHJvZ2VuLWNvbnRhaW5pbmcgY29udHJhY2VwdGlvbiBzaG91bGQgbm90IGJlIGNvbnRpbnVlZCB3aXRoIG1pZ3JhaW5lIHdpdGggYXVyYSBkdWUgdG8gaW5jcmVhc2VkIHN0cm9rZSByaXNrLCBhbmQgcmV2aWV3ZWQgbm9uLWVzdHJvZ2VuIG9wdGlvbnMgaW5jbHVkaW5nIHRoZSA1MiBtZyBsZXZvbm9yZ2VzdHJlbCBJVUQsIGNvcHBlciBJVUQsIGFuZCB0aGUgYXJtIGltcGxhbnQsIGluY2x1ZGluZyBleHBlY3RlZCBibGVlZGluZyBwYXR0ZXJucy4gUGF0aWVudCBlbGVjdGVkIHRoZSBsZXZvbm9yZ2VzdHJlbCBJVUQsIHByZWZlcnJpbmcgbGlnaHRlciBwZXJpb2RzLgoKUkVWSUVXIE9GIFNZU1RFTVMKTmV1cm9sb2dpYzogdmlzdWFsIGF1cmEgd2l0aCB6aWd6YWcgbGluZXMgYW5kIGJsdXJyeSB2aXNpb24gcHJlY2VkaW5nIGhlYWRhY2hlcy4gT3RoZXJ3aXNlIHJlcG9ydHMgbm8gb3RoZXIgaGVhbHRoIGlzc3Vlcy4gU29jaWFsOiBub24tc21va2VyLgoKVklUQUxTCkJsb29kIHByZXNzdXJlIDExOC83Mi4KClBIWVNJQ0FMIEVYQU0KTm90IGRvY3VtZW50ZWQKCkFTU0VTU01FTlQgQU5EIFBMQU4KMS4gTWlncmFpbmUgd2l0aCBhdXJhLCBuZXcgb25zZXQg4oCUIG5ldwpOZXctb25zZXQgaGVhZGFjaGVzIHRoaXMgeWVhciBwcmVjZWRlZCBieSB2aXN1YWwgYXVyYSAoemlnemFnIGxpbmVzLCBibHVycmVkIHZpc2lvbik7IGNsaW5pY2lhbiBhc3Nlc3NlZCBhcyBtaWdyYWluZSB3aXRoIGF1cmEuIFRoaXMgaXMgYSBjb250cmFpbmRpY2F0aW9uIHRvIGVzdHJvZ2VuLWNvbnRhaW5pbmcgY29udHJhY2VwdGlvbiBkdWUgdG8gaW5jcmVhc2VkIHN0cm9rZSByaXNrLgotIERpc2NvbnRpbnVlIGNvbWJpbmVkIG9yYWwgY29udHJhY2VwdGl2ZSBwaWxsIHRvZGF5Ci0gQ291bnNlbGxlZCBvbiBpbmNyZWFzZWQgc3Ryb2tlIHJpc2sgd2l0aCBlc3Ryb2dlbi1jb250YWluaW5nIGNvbnRyYWNlcHRpb24gaW4gbWlncmFpbmUgd2l0aCBhdXJhCjIuIENvbnRyYWNlcHRpb24gbWFuYWdlbWVudCDigJQgbmVlZCBmb3Igbm9uLWVzdHJvZ2VuIG1ldGhvZCDigJQgbmV3ClJlcXVpcmVzIHN3aXRjaCBmcm9tIGNvbWJpbmVkIG9yYWwgY29udHJhY2VwdGl2ZSB0byBhbiBlc3Ryb2dlbi1mcmVlIG1ldGhvZCBnaXZlbiBtaWdyYWluZSB3aXRoIGF1cmEuIERlc2lyZXMgbG9uZy1hY3RpbmcgcmV2ZXJzaWJsZSBjb250cmFjZXB0aW9uIGFzIHByZWduYW5jeSBpcyBub3QgcGxhbm5lZCBmb3IgdHdvIHRvIHRocmVlIHllYXJzOyBwcmVmZXJzIGxpZ2h0ZXIgcGVyaW9kcywgc28gbGV2b25vcmdlc3RyZWwgNTIgbWcgSVVEIGNob3NlbiBvdmVyIGNvcHBlciBJVUQgb3IgaW1wbGFudC4KLSBTdG9wIGNvbWJpbmVkIG9yYWwgY29udHJhY2VwdGl2ZSBwaWxsIHRvZGF5Ci0gVXNlIGNvbmRvbXMgZm9yIHRoZSBuZXh0IHR3byB3ZWVrcyB1bnRpbCBJVUQgcGxhY2VtZW50Ci0gU2NoZWR1bGUgbGV2b25vcmdlc3RyZWwgNTIgbWcgSVVEIGluc2VydGlvbiBpbiB0d28gd2Vla3MKLSBVcmluZSBwcmVnbmFuY3kgdGVzdCBvbiBkYXkgb2YgaW5zZXJ0aW9uIHByaW9yIHRvIHBsYWNlbWVudAotIFRha2UgaWJ1cHJvZmVuIGFib3V0IG9uZSBob3VyIGJlZm9yZSBpbnNlcnRpb24gdG8gcmVkdWNlIGNyYW1waW5nCi0gQ291bnNlbGxlZCB0aGF0IGluc2VydGlvbiBjYXVzZXMgYnJpZWYgY3JhbXBpbmcgc2ltaWxhciB0byBhIHN0cm9uZyBwZXJpb2QgY3JhbXAKCk1FRElDQVRJT05TCi0gQ29tYmluZWQgb3JhbCBjb250cmFjZXB0aXZlIHBpbGwgU3RvcCB0b2RheSAoc3RvcHBlZCkKLSBJYnVwcm9mZW4gVGFrZSBhYm91dCBvbmUgaG91ciBiZWZvcmUgSVVEIGluc2VydGlvbiBhcHBvaW50bWVudDsgZG9zZSBub3QgZG9jdW1lbnRlZCAoc3RhcnRlZCkKLSBMZXZvbm9yZ2VzdHJlbCA1MiBtZyBpbnRyYXV0ZXJpbmUgZGV2aWNlIEluc2VydGlvbiBwbGFubmVkIGluIHR3byB3ZWVrcyAoc3RhcnRlZCkKLSBDb3BwZXIgSVVEIChkaXNjdXNzZWQpCi0gQ29udHJhY2VwdGl2ZSBpbXBsYW50IChhcm0pIChkaXNjdXNzZWQpCgpGT0xMT1ctVVAKUmV0dXJuIGluIHR3byB3ZWVrcyBmb3IgbGV2b25vcmdlc3RyZWwgSVVEIGluc2VydGlvbiwgd2l0aCBwcmVnbmFuY3kgdGVzdCB0aGF0IGRheTsgdXNlIGNvbmRvbXMgdW50aWwgdGhlbi4KCkRJQUdOT1NFUyAoSUNELTEwLUNNKQoxLiBHNDMuMTA5IE1pZ3JhaW5lIHdpdGggYXVyYSwgbm90IGludHJhY3RhYmxlLCB3aXRob3V0IHN0YXR1cyBtaWdyYWlub3N1cwoyLiBaMzAuMDkgRW5jb3VudGVyIGZvciBvdGhlciBnZW5lcmFsIGNvdW5zZWxpbmcgYW5kIGFkdmljZSBvbiBjb250cmFjZXB0aW9uCgpWSVNJVCBDT0RFIChDUFQpCjk5MjE0IE9mZmljZSB2aXNpdCwgZXN0YWJsaXNoZWQgcGF0aWVudCwgbW9kZXJhdGUtY29tcGxleGl0eSBkZWNpc2lvbiBtYWtpbmc=",
+              "title": "Progress note"
+            }
+          }
+        ],
+        "context": {
+          "encounter": [
+            {
+              "reference": "urn:uuid:0425dbbd-301d-52c0-b8ce-f7ac9a1fcc14"
+            }
+          ],
+          "period": {
+            "start": "2026-11-11T01:09:00Z"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3d2568bf-c6ca-5029-a44a-dc6f507b9129",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "hapi-doc-843715",
+        "meta": {
+          "source": "https://hapi.fhir.org/baseR4"
+        },
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11506-3",
+              "display": "Progress note"
+            }
+          ],
+          "text": "Progress note"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note",
+                "display": "Clinical Note"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:14992414-4714-5a49-86dd-f977f1fb5f3b"
+        },
+        "date": "2026-11-10T00:49:00Z",
+        "description": "Progress note",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "language": "en",
+              "data": "UHJvZ3Jlc3Mgbm90ZSwgU3VucmlzZSBGYW1pbHkgTWVkaWNpbmUKUGF0aWVudDogSGFubmFoIEJyb29rcyAoRE9CIDE5OTItMTItMTUpCkNsaW5pY2lhbjogRHIuIEhhbm5haCBPa2Fmb3IKVmlzaXQ6IE5vdiA5LCAyMDI2IDI6MzMgUE0gTVNUClNpZ25lZDogTm92IDksIDIwMjYgNTo0OSBQTSBNU1QgYnkgRHIuIEhhbm5haCBPa2Fmb3IKRHJhZnRlZCBieSBDbGVya01EJ3MgQUkgc2NyaWJlIGZyb20gdGhlIHZpc2l0IHJlY29yZGluZywgdGhlbiByZXZpZXdlZCBhbmQgc2lnbmVkIGJ5IHRoZSBjbGluaWNpYW4uCgpDSElFRiBDT01QTEFJTlQKTmV3IGhlYWRhY2hlcyB0aGlzIHllYXIgcHJlY2VkZWQgYnkgdmlzdWFsIHN5bXB0b21zICh6aWd6YWcgbGluZXMsIGJsdXJyeSB2aXNpb24pLCBpbiBhIHBhdGllbnQgY3VycmVudGx5IHRha2luZyB0aGUgY29tYmluZWQgb3JhbCBjb250cmFjZXB0aXZlIHBpbGwuCgpISVNUT1JZIE9GIFBSRVNFTlQgSUxMTkVTUwpQYXRpZW50IHJlcG9ydHMgb25zZXQgdGhpcyB5ZWFyIG9mIGhlYWRhY2hlcyBwcmVjZWRlZCBieSB2aXN1YWwgZGlzdHVyYmFuY2UgZGVzY3JpYmVkIGFzIHppZ3phZyBsaW5lcyBhbmQgYmx1cnJ5IHZpc2lvbi4gU2hlIGhhcyBuZXZlciBoYWQgdGhlc2Ugc3ltcHRvbXMgYmVmb3JlLiBTaGUgaGFzIGJlZW4gb24gdGhlIGNvbWJpbmVkIG9yYWwgY29udHJhY2VwdGl2ZSBwaWxsIGZvciBhIGZldyB5ZWFycyB3aXRob3V0IHByaW9yIGlzc3VlLiBObyBzbW9raW5nIGhpc3RvcnkgYW5kIG5vIG90aGVyIGhlYWx0aCBwcm9ibGVtcy4gUmVnYXJkaW5nIGZ1dHVyZSBmZXJ0aWxpdHkgcGxhbnMsIHNoZSBkb2VzIG5vdCB3YW50IGNoaWxkcmVuIHJpZ2h0IGF3YXksIHBvc3NpYmx5IGluIHR3byB0byB0aHJlZSB5ZWFycy4gQ2xpbmljaWFuIGNvdW5zZWxsZWQgdGhhdCBlc3Ryb2dlbi1jb250YWluaW5nIGNvbnRyYWNlcHRpb24gc2hvdWxkIG5vdCBiZSBjb250aW51ZWQgd2l0aCBtaWdyYWluZSB3aXRoIGF1cmEgZHVlIHRvIGluY3JlYXNlZCBzdHJva2UgcmlzaywgYW5kIHJldmlld2VkIG5vbi1lc3Ryb2dlbiBvcHRpb25zIGluY2x1ZGluZyB0aGUgNTIgbWcgbGV2b25vcmdlc3RyZWwgSVVELCBjb3BwZXIgSVVELCBhbmQgdGhlIGFybSBpbXBsYW50LCBpbmNsdWRpbmcgZXhwZWN0ZWQgYmxlZWRpbmcgcGF0dGVybnMuIFBhdGllbnQgZWxlY3RlZCB0aGUgbGV2b25vcmdlc3RyZWwgSVVELCBwcmVmZXJyaW5nIGxpZ2h0ZXIgcGVyaW9kcy4KClJFVklFVyBPRiBTWVNURU1TCk5ldXJvbG9naWM6IHZpc3VhbCBhdXJhIHdpdGggemlnemFnIGxpbmVzIGFuZCBibHVycnkgdmlzaW9uIHByZWNlZGluZyBoZWFkYWNoZXMuIE90aGVyd2lzZSByZXBvcnRzIG5vIG90aGVyIGhlYWx0aCBpc3N1ZXMuIFNvY2lhbDogbm9uLXNtb2tlci4KClZJVEFMUwpCbG9vZCBwcmVzc3VyZSAxMTgvNzIuCgpQSFlTSUNBTCBFWEFNCk5vdCBkb2N1bWVudGVkCgpBU1NFU1NNRU5UIEFORCBQTEFOCjEuIE1pZ3JhaW5lIHdpdGggYXVyYSwgbmV3IG9uc2V0IOKAlCBuZXcKTmV3LW9uc2V0IGhlYWRhY2hlcyB0aGlzIHllYXIgcHJlY2VkZWQgYnkgdmlzdWFsIGF1cmEgKHppZ3phZyBsaW5lcywgYmx1cnJlZCB2aXNpb24pOyBjbGluaWNpYW4gYXNzZXNzZWQgYXMgbWlncmFpbmUgd2l0aCBhdXJhLiBUaGlzIGlzIGEgY29udHJhaW5kaWNhdGlvbiB0byBlc3Ryb2dlbi1jb250YWluaW5nIGNvbnRyYWNlcHRpb24gZHVlIHRvIGluY3JlYXNlZCBzdHJva2Ugcmlzay4KLSBEaXNjb250aW51ZSBjb21iaW5lZCBvcmFsIGNvbnRyYWNlcHRpdmUgcGlsbCB0b2RheQotIENvdW5zZWxsZWQgb24gaW5jcmVhc2VkIHN0cm9rZSByaXNrIHdpdGggZXN0cm9nZW4tY29udGFpbmluZyBjb250cmFjZXB0aW9uIGluIG1pZ3JhaW5lIHdpdGggYXVyYQoyLiBDb250cmFjZXB0aW9uIG1hbmFnZW1lbnQg4oCUIG5lZWQgZm9yIG5vbi1lc3Ryb2dlbiBtZXRob2Qg4oCUIG5ldwpSZXF1aXJlcyBzd2l0Y2ggZnJvbSBjb21iaW5lZCBvcmFsIGNvbnRyYWNlcHRpdmUgdG8gYW4gZXN0cm9nZW4tZnJlZSBtZXRob2QgZ2l2ZW4gbWlncmFpbmUgd2l0aCBhdXJhLiBEZXNpcmVzIGxvbmctYWN0aW5nIHJldmVyc2libGUgY29udHJhY2VwdGlvbiBhcyBwcmVnbmFuY3kgaXMgbm90IHBsYW5uZWQgZm9yIHR3byB0byB0aHJlZSB5ZWFyczsgcHJlZmVycyBsaWdodGVyIHBlcmlvZHMsIHNvIGxldm9ub3JnZXN0cmVsIDUyIG1nIElVRCBjaG9zZW4gb3ZlciBjb3BwZXIgSVVEIG9yIGltcGxhbnQuCi0gU3RvcCBjb21iaW5lZCBvcmFsIGNvbnRyYWNlcHRpdmUgcGlsbCB0b2RheQotIFVzZSBjb25kb21zIGZvciB0aGUgbmV4dCB0d28gd2Vla3MgdW50aWwgSVVEIHBsYWNlbWVudAotIFNjaGVkdWxlIGxldm9ub3JnZXN0cmVsIDUyIG1nIElVRCBpbnNlcnRpb24gaW4gdHdvIHdlZWtzCi0gVXJpbmUgcHJlZ25hbmN5IHRlc3Qgb24gZGF5IG9mIGluc2VydGlvbiBwcmlvciB0byBwbGFjZW1lbnQKLSBUYWtlIGlidXByb2ZlbiBhYm91dCBvbmUgaG91ciBiZWZvcmUgaW5zZXJ0aW9uIHRvIHJlZHVjZSBjcmFtcGluZwotIENvdW5zZWxsZWQgdGhhdCBpbnNlcnRpb24gY2F1c2VzIGJyaWVmIGNyYW1waW5nIHNpbWlsYXIgdG8gYSBzdHJvbmcgcGVyaW9kIGNyYW1wCgpNRURJQ0FUSU9OUwotIENvbWJpbmVkIG9yYWwgY29udHJhY2VwdGl2ZSBwaWxsIFN0b3AgdG9kYXkgKHN0b3BwZWQpCi0gSWJ1cHJvZmVuIFRha2UgYWJvdXQgb25lIGhvdXIgYmVmb3JlIElVRCBpbnNlcnRpb24gYXBwb2ludG1lbnQ7IGRvc2Ugbm90IGRvY3VtZW50ZWQgKHN0YXJ0ZWQpCi0gTGV2b25vcmdlc3RyZWwgNTIgbWcgaW50cmF1dGVyaW5lIGRldmljZSBJbnNlcnRpb24gcGxhbm5lZCBpbiB0d28gd2Vla3MgKHN0YXJ0ZWQpCi0gQ29wcGVyIElVRCAoZGlzY3Vzc2VkKQotIENvbnRyYWNlcHRpdmUgaW1wbGFudCAoYXJtKSAoZGlzY3Vzc2VkKQoKRk9MTE9XLVVQClJldHVybiBpbiB0d28gd2Vla3MgZm9yIGxldm9ub3JnZXN0cmVsIElVRCBpbnNlcnRpb24sIHdpdGggcHJlZ25hbmN5IHRlc3QgdGhhdCBkYXk7IHVzZSBjb25kb21zIHVudGlsIHRoZW4uCgpESUFHTk9TRVMgKElDRC0xMC1DTSkKMS4gRzQzLjEwOSBNaWdyYWluZSB3aXRoIGF1cmEsIG5vdCBpbnRyYWN0YWJsZSwgd2l0aG91dCBzdGF0dXMgbWlncmFpbm9zdXMKMi4gWjMwLjA5IEVuY291bnRlciBmb3Igb3RoZXIgZ2VuZXJhbCBjb3Vuc2VsaW5nIGFuZCBhZHZpY2Ugb24gY29udHJhY2VwdGlvbgoKVklTSVQgQ09ERSAoQ1BUKQo5OTIxNCBPZmZpY2UgdmlzaXQsIGVzdGFibGlzaGVkIHBhdGllbnQsIG1vZGVyYXRlLWNvbXBsZXhpdHkgZGVjaXNpb24gbWFraW5n",
+              "title": "Progress note"
+            }
+          }
+        ],
+        "context": {
+          "encounter": [
+            {
+              "reference": "urn:uuid:2b7aac6c-3e49-5ae8-9abf-d59a38f626c2"
+            }
+          ],
+          "period": {
+            "start": "2026-11-10T00:49:00Z"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6cbdcaca-f4f5-55ca-bc14-b74661cf5bc8",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "hapi-doc-828996",
+        "meta": {
+          "source": "https://hapi.fhir.org/baseR4"
+        },
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11506-3",
+              "display": "Progress note"
+            }
+          ],
+          "text": "Progress note"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note",
+                "display": "Clinical Note"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:14992414-4714-5a49-86dd-f977f1fb5f3b"
+        },
+        "date": "2026-11-07T01:07:00Z",
+        "description": "Progress note",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "language": "en",
+              "data": "UHJvZ3Jlc3Mgbm90ZSwgU3VucmlzZSBGYW1pbHkgTWVkaWNpbmUKUGF0aWVudDogSGFubmFoIEJyb29rcyAoRE9CIDE5OTItMTItMTUpCkNsaW5pY2lhbjogRHIuIEhhbm5haCBPa2Fmb3IKVmlzaXQ6IE5vdiA2LCAyMDI2IDI6MzMgUE0gTVNUClNpZ25lZDogTm92IDYsIDIwMjYgNjowNyBQTSBNU1QgYnkgRHIuIEhhbm5haCBPa2Fmb3IKRHJhZnRlZCBieSBDbGVya01EJ3MgQUkgc2NyaWJlIGZyb20gdGhlIHZpc2l0IHJlY29yZGluZywgdGhlbiByZXZpZXdlZCBhbmQgc2lnbmVkIGJ5IHRoZSBjbGluaWNpYW4uCgpDSElFRiBDT01QTEFJTlQKTmV3IGhlYWRhY2hlcyB0aGlzIHllYXIgcHJlY2VkZWQgYnkgdmlzdWFsIHN5bXB0b21zICh6aWd6YWcgbGluZXMsIGJsdXJyeSB2aXNpb24pLCBpbiBhIHBhdGllbnQgY3VycmVudGx5IHRha2luZyB0aGUgY29tYmluZWQgb3JhbCBjb250cmFjZXB0aXZlIHBpbGwuCgpISVNUT1JZIE9GIFBSRVNFTlQgSUxMTkVTUwpQYXRpZW50IHJlcG9ydHMgb25zZXQgdGhpcyB5ZWFyIG9mIGhlYWRhY2hlcyBwcmVjZWRlZCBieSB2aXN1YWwgZGlzdHVyYmFuY2UgZGVzY3JpYmVkIGFzIHppZ3phZyBsaW5lcyBhbmQgYmx1cnJ5IHZpc2lvbi4gU2hlIGhhcyBuZXZlciBoYWQgdGhlc2Ugc3ltcHRvbXMgYmVmb3JlLiBTaGUgaGFzIGJlZW4gb24gdGhlIGNvbWJpbmVkIG9yYWwgY29udHJhY2VwdGl2ZSBwaWxsIGZvciBhIGZldyB5ZWFycyB3aXRob3V0IHByaW9yIGlzc3VlLiBObyBzbW9raW5nIGhpc3RvcnkgYW5kIG5vIG90aGVyIGhlYWx0aCBwcm9ibGVtcy4gUmVnYXJkaW5nIGZ1dHVyZSBmZXJ0aWxpdHkgcGxhbnMsIHNoZSBkb2VzIG5vdCB3YW50IGNoaWxkcmVuIHJpZ2h0IGF3YXksIHBvc3NpYmx5IGluIHR3byB0byB0aHJlZSB5ZWFycy4gQ2xpbmljaWFuIGNvdW5zZWxsZWQgdGhhdCBlc3Ryb2dlbi1jb250YWluaW5nIGNvbnRyYWNlcHRpb24gc2hvdWxkIG5vdCBiZSBjb250aW51ZWQgd2l0aCBtaWdyYWluZSB3aXRoIGF1cmEgZHVlIHRvIGluY3JlYXNlZCBzdHJva2UgcmlzaywgYW5kIHJldmlld2VkIG5vbi1lc3Ryb2dlbiBvcHRpb25zIGluY2x1ZGluZyB0aGUgNTIgbWcgbGV2b25vcmdlc3RyZWwgSVVELCBjb3BwZXIgSVVELCBhbmQgdGhlIGFybSBpbXBsYW50LCBpbmNsdWRpbmcgZXhwZWN0ZWQgYmxlZWRpbmcgcGF0dGVybnMuIFBhdGllbnQgZWxlY3RlZCB0aGUgbGV2b25vcmdlc3RyZWwgSVVELCBwcmVmZXJyaW5nIGxpZ2h0ZXIgcGVyaW9kcy4KClJFVklFVyBPRiBTWVNURU1TCk5ldXJvbG9naWM6IHZpc3VhbCBhdXJhIHdpdGggemlnemFnIGxpbmVzIGFuZCBibHVycnkgdmlzaW9uIHByZWNlZGluZyBoZWFkYWNoZXMuIE90aGVyd2lzZSByZXBvcnRzIG5vIG90aGVyIGhlYWx0aCBpc3N1ZXMuIFNvY2lhbDogbm9uLXNtb2tlci4KClZJVEFMUwpCbG9vZCBwcmVzc3VyZSAxMTgvNzIuCgpQSFlTSUNBTCBFWEFNCk5vdCBkb2N1bWVudGVkCgpBU1NFU1NNRU5UIEFORCBQTEFOCjEuIE1pZ3JhaW5lIHdpdGggYXVyYSwgbmV3IG9uc2V0IOKAlCBuZXcKTmV3LW9uc2V0IGhlYWRhY2hlcyB0aGlzIHllYXIgcHJlY2VkZWQgYnkgdmlzdWFsIGF1cmEgKHppZ3phZyBsaW5lcywgYmx1cnJlZCB2aXNpb24pOyBjbGluaWNpYW4gYXNzZXNzZWQgYXMgbWlncmFpbmUgd2l0aCBhdXJhLiBUaGlzIGlzIGEgY29udHJhaW5kaWNhdGlvbiB0byBlc3Ryb2dlbi1jb250YWluaW5nIGNvbnRyYWNlcHRpb24gZHVlIHRvIGluY3JlYXNlZCBzdHJva2Ugcmlzay4KLSBEaXNjb250aW51ZSBjb21iaW5lZCBvcmFsIGNvbnRyYWNlcHRpdmUgcGlsbCB0b2RheQotIENvdW5zZWxsZWQgb24gaW5jcmVhc2VkIHN0cm9rZSByaXNrIHdpdGggZXN0cm9nZW4tY29udGFpbmluZyBjb250cmFjZXB0aW9uIGluIG1pZ3JhaW5lIHdpdGggYXVyYQoyLiBDb250cmFjZXB0aW9uIG1hbmFnZW1lbnQg4oCUIG5lZWQgZm9yIG5vbi1lc3Ryb2dlbiBtZXRob2Qg4oCUIG5ldwpSZXF1aXJlcyBzd2l0Y2ggZnJvbSBjb21iaW5lZCBvcmFsIGNvbnRyYWNlcHRpdmUgdG8gYW4gZXN0cm9nZW4tZnJlZSBtZXRob2QgZ2l2ZW4gbWlncmFpbmUgd2l0aCBhdXJhLiBEZXNpcmVzIGxvbmctYWN0aW5nIHJldmVyc2libGUgY29udHJhY2VwdGlvbiBhcyBwcmVnbmFuY3kgaXMgbm90IHBsYW5uZWQgZm9yIHR3byB0byB0aHJlZSB5ZWFyczsgcHJlZmVycyBsaWdodGVyIHBlcmlvZHMsIHNvIGxldm9ub3JnZXN0cmVsIDUyIG1nIElVRCBjaG9zZW4gb3ZlciBjb3BwZXIgSVVEIG9yIGltcGxhbnQuCi0gU3RvcCBjb21iaW5lZCBvcmFsIGNvbnRyYWNlcHRpdmUgcGlsbCB0b2RheQotIFVzZSBjb25kb21zIGZvciB0aGUgbmV4dCB0d28gd2Vla3MgdW50aWwgSVVEIHBsYWNlbWVudAotIFNjaGVkdWxlIGxldm9ub3JnZXN0cmVsIDUyIG1nIElVRCBpbnNlcnRpb24gaW4gdHdvIHdlZWtzCi0gVXJpbmUgcHJlZ25hbmN5IHRlc3Qgb24gZGF5IG9mIGluc2VydGlvbiBwcmlvciB0byBwbGFjZW1lbnQKLSBUYWtlIGlidXByb2ZlbiBhYm91dCBvbmUgaG91ciBiZWZvcmUgaW5zZXJ0aW9uIHRvIHJlZHVjZSBjcmFtcGluZwotIENvdW5zZWxsZWQgdGhhdCBpbnNlcnRpb24gY2F1c2VzIGJyaWVmIGNyYW1waW5nIHNpbWlsYXIgdG8gYSBzdHJvbmcgcGVyaW9kIGNyYW1wCgpNRURJQ0FUSU9OUwotIENvbWJpbmVkIG9yYWwgY29udHJhY2VwdGl2ZSBwaWxsIFN0b3AgdG9kYXkgKHN0b3BwZWQpCi0gSWJ1cHJvZmVuIFRha2UgYWJvdXQgb25lIGhvdXIgYmVmb3JlIElVRCBpbnNlcnRpb24gYXBwb2ludG1lbnQ7IGRvc2Ugbm90IGRvY3VtZW50ZWQgKHN0YXJ0ZWQpCi0gTGV2b25vcmdlc3RyZWwgNTIgbWcgaW50cmF1dGVyaW5lIGRldmljZSBJbnNlcnRpb24gcGxhbm5lZCBpbiB0d28gd2Vla3MgKHN0YXJ0ZWQpCi0gQ29wcGVyIElVRCAoZGlzY3Vzc2VkKQotIENvbnRyYWNlcHRpdmUgaW1wbGFudCAoYXJtKSAoZGlzY3Vzc2VkKQoKRk9MTE9XLVVQClJldHVybiBpbiB0d28gd2Vla3MgZm9yIGxldm9ub3JnZXN0cmVsIElVRCBpbnNlcnRpb24sIHdpdGggcHJlZ25hbmN5IHRlc3QgdGhhdCBkYXk7IHVzZSBjb25kb21zIHVudGlsIHRoZW4uCgpESUFHTk9TRVMgKElDRC0xMC1DTSkKMS4gRzQzLjEwOSBNaWdyYWluZSB3aXRoIGF1cmEsIG5vdCBpbnRyYWN0YWJsZSwgd2l0aG91dCBzdGF0dXMgbWlncmFpbm9zdXMKMi4gWjMwLjA5IEVuY291bnRlciBmb3Igb3RoZXIgZ2VuZXJhbCBjb3Vuc2VsaW5nIGFuZCBhZHZpY2Ugb24gY29udHJhY2VwdGlvbgoKVklTSVQgQ09ERSAoQ1BUKQo5OTIxNCBPZmZpY2UgdmlzaXQsIGVzdGFibGlzaGVkIHBhdGllbnQsIG1vZGVyYXRlLWNvbXBsZXhpdHkgZGVjaXNpb24gbWFraW5n",
+              "title": "Progress note"
+            }
+          }
+        ],
+        "context": {
+          "encounter": [
+            {
+              "reference": "urn:uuid:0ce20b40-dbf2-5c1a-a56c-afaa5b012c76"
+            }
+          ],
+          "period": {
+            "start": "2026-11-07T01:07:00Z"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:10cd2fd9-0120-5e25-861e-e9175a4a4589",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "hapi-doc-743071",
+        "meta": {
+          "source": "https://hapi.fhir.org/baseR4"
+        },
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11506-3",
+              "display": "Progress note"
+            }
+          ],
+          "text": "Progress note"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note",
+                "display": "Clinical Note"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:14992414-4714-5a49-86dd-f977f1fb5f3b"
+        },
+        "date": "2026-11-06T00:48:00Z",
+        "description": "Progress note",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "language": "en",
+              "data": "UHJvZ3Jlc3Mgbm90ZSwgU3VucmlzZSBGYW1pbHkgTWVkaWNpbmUKUGF0aWVudDogSGFubmFoIEJyb29rcyAoRE9CIDE5OTItMTItMTUpCkNsaW5pY2lhbjogRHIuIEhhbm5haCBPa2Fmb3IKVmlzaXQ6IE5vdiA1LCAyMDI2IDI6MzMgUE0gTVNUClNpZ25lZDogTm92IDUsIDIwMjYgNTo0OCBQTSBNU1QgYnkgRHIuIEhhbm5haCBPa2Fmb3IKRHJhZnRlZCBieSBDbGVya01EJ3MgQUkgc2NyaWJlIGZyb20gdGhlIHZpc2l0IHJlY29yZGluZywgdGhlbiByZXZpZXdlZCBhbmQgc2lnbmVkIGJ5IHRoZSBjbGluaWNpYW4uCgpDSElFRiBDT01QTEFJTlQKTmV3IGhlYWRhY2hlcyB0aGlzIHllYXIgcHJlY2VkZWQgYnkgdmlzdWFsIHN5bXB0b21zICh6aWd6YWcgbGluZXMsIGJsdXJyeSB2aXNpb24pLCBpbiBhIHBhdGllbnQgY3VycmVudGx5IHRha2luZyB0aGUgY29tYmluZWQgb3JhbCBjb250cmFjZXB0aXZlIHBpbGwuCgpISVNUT1JZIE9GIFBSRVNFTlQgSUxMTkVTUwpQYXRpZW50IHJlcG9ydHMgb25zZXQgdGhpcyB5ZWFyIG9mIGhlYWRhY2hlcyBwcmVjZWRlZCBieSB2aXN1YWwgZGlzdHVyYmFuY2UgZGVzY3JpYmVkIGFzIHppZ3phZyBsaW5lcyBhbmQgYmx1cnJ5IHZpc2lvbi4gU2hlIGhhcyBuZXZlciBoYWQgdGhlc2Ugc3ltcHRvbXMgYmVmb3JlLiBTaGUgaGFzIGJlZW4gb24gdGhlIGNvbWJpbmVkIG9yYWwgY29udHJhY2VwdGl2ZSBwaWxsIGZvciBhIGZldyB5ZWFycyB3aXRob3V0IHByaW9yIGlzc3VlLiBObyBzbW9raW5nIGhpc3RvcnkgYW5kIG5vIG90aGVyIGhlYWx0aCBwcm9ibGVtcy4gUmVnYXJkaW5nIGZ1dHVyZSBmZXJ0aWxpdHkgcGxhbnMsIHNoZSBkb2VzIG5vdCB3YW50IGNoaWxkcmVuIHJpZ2h0IGF3YXksIHBvc3NpYmx5IGluIHR3byB0byB0aHJlZSB5ZWFycy4gQ2xpbmljaWFuIGNvdW5zZWxsZWQgdGhhdCBlc3Ryb2dlbi1jb250YWluaW5nIGNvbnRyYWNlcHRpb24gc2hvdWxkIG5vdCBiZSBjb250aW51ZWQgd2l0aCBtaWdyYWluZSB3aXRoIGF1cmEgZHVlIHRvIGluY3JlYXNlZCBzdHJva2UgcmlzaywgYW5kIHJldmlld2VkIG5vbi1lc3Ryb2dlbiBvcHRpb25zIGluY2x1ZGluZyB0aGUgNTIgbWcgbGV2b25vcmdlc3RyZWwgSVVELCBjb3BwZXIgSVVELCBhbmQgdGhlIGFybSBpbXBsYW50LCBpbmNsdWRpbmcgZXhwZWN0ZWQgYmxlZWRpbmcgcGF0dGVybnMuIFBhdGllbnQgZWxlY3RlZCB0aGUgbGV2b25vcmdlc3RyZWwgSVVELCBwcmVmZXJyaW5nIGxpZ2h0ZXIgcGVyaW9kcy4KClJFVklFVyBPRiBTWVNURU1TCk5ldXJvbG9naWM6IHZpc3VhbCBhdXJhIHdpdGggemlnemFnIGxpbmVzIGFuZCBibHVycnkgdmlzaW9uIHByZWNlZGluZyBoZWFkYWNoZXMuIE90aGVyd2lzZSByZXBvcnRzIG5vIG90aGVyIGhlYWx0aCBpc3N1ZXMuIFNvY2lhbDogbm9uLXNtb2tlci4KClZJVEFMUwpCbG9vZCBwcmVzc3VyZSAxMTgvNzIuCgpQSFlTSUNBTCBFWEFNCk5vdCBkb2N1bWVudGVkCgpBU1NFU1NNRU5UIEFORCBQTEFOCjEuIE1pZ3JhaW5lIHdpdGggYXVyYSwgbmV3IG9uc2V0IOKAlCBuZXcKTmV3LW9uc2V0IGhlYWRhY2hlcyB0aGlzIHllYXIgcHJlY2VkZWQgYnkgdmlzdWFsIGF1cmEgKHppZ3phZyBsaW5lcywgYmx1cnJlZCB2aXNpb24pOyBjbGluaWNpYW4gYXNzZXNzZWQgYXMgbWlncmFpbmUgd2l0aCBhdXJhLiBUaGlzIGlzIGEgY29udHJhaW5kaWNhdGlvbiB0byBlc3Ryb2dlbi1jb250YWluaW5nIGNvbnRyYWNlcHRpb24gZHVlIHRvIGluY3JlYXNlZCBzdHJva2Ugcmlzay4KLSBEaXNjb250aW51ZSBjb21iaW5lZCBvcmFsIGNvbnRyYWNlcHRpdmUgcGlsbCB0b2RheQotIENvdW5zZWxsZWQgb24gaW5jcmVhc2VkIHN0cm9rZSByaXNrIHdpdGggZXN0cm9nZW4tY29udGFpbmluZyBjb250cmFjZXB0aW9uIGluIG1pZ3JhaW5lIHdpdGggYXVyYQoyLiBDb250cmFjZXB0aW9uIG1hbmFnZW1lbnQg4oCUIG5lZWQgZm9yIG5vbi1lc3Ryb2dlbiBtZXRob2Qg4oCUIG5ldwpSZXF1aXJlcyBzd2l0Y2ggZnJvbSBjb21iaW5lZCBvcmFsIGNvbnRyYWNlcHRpdmUgdG8gYW4gZXN0cm9nZW4tZnJlZSBtZXRob2QgZ2l2ZW4gbWlncmFpbmUgd2l0aCBhdXJhLiBEZXNpcmVzIGxvbmctYWN0aW5nIHJldmVyc2libGUgY29udHJhY2VwdGlvbiBhcyBwcmVnbmFuY3kgaXMgbm90IHBsYW5uZWQgZm9yIHR3byB0byB0aHJlZSB5ZWFyczsgcHJlZmVycyBsaWdodGVyIHBlcmlvZHMsIHNvIGxldm9ub3JnZXN0cmVsIDUyIG1nIElVRCBjaG9zZW4gb3ZlciBjb3BwZXIgSVVEIG9yIGltcGxhbnQuCi0gU3RvcCBjb21iaW5lZCBvcmFsIGNvbnRyYWNlcHRpdmUgcGlsbCB0b2RheQotIFVzZSBjb25kb21zIGZvciB0aGUgbmV4dCB0d28gd2Vla3MgdW50aWwgSVVEIHBsYWNlbWVudAotIFNjaGVkdWxlIGxldm9ub3JnZXN0cmVsIDUyIG1nIElVRCBpbnNlcnRpb24gaW4gdHdvIHdlZWtzCi0gVXJpbmUgcHJlZ25hbmN5IHRlc3Qgb24gZGF5IG9mIGluc2VydGlvbiBwcmlvciB0byBwbGFjZW1lbnQKLSBUYWtlIGlidXByb2ZlbiBhYm91dCBvbmUgaG91ciBiZWZvcmUgaW5zZXJ0aW9uIHRvIHJlZHVjZSBjcmFtcGluZwotIENvdW5zZWxsZWQgdGhhdCBpbnNlcnRpb24gY2F1c2VzIGJyaWVmIGNyYW1waW5nIHNpbWlsYXIgdG8gYSBzdHJvbmcgcGVyaW9kIGNyYW1wCgpNRURJQ0FUSU9OUwotIENvbWJpbmVkIG9yYWwgY29udHJhY2VwdGl2ZSBwaWxsIFN0b3AgdG9kYXkgKHN0b3BwZWQpCi0gSWJ1cHJvZmVuIFRha2UgYWJvdXQgb25lIGhvdXIgYmVmb3JlIElVRCBpbnNlcnRpb24gYXBwb2ludG1lbnQ7IGRvc2Ugbm90IGRvY3VtZW50ZWQgKHN0YXJ0ZWQpCi0gTGV2b25vcmdlc3RyZWwgNTIgbWcgaW50cmF1dGVyaW5lIGRldmljZSBJbnNlcnRpb24gcGxhbm5lZCBpbiB0d28gd2Vla3MgKHN0YXJ0ZWQpCi0gQ29wcGVyIElVRCAoZGlzY3Vzc2VkKQotIENvbnRyYWNlcHRpdmUgaW1wbGFudCAoYXJtKSAoZGlzY3Vzc2VkKQoKRk9MTE9XLVVQClJldHVybiBpbiB0d28gd2Vla3MgZm9yIGxldm9ub3JnZXN0cmVsIElVRCBpbnNlcnRpb24sIHdpdGggcHJlZ25hbmN5IHRlc3QgdGhhdCBkYXk7IHVzZSBjb25kb21zIHVudGlsIHRoZW4uCgpESUFHTk9TRVMgKElDRC0xMC1DTSkKMS4gRzQzLjEwOSBNaWdyYWluZSB3aXRoIGF1cmEsIG5vdCBpbnRyYWN0YWJsZSwgd2l0aG91dCBzdGF0dXMgbWlncmFpbm9zdXMKMi4gWjMwLjA5IEVuY291bnRlciBmb3Igb3RoZXIgZ2VuZXJhbCBjb3Vuc2VsaW5nIGFuZCBhZHZpY2Ugb24gY29udHJhY2VwdGlvbgoKVklTSVQgQ09ERSAoQ1BUKQo5OTIxNCBPZmZpY2UgdmlzaXQsIGVzdGFibGlzaGVkIHBhdGllbnQsIG1vZGVyYXRlLWNvbXBsZXhpdHkgZGVjaXNpb24gbWFraW5n",
+              "title": "Progress note"
+            }
+          }
+        ],
+        "context": {
+          "encounter": [
+            {
+              "reference": "urn:uuid:c554419f-c073-5e32-aeeb-fbef41fce793"
+            }
+          ],
+          "period": {
+            "start": "2026-11-06T00:48:00Z"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c4989fe7-4f7d-52c6-9d67-bc35a83100b6",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "hapi-doc-718774",
+        "meta": {
+          "source": "https://hapi.fhir.org/baseR4"
+        },
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11506-3",
+              "display": "Progress note"
+            }
+          ],
+          "text": "Progress note"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note",
+                "display": "Clinical Note"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:14992414-4714-5a49-86dd-f977f1fb5f3b"
+        },
+        "date": "2026-11-05T00:22:00Z",
+        "description": "Progress note",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "language": "en",
+              "data": "UHJvZ3Jlc3Mgbm90ZSwgU3VucmlzZSBGYW1pbHkgTWVkaWNpbmUKUGF0aWVudDogSGFubmFoIEJyb29rcyAoRE9CIDE5OTItMTItMTUpCkNsaW5pY2lhbjogRHIuIEhhbm5haCBPa2Fmb3IKVmlzaXQ6IE5vdiA0LCAyMDI2IDI6MzMgUE0gTVNUClNpZ25lZDogTm92IDQsIDIwMjYgNToyMiBQTSBNU1QgYnkgRHIuIEhhbm5haCBPa2Fmb3IKRHJhZnRlZCBieSBDbGVya01EJ3MgQUkgc2NyaWJlIGZyb20gdGhlIHZpc2l0IHJlY29yZGluZywgdGhlbiByZXZpZXdlZCBhbmQgc2lnbmVkIGJ5IHRoZSBjbGluaWNpYW4uCgpDSElFRiBDT01QTEFJTlQKTmV3IGhlYWRhY2hlcyB0aGlzIHllYXIgcHJlY2VkZWQgYnkgdmlzdWFsIHN5bXB0b21zICh6aWd6YWcgbGluZXMsIGJsdXJyeSB2aXNpb24pLCBpbiBhIHBhdGllbnQgY3VycmVudGx5IHRha2luZyB0aGUgY29tYmluZWQgb3JhbCBjb250cmFjZXB0aXZlIHBpbGwuCgpISVNUT1JZIE9GIFBSRVNFTlQgSUxMTkVTUwpQYXRpZW50IHJlcG9ydHMgb25zZXQgdGhpcyB5ZWFyIG9mIGhlYWRhY2hlcyBwcmVjZWRlZCBieSB2aXN1YWwgZGlzdHVyYmFuY2UgZGVzY3JpYmVkIGFzIHppZ3phZyBsaW5lcyBhbmQgYmx1cnJ5IHZpc2lvbi4gU2hlIGhhcyBuZXZlciBoYWQgdGhlc2Ugc3ltcHRvbXMgYmVmb3JlLiBTaGUgaGFzIGJlZW4gb24gdGhlIGNvbWJpbmVkIG9yYWwgY29udHJhY2VwdGl2ZSBwaWxsIGZvciBhIGZldyB5ZWFycyB3aXRob3V0IHByaW9yIGlzc3VlLiBObyBzbW9raW5nIGhpc3RvcnkgYW5kIG5vIG90aGVyIGhlYWx0aCBwcm9ibGVtcy4gUmVnYXJkaW5nIGZ1dHVyZSBmZXJ0aWxpdHkgcGxhbnMsIHNoZSBkb2VzIG5vdCB3YW50IGNoaWxkcmVuIHJpZ2h0IGF3YXksIHBvc3NpYmx5IGluIHR3byB0byB0aHJlZSB5ZWFycy4gQ2xpbmljaWFuIGNvdW5zZWxsZWQgdGhhdCBlc3Ryb2dlbi1jb250YWluaW5nIGNvbnRyYWNlcHRpb24gc2hvdWxkIG5vdCBiZSBjb250aW51ZWQgd2l0aCBtaWdyYWluZSB3aXRoIGF1cmEgZHVlIHRvIGluY3JlYXNlZCBzdHJva2UgcmlzaywgYW5kIHJldmlld2VkIG5vbi1lc3Ryb2dlbiBvcHRpb25zIGluY2x1ZGluZyB0aGUgNTIgbWcgbGV2b25vcmdlc3RyZWwgSVVELCBjb3BwZXIgSVVELCBhbmQgdGhlIGFybSBpbXBsYW50LCBpbmNsdWRpbmcgZXhwZWN0ZWQgYmxlZWRpbmcgcGF0dGVybnMuIFBhdGllbnQgZWxlY3RlZCB0aGUgbGV2b25vcmdlc3RyZWwgSVVELCBwcmVmZXJyaW5nIGxpZ2h0ZXIgcGVyaW9kcy4KClJFVklFVyBPRiBTWVNURU1TCk5ldXJvbG9naWM6IHZpc3VhbCBhdXJhIHdpdGggemlnemFnIGxpbmVzIGFuZCBibHVycnkgdmlzaW9uIHByZWNlZGluZyBoZWFkYWNoZXMuIE90aGVyd2lzZSByZXBvcnRzIG5vIG90aGVyIGhlYWx0aCBpc3N1ZXMuIFNvY2lhbDogbm9uLXNtb2tlci4KClZJVEFMUwpCbG9vZCBwcmVzc3VyZSAxMTgvNzIuCgpQSFlTSUNBTCBFWEFNCk5vdCBkb2N1bWVudGVkCgpBU1NFU1NNRU5UIEFORCBQTEFOCjEuIE1pZ3JhaW5lIHdpdGggYXVyYSwgbmV3IG9uc2V0IOKAlCBuZXcKTmV3LW9uc2V0IGhlYWRhY2hlcyB0aGlzIHllYXIgcHJlY2VkZWQgYnkgdmlzdWFsIGF1cmEgKHppZ3phZyBsaW5lcywgYmx1cnJlZCB2aXNpb24pOyBjbGluaWNpYW4gYXNzZXNzZWQgYXMgbWlncmFpbmUgd2l0aCBhdXJhLiBUaGlzIGlzIGEgY29udHJhaW5kaWNhdGlvbiB0byBlc3Ryb2dlbi1jb250YWluaW5nIGNvbnRyYWNlcHRpb24gZHVlIHRvIGluY3JlYXNlZCBzdHJva2Ugcmlzay4KLSBEaXNjb250aW51ZSBjb21iaW5lZCBvcmFsIGNvbnRyYWNlcHRpdmUgcGlsbCB0b2RheQotIENvdW5zZWxsZWQgb24gaW5jcmVhc2VkIHN0cm9rZSByaXNrIHdpdGggZXN0cm9nZW4tY29udGFpbmluZyBjb250cmFjZXB0aW9uIGluIG1pZ3JhaW5lIHdpdGggYXVyYQoyLiBDb250cmFjZXB0aW9uIG1hbmFnZW1lbnQg4oCUIG5lZWQgZm9yIG5vbi1lc3Ryb2dlbiBtZXRob2Qg4oCUIG5ldwpSZXF1aXJlcyBzd2l0Y2ggZnJvbSBjb21iaW5lZCBvcmFsIGNvbnRyYWNlcHRpdmUgdG8gYW4gZXN0cm9nZW4tZnJlZSBtZXRob2QgZ2l2ZW4gbWlncmFpbmUgd2l0aCBhdXJhLiBEZXNpcmVzIGxvbmctYWN0aW5nIHJldmVyc2libGUgY29udHJhY2VwdGlvbiBhcyBwcmVnbmFuY3kgaXMgbm90IHBsYW5uZWQgZm9yIHR3byB0byB0aHJlZSB5ZWFyczsgcHJlZmVycyBsaWdodGVyIHBlcmlvZHMsIHNvIGxldm9ub3JnZXN0cmVsIDUyIG1nIElVRCBjaG9zZW4gb3ZlciBjb3BwZXIgSVVEIG9yIGltcGxhbnQuCi0gU3RvcCBjb21iaW5lZCBvcmFsIGNvbnRyYWNlcHRpdmUgcGlsbCB0b2RheQotIFVzZSBjb25kb21zIGZvciB0aGUgbmV4dCB0d28gd2Vla3MgdW50aWwgSVVEIHBsYWNlbWVudAotIFNjaGVkdWxlIGxldm9ub3JnZXN0cmVsIDUyIG1nIElVRCBpbnNlcnRpb24gaW4gdHdvIHdlZWtzCi0gVXJpbmUgcHJlZ25hbmN5IHRlc3Qgb24gZGF5IG9mIGluc2VydGlvbiBwcmlvciB0byBwbGFjZW1lbnQKLSBUYWtlIGlidXByb2ZlbiBhYm91dCBvbmUgaG91ciBiZWZvcmUgaW5zZXJ0aW9uIHRvIHJlZHVjZSBjcmFtcGluZwotIENvdW5zZWxsZWQgdGhhdCBpbnNlcnRpb24gY2F1c2VzIGJyaWVmIGNyYW1waW5nIHNpbWlsYXIgdG8gYSBzdHJvbmcgcGVyaW9kIGNyYW1wCgpNRURJQ0FUSU9OUwotIENvbWJpbmVkIG9yYWwgY29udHJhY2VwdGl2ZSBwaWxsIFN0b3AgdG9kYXkgKHN0b3BwZWQpCi0gSWJ1cHJvZmVuIFRha2UgYWJvdXQgb25lIGhvdXIgYmVmb3JlIElVRCBpbnNlcnRpb24gYXBwb2ludG1lbnQ7IGRvc2Ugbm90IGRvY3VtZW50ZWQgKHN0YXJ0ZWQpCi0gTGV2b25vcmdlc3RyZWwgNTIgbWcgaW50cmF1dGVyaW5lIGRldmljZSBJbnNlcnRpb24gcGxhbm5lZCBpbiB0d28gd2Vla3MgKHN0YXJ0ZWQpCi0gQ29wcGVyIElVRCAoZGlzY3Vzc2VkKQotIENvbnRyYWNlcHRpdmUgaW1wbGFudCAoYXJtKSAoZGlzY3Vzc2VkKQoKRk9MTE9XLVVQClJldHVybiBpbiB0d28gd2Vla3MgZm9yIGxldm9ub3JnZXN0cmVsIElVRCBpbnNlcnRpb24sIHdpdGggcHJlZ25hbmN5IHRlc3QgdGhhdCBkYXk7IHVzZSBjb25kb21zIHVudGlsIHRoZW4uCgpESUFHTk9TRVMgKElDRC0xMC1DTSkKMS4gRzQzLjEwOSBNaWdyYWluZSB3aXRoIGF1cmEsIG5vdCBpbnRyYWN0YWJsZSwgd2l0aG91dCBzdGF0dXMgbWlncmFpbm9zdXMKMi4gWjMwLjA5IEVuY291bnRlciBmb3Igb3RoZXIgZ2VuZXJhbCBjb3Vuc2VsaW5nIGFuZCBhZHZpY2Ugb24gY29udHJhY2VwdGlvbgoKVklTSVQgQ09ERSAoQ1BUKQo5OTIxNCBPZmZpY2UgdmlzaXQsIGVzdGFibGlzaGVkIHBhdGllbnQsIG1vZGVyYXRlLWNvbXBsZXhpdHkgZGVjaXNpb24gbWFraW5n",
+              "title": "Progress note"
+            }
+          }
+        ],
+        "context": {
+          "encounter": [
+            {
+              "reference": "urn:uuid:429954b9-0050-5426-8de7-efccb4a53d12"
+            }
+          ],
+          "period": {
+            "start": "2026-11-05T00:22:00Z"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:53251979-88f9-584c-8d3d-79cc483406c1",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "hapi-doc-494378",
+        "meta": {
+          "source": "https://hapi.fhir.org/baseR4"
+        },
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11506-3",
+              "display": "Progress note"
+            }
+          ],
+          "text": "Progress note"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note",
+                "display": "Clinical Note"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:14992414-4714-5a49-86dd-f977f1fb5f3b"
+        },
+        "date": "2026-11-03T00:28:00Z",
+        "description": "Progress note",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "language": "en",
+              "data": "UHJvZ3Jlc3Mgbm90ZSwgU3VucmlzZSBGYW1pbHkgTWVkaWNpbmUKUGF0aWVudDogSGFubmFoIEJyb29rcyAoRE9CIDE5OTItMTItMTUpCkNsaW5pY2lhbjogRHIuIEhhbm5haCBPa2Fmb3IKVmlzaXQ6IE5vdiAyLCAyMDI2IDI6MzMgUE0gTVNUClNpZ25lZDogTm92IDIsIDIwMjYgNToyOCBQTSBNU1QgYnkgRHIuIEhhbm5haCBPa2Fmb3IKRHJhZnRlZCBieSBDbGVya01EJ3MgQUkgc2NyaWJlIGZyb20gdGhlIHZpc2l0IHJlY29yZGluZywgdGhlbiByZXZpZXdlZCBhbmQgc2lnbmVkIGJ5IHRoZSBjbGluaWNpYW4uCgpDSElFRiBDT01QTEFJTlQKTmV3IGhlYWRhY2hlcyB0aGlzIHllYXIgcHJlY2VkZWQgYnkgdmlzdWFsIHN5bXB0b21zICh6aWd6YWcgbGluZXMsIGJsdXJyeSB2aXNpb24pLCBpbiBhIHBhdGllbnQgY3VycmVudGx5IHRha2luZyB0aGUgY29tYmluZWQgb3JhbCBjb250cmFjZXB0aXZlIHBpbGwuCgpISVNUT1JZIE9GIFBSRVNFTlQgSUxMTkVTUwpQYXRpZW50IHJlcG9ydHMgb25zZXQgdGhpcyB5ZWFyIG9mIGhlYWRhY2hlcyBwcmVjZWRlZCBieSB2aXN1YWwgZGlzdHVyYmFuY2UgZGVzY3JpYmVkIGFzIHppZ3phZyBsaW5lcyBhbmQgYmx1cnJ5IHZpc2lvbi4gU2hlIGhhcyBuZXZlciBoYWQgdGhlc2Ugc3ltcHRvbXMgYmVmb3JlLiBTaGUgaGFzIGJlZW4gb24gdGhlIGNvbWJpbmVkIG9yYWwgY29udHJhY2VwdGl2ZSBwaWxsIGZvciBhIGZldyB5ZWFycyB3aXRob3V0IHByaW9yIGlzc3VlLiBObyBzbW9raW5nIGhpc3RvcnkgYW5kIG5vIG90aGVyIGhlYWx0aCBwcm9ibGVtcy4gUmVnYXJkaW5nIGZ1dHVyZSBmZXJ0aWxpdHkgcGxhbnMsIHNoZSBkb2VzIG5vdCB3YW50IGNoaWxkcmVuIHJpZ2h0IGF3YXksIHBvc3NpYmx5IGluIHR3byB0byB0aHJlZSB5ZWFycy4gQ2xpbmljaWFuIGNvdW5zZWxsZWQgdGhhdCBlc3Ryb2dlbi1jb250YWluaW5nIGNvbnRyYWNlcHRpb24gc2hvdWxkIG5vdCBiZSBjb250aW51ZWQgd2l0aCBtaWdyYWluZSB3aXRoIGF1cmEgZHVlIHRvIGluY3JlYXNlZCBzdHJva2UgcmlzaywgYW5kIHJldmlld2VkIG5vbi1lc3Ryb2dlbiBvcHRpb25zIGluY2x1ZGluZyB0aGUgNTIgbWcgbGV2b25vcmdlc3RyZWwgSVVELCBjb3BwZXIgSVVELCBhbmQgdGhlIGFybSBpbXBsYW50LCBpbmNsdWRpbmcgZXhwZWN0ZWQgYmxlZWRpbmcgcGF0dGVybnMuIFBhdGllbnQgZWxlY3RlZCB0aGUgbGV2b25vcmdlc3RyZWwgSVVELCBwcmVmZXJyaW5nIGxpZ2h0ZXIgcGVyaW9kcy4KClJFVklFVyBPRiBTWVNURU1TCk5ldXJvbG9naWM6IHZpc3VhbCBhdXJhIHdpdGggemlnemFnIGxpbmVzIGFuZCBibHVycnkgdmlzaW9uIHByZWNlZGluZyBoZWFkYWNoZXMuIE90aGVyd2lzZSByZXBvcnRzIG5vIG90aGVyIGhlYWx0aCBpc3N1ZXMuIFNvY2lhbDogbm9uLXNtb2tlci4KClZJVEFMUwpCbG9vZCBwcmVzc3VyZSAxMTgvNzIuCgpQSFlTSUNBTCBFWEFNCk5vdCBkb2N1bWVudGVkCgpBU1NFU1NNRU5UIEFORCBQTEFOCjEuIE1pZ3JhaW5lIHdpdGggYXVyYSwgbmV3IG9uc2V0IOKAlCBuZXcKTmV3LW9uc2V0IGhlYWRhY2hlcyB0aGlzIHllYXIgcHJlY2VkZWQgYnkgdmlzdWFsIGF1cmEgKHppZ3phZyBsaW5lcywgYmx1cnJlZCB2aXNpb24pOyBjbGluaWNpYW4gYXNzZXNzZWQgYXMgbWlncmFpbmUgd2l0aCBhdXJhLiBUaGlzIGlzIGEgY29udHJhaW5kaWNhdGlvbiB0byBlc3Ryb2dlbi1jb250YWluaW5nIGNvbnRyYWNlcHRpb24gZHVlIHRvIGluY3JlYXNlZCBzdHJva2Ugcmlzay4KLSBEaXNjb250aW51ZSBjb21iaW5lZCBvcmFsIGNvbnRyYWNlcHRpdmUgcGlsbCB0b2RheQotIENvdW5zZWxsZWQgb24gaW5jcmVhc2VkIHN0cm9rZSByaXNrIHdpdGggZXN0cm9nZW4tY29udGFpbmluZyBjb250cmFjZXB0aW9uIGluIG1pZ3JhaW5lIHdpdGggYXVyYQoyLiBDb250cmFjZXB0aW9uIG1hbmFnZW1lbnQg4oCUIG5lZWQgZm9yIG5vbi1lc3Ryb2dlbiBtZXRob2Qg4oCUIG5ldwpSZXF1aXJlcyBzd2l0Y2ggZnJvbSBjb21iaW5lZCBvcmFsIGNvbnRyYWNlcHRpdmUgdG8gYW4gZXN0cm9nZW4tZnJlZSBtZXRob2QgZ2l2ZW4gbWlncmFpbmUgd2l0aCBhdXJhLiBEZXNpcmVzIGxvbmctYWN0aW5nIHJldmVyc2libGUgY29udHJhY2VwdGlvbiBhcyBwcmVnbmFuY3kgaXMgbm90IHBsYW5uZWQgZm9yIHR3byB0byB0aHJlZSB5ZWFyczsgcHJlZmVycyBsaWdodGVyIHBlcmlvZHMsIHNvIGxldm9ub3JnZXN0cmVsIDUyIG1nIElVRCBjaG9zZW4gb3ZlciBjb3BwZXIgSVVEIG9yIGltcGxhbnQuCi0gU3RvcCBjb21iaW5lZCBvcmFsIGNvbnRyYWNlcHRpdmUgcGlsbCB0b2RheQotIFVzZSBjb25kb21zIGZvciB0aGUgbmV4dCB0d28gd2Vla3MgdW50aWwgSVVEIHBsYWNlbWVudAotIFNjaGVkdWxlIGxldm9ub3JnZXN0cmVsIDUyIG1nIElVRCBpbnNlcnRpb24gaW4gdHdvIHdlZWtzCi0gVXJpbmUgcHJlZ25hbmN5IHRlc3Qgb24gZGF5IG9mIGluc2VydGlvbiBwcmlvciB0byBwbGFjZW1lbnQKLSBUYWtlIGlidXByb2ZlbiBhYm91dCBvbmUgaG91ciBiZWZvcmUgaW5zZXJ0aW9uIHRvIHJlZHVjZSBjcmFtcGluZwotIENvdW5zZWxsZWQgdGhhdCBpbnNlcnRpb24gY2F1c2VzIGJyaWVmIGNyYW1waW5nIHNpbWlsYXIgdG8gYSBzdHJvbmcgcGVyaW9kIGNyYW1wCgpNRURJQ0FUSU9OUwotIENvbWJpbmVkIG9yYWwgY29udHJhY2VwdGl2ZSBwaWxsIFN0b3AgdG9kYXkgKHN0b3BwZWQpCi0gSWJ1cHJvZmVuIFRha2UgYWJvdXQgb25lIGhvdXIgYmVmb3JlIElVRCBpbnNlcnRpb24gYXBwb2ludG1lbnQ7IGRvc2Ugbm90IGRvY3VtZW50ZWQgKHN0YXJ0ZWQpCi0gTGV2b25vcmdlc3RyZWwgNTIgbWcgaW50cmF1dGVyaW5lIGRldmljZSBJbnNlcnRpb24gcGxhbm5lZCBpbiB0d28gd2Vla3MgKHN0YXJ0ZWQpCi0gQ29wcGVyIElVRCAoZGlzY3Vzc2VkKQotIENvbnRyYWNlcHRpdmUgaW1wbGFudCAoYXJtKSAoZGlzY3Vzc2VkKQoKRk9MTE9XLVVQClJldHVybiBpbiB0d28gd2Vla3MgZm9yIGxldm9ub3JnZXN0cmVsIElVRCBpbnNlcnRpb24sIHdpdGggcHJlZ25hbmN5IHRlc3QgdGhhdCBkYXk7IHVzZSBjb25kb21zIHVudGlsIHRoZW4uCgpESUFHTk9TRVMgKElDRC0xMC1DTSkKMS4gRzQzLjEwOSBNaWdyYWluZSB3aXRoIGF1cmEsIG5vdCBpbnRyYWN0YWJsZSwgd2l0aG91dCBzdGF0dXMgbWlncmFpbm9zdXMKMi4gWjMwLjA5IEVuY291bnRlciBmb3Igb3RoZXIgZ2VuZXJhbCBjb3Vuc2VsaW5nIGFuZCBhZHZpY2Ugb24gY29udHJhY2VwdGlvbgoKVklTSVQgQ09ERSAoQ1BUKQo5OTIxNCBPZmZpY2UgdmlzaXQsIGVzdGFibGlzaGVkIHBhdGllbnQsIG1vZGVyYXRlLWNvbXBsZXhpdHkgZGVjaXNpb24gbWFraW5n",
+              "title": "Progress note"
+            }
+          }
+        ],
+        "context": {
+          "encounter": [
+            {
+              "reference": "urn:uuid:7a57cb4d-1ea3-5fb9-86fd-c5d4ea4017ed"
+            }
+          ],
+          "period": {
+            "start": "2026-11-03T00:28:00Z"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1729b756-3861-5ae6-b346-ac533b530ca8",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "hapi-doc-490062",
+        "meta": {
+          "source": "https://hapi.fhir.org/baseR4"
+        },
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11506-3",
+              "display": "Progress note"
+            }
+          ],
+          "text": "Progress note"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note",
+                "display": "Clinical Note"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:14992414-4714-5a49-86dd-f977f1fb5f3b"
+        },
+        "date": "2026-10-31T00:58:00Z",
+        "description": "Progress note",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "language": "en",
+              "data": "UHJvZ3Jlc3Mgbm90ZSwgU3VucmlzZSBGYW1pbHkgTWVkaWNpbmUKUGF0aWVudDogSGFubmFoIEJyb29rcyAoRE9CIDE5OTItMTItMTUpCkNsaW5pY2lhbjogRHIuIEhhbm5haCBPa2Fmb3IKVmlzaXQ6IE9jdCAzMCwgMjAyNiAyOjMzIFBNIE1TVApTaWduZWQ6IE9jdCAzMCwgMjAyNiA1OjU4IFBNIE1TVCBieSBEci4gSGFubmFoIE9rYWZvcgpEcmFmdGVkIGJ5IENsZXJrTUQncyBBSSBzY3JpYmUgZnJvbSB0aGUgdmlzaXQgcmVjb3JkaW5nLCB0aGVuIHJldmlld2VkIGFuZCBzaWduZWQgYnkgdGhlIGNsaW5pY2lhbi4KCkNISUVGIENPTVBMQUlOVApOZXcgaGVhZGFjaGVzIHRoaXMgeWVhciBwcmVjZWRlZCBieSB2aXN1YWwgc3ltcHRvbXMgKHppZ3phZyBsaW5lcywgYmx1cnJ5IHZpc2lvbiksIGluIGEgcGF0aWVudCBjdXJyZW50bHkgdGFraW5nIHRoZSBjb21iaW5lZCBvcmFsIGNvbnRyYWNlcHRpdmUgcGlsbC4KCkhJU1RPUlkgT0YgUFJFU0VOVCBJTExORVNTClBhdGllbnQgcmVwb3J0cyBvbnNldCB0aGlzIHllYXIgb2YgaGVhZGFjaGVzIHByZWNlZGVkIGJ5IHZpc3VhbCBkaXN0dXJiYW5jZSBkZXNjcmliZWQgYXMgemlnemFnIGxpbmVzIGFuZCBibHVycnkgdmlzaW9uLiBTaGUgaGFzIG5ldmVyIGhhZCB0aGVzZSBzeW1wdG9tcyBiZWZvcmUuIFNoZSBoYXMgYmVlbiBvbiB0aGUgY29tYmluZWQgb3JhbCBjb250cmFjZXB0aXZlIHBpbGwgZm9yIGEgZmV3IHllYXJzIHdpdGhvdXQgcHJpb3IgaXNzdWUuIE5vIHNtb2tpbmcgaGlzdG9yeSBhbmQgbm8gb3RoZXIgaGVhbHRoIHByb2JsZW1zLiBSZWdhcmRpbmcgZnV0dXJlIGZlcnRpbGl0eSBwbGFucywgc2hlIGRvZXMgbm90IHdhbnQgY2hpbGRyZW4gcmlnaHQgYXdheSwgcG9zc2libHkgaW4gdHdvIHRvIHRocmVlIHllYXJzLiBDbGluaWNpYW4gY291bnNlbGxlZCB0aGF0IGVzdHJvZ2VuLWNvbnRhaW5pbmcgY29udHJhY2VwdGlvbiBzaG91bGQgbm90IGJlIGNvbnRpbnVlZCB3aXRoIG1pZ3JhaW5lIHdpdGggYXVyYSBkdWUgdG8gaW5jcmVhc2VkIHN0cm9rZSByaXNrLCBhbmQgcmV2aWV3ZWQgbm9uLWVzdHJvZ2VuIG9wdGlvbnMgaW5jbHVkaW5nIHRoZSA1MiBtZyBsZXZvbm9yZ2VzdHJlbCBJVUQsIGNvcHBlciBJVUQsIGFuZCB0aGUgYXJtIGltcGxhbnQsIGluY2x1ZGluZyBleHBlY3RlZCBibGVlZGluZyBwYXR0ZXJucy4gUGF0aWVudCBlbGVjdGVkIHRoZSBsZXZvbm9yZ2VzdHJlbCBJVUQsIHByZWZlcnJpbmcgbGlnaHRlciBwZXJpb2RzLgoKUkVWSUVXIE9GIFNZU1RFTVMKTmV1cm9sb2dpYzogdmlzdWFsIGF1cmEgd2l0aCB6aWd6YWcgbGluZXMgYW5kIGJsdXJyeSB2aXNpb24gcHJlY2VkaW5nIGhlYWRhY2hlcy4gT3RoZXJ3aXNlIHJlcG9ydHMgbm8gb3RoZXIgaGVhbHRoIGlzc3Vlcy4gU29jaWFsOiBub24tc21va2VyLgoKVklUQUxTCkJsb29kIHByZXNzdXJlIDExOC83Mi4KClBIWVNJQ0FMIEVYQU0KTm90IGRvY3VtZW50ZWQKCkFTU0VTU01FTlQgQU5EIFBMQU4KMS4gTWlncmFpbmUgd2l0aCBhdXJhLCBuZXcgb25zZXQg4oCUIG5ldwpOZXctb25zZXQgaGVhZGFjaGVzIHRoaXMgeWVhciBwcmVjZWRlZCBieSB2aXN1YWwgYXVyYSAoemlnemFnIGxpbmVzLCBibHVycmVkIHZpc2lvbik7IGNsaW5pY2lhbiBhc3Nlc3NlZCBhcyBtaWdyYWluZSB3aXRoIGF1cmEuIFRoaXMgaXMgYSBjb250cmFpbmRpY2F0aW9uIHRvIGVzdHJvZ2VuLWNvbnRhaW5pbmcgY29udHJhY2VwdGlvbiBkdWUgdG8gaW5jcmVhc2VkIHN0cm9rZSByaXNrLgotIERpc2NvbnRpbnVlIGNvbWJpbmVkIG9yYWwgY29udHJhY2VwdGl2ZSBwaWxsIHRvZGF5Ci0gQ291bnNlbGxlZCBvbiBpbmNyZWFzZWQgc3Ryb2tlIHJpc2sgd2l0aCBlc3Ryb2dlbi1jb250YWluaW5nIGNvbnRyYWNlcHRpb24gaW4gbWlncmFpbmUgd2l0aCBhdXJhCjIuIENvbnRyYWNlcHRpb24gbWFuYWdlbWVudCDigJQgbmVlZCBmb3Igbm9uLWVzdHJvZ2VuIG1ldGhvZCDigJQgbmV3ClJlcXVpcmVzIHN3aXRjaCBmcm9tIGNvbWJpbmVkIG9yYWwgY29udHJhY2VwdGl2ZSB0byBhbiBlc3Ryb2dlbi1mcmVlIG1ldGhvZCBnaXZlbiBtaWdyYWluZSB3aXRoIGF1cmEuIERlc2lyZXMgbG9uZy1hY3RpbmcgcmV2ZXJzaWJsZSBjb250cmFjZXB0aW9uIGFzIHByZWduYW5jeSBpcyBub3QgcGxhbm5lZCBmb3IgdHdvIHRvIHRocmVlIHllYXJzOyBwcmVmZXJzIGxpZ2h0ZXIgcGVyaW9kcywgc28gbGV2b25vcmdlc3RyZWwgNTIgbWcgSVVEIGNob3NlbiBvdmVyIGNvcHBlciBJVUQgb3IgaW1wbGFudC4KLSBTdG9wIGNvbWJpbmVkIG9yYWwgY29udHJhY2VwdGl2ZSBwaWxsIHRvZGF5Ci0gVXNlIGNvbmRvbXMgZm9yIHRoZSBuZXh0IHR3byB3ZWVrcyB1bnRpbCBJVUQgcGxhY2VtZW50Ci0gU2NoZWR1bGUgbGV2b25vcmdlc3RyZWwgNTIgbWcgSVVEIGluc2VydGlvbiBpbiB0d28gd2Vla3MKLSBVcmluZSBwcmVnbmFuY3kgdGVzdCBvbiBkYXkgb2YgaW5zZXJ0aW9uIHByaW9yIHRvIHBsYWNlbWVudAotIFRha2UgaWJ1cHJvZmVuIGFib3V0IG9uZSBob3VyIGJlZm9yZSBpbnNlcnRpb24gdG8gcmVkdWNlIGNyYW1waW5nCi0gQ291bnNlbGxlZCB0aGF0IGluc2VydGlvbiBjYXVzZXMgYnJpZWYgY3JhbXBpbmcgc2ltaWxhciB0byBhIHN0cm9uZyBwZXJpb2QgY3JhbXAKCk1FRElDQVRJT05TCi0gQ29tYmluZWQgb3JhbCBjb250cmFjZXB0aXZlIHBpbGwgU3RvcCB0b2RheSAoc3RvcHBlZCkKLSBJYnVwcm9mZW4gVGFrZSBhYm91dCBvbmUgaG91ciBiZWZvcmUgSVVEIGluc2VydGlvbiBhcHBvaW50bWVudDsgZG9zZSBub3QgZG9jdW1lbnRlZCAoc3RhcnRlZCkKLSBMZXZvbm9yZ2VzdHJlbCA1MiBtZyBpbnRyYXV0ZXJpbmUgZGV2aWNlIEluc2VydGlvbiBwbGFubmVkIGluIHR3byB3ZWVrcyAoc3RhcnRlZCkKLSBDb3BwZXIgSVVEIChkaXNjdXNzZWQpCi0gQ29udHJhY2VwdGl2ZSBpbXBsYW50IChhcm0pIChkaXNjdXNzZWQpCgpGT0xMT1ctVVAKUmV0dXJuIGluIHR3byB3ZWVrcyBmb3IgbGV2b25vcmdlc3RyZWwgSVVEIGluc2VydGlvbiwgd2l0aCBwcmVnbmFuY3kgdGVzdCB0aGF0IGRheTsgdXNlIGNvbmRvbXMgdW50aWwgdGhlbi4KCkRJQUdOT1NFUyAoSUNELTEwLUNNKQoxLiBHNDMuMTA5IE1pZ3JhaW5lIHdpdGggYXVyYSwgbm90IGludHJhY3RhYmxlLCB3aXRob3V0IHN0YXR1cyBtaWdyYWlub3N1cwoyLiBaMzAuMDkgRW5jb3VudGVyIGZvciBvdGhlciBnZW5lcmFsIGNvdW5zZWxpbmcgYW5kIGFkdmljZSBvbiBjb250cmFjZXB0aW9uCgpWSVNJVCBDT0RFIChDUFQpCjk5MjE0IE9mZmljZSB2aXNpdCwgZXN0YWJsaXNoZWQgcGF0aWVudCwgbW9kZXJhdGUtY29tcGxleGl0eSBkZWNpc2lvbiBtYWtpbmc=",
+              "title": "Progress note"
+            }
+          }
+        ],
+        "context": {
+          "encounter": [
+            {
+              "reference": "urn:uuid:eb94fd86-7d7b-596f-a88d-cb77acc72c62"
+            }
+          ],
+          "period": {
+            "start": "2026-10-31T00:58:00Z"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1442835c-0d0d-5bad-b765-b51abf5f275b",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "hapi-doc-471399",
+        "meta": {
+          "source": "https://hapi.fhir.org/baseR4"
+        },
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11506-3",
+              "display": "Progress note"
+            }
+          ],
+          "text": "Progress note"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note",
+                "display": "Clinical Note"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:14992414-4714-5a49-86dd-f977f1fb5f3b"
+        },
+        "date": "2026-10-30T00:51:00Z",
+        "description": "Progress note",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "language": "en",
+              "data": "UHJvZ3Jlc3Mgbm90ZSwgU3VucmlzZSBGYW1pbHkgTWVkaWNpbmUKUGF0aWVudDogSGFubmFoIEJyb29rcyAoRE9CIDE5OTItMTItMTUpCkNsaW5pY2lhbjogRHIuIEhhbm5haCBPa2Fmb3IKVmlzaXQ6IE9jdCAyOSwgMjAyNiAyOjMzIFBNIE1TVApTaWduZWQ6IE9jdCAyOSwgMjAyNiA1OjUxIFBNIE1TVCBieSBEci4gSGFubmFoIE9rYWZvcgpEcmFmdGVkIGJ5IENsZXJrTUQncyBBSSBzY3JpYmUgZnJvbSB0aGUgdmlzaXQgcmVjb3JkaW5nLCB0aGVuIHJldmlld2VkIGFuZCBzaWduZWQgYnkgdGhlIGNsaW5pY2lhbi4KCkNISUVGIENPTVBMQUlOVApOZXcgaGVhZGFjaGVzIHRoaXMgeWVhciBwcmVjZWRlZCBieSB2aXN1YWwgc3ltcHRvbXMgKHppZ3phZyBsaW5lcywgYmx1cnJ5IHZpc2lvbiksIGluIGEgcGF0aWVudCBjdXJyZW50bHkgdGFraW5nIHRoZSBjb21iaW5lZCBvcmFsIGNvbnRyYWNlcHRpdmUgcGlsbC4KCkhJU1RPUlkgT0YgUFJFU0VOVCBJTExORVNTClBhdGllbnQgcmVwb3J0cyBvbnNldCB0aGlzIHllYXIgb2YgaGVhZGFjaGVzIHByZWNlZGVkIGJ5IHZpc3VhbCBkaXN0dXJiYW5jZSBkZXNjcmliZWQgYXMgemlnemFnIGxpbmVzIGFuZCBibHVycnkgdmlzaW9uLiBTaGUgaGFzIG5ldmVyIGhhZCB0aGVzZSBzeW1wdG9tcyBiZWZvcmUuIFNoZSBoYXMgYmVlbiBvbiB0aGUgY29tYmluZWQgb3JhbCBjb250cmFjZXB0aXZlIHBpbGwgZm9yIGEgZmV3IHllYXJzIHdpdGhvdXQgcHJpb3IgaXNzdWUuIE5vIHNtb2tpbmcgaGlzdG9yeSBhbmQgbm8gb3RoZXIgaGVhbHRoIHByb2JsZW1zLiBSZWdhcmRpbmcgZnV0dXJlIGZlcnRpbGl0eSBwbGFucywgc2hlIGRvZXMgbm90IHdhbnQgY2hpbGRyZW4gcmlnaHQgYXdheSwgcG9zc2libHkgaW4gdHdvIHRvIHRocmVlIHllYXJzLiBDbGluaWNpYW4gY291bnNlbGxlZCB0aGF0IGVzdHJvZ2VuLWNvbnRhaW5pbmcgY29udHJhY2VwdGlvbiBzaG91bGQgbm90IGJlIGNvbnRpbnVlZCB3aXRoIG1pZ3JhaW5lIHdpdGggYXVyYSBkdWUgdG8gaW5jcmVhc2VkIHN0cm9rZSByaXNrLCBhbmQgcmV2aWV3ZWQgbm9uLWVzdHJvZ2VuIG9wdGlvbnMgaW5jbHVkaW5nIHRoZSA1MiBtZyBsZXZvbm9yZ2VzdHJlbCBJVUQsIGNvcHBlciBJVUQsIGFuZCB0aGUgYXJtIGltcGxhbnQsIGluY2x1ZGluZyBleHBlY3RlZCBibGVlZGluZyBwYXR0ZXJucy4gUGF0aWVudCBlbGVjdGVkIHRoZSBsZXZvbm9yZ2VzdHJlbCBJVUQsIHByZWZlcnJpbmcgbGlnaHRlciBwZXJpb2RzLgoKUkVWSUVXIE9GIFNZU1RFTVMKTmV1cm9sb2dpYzogdmlzdWFsIGF1cmEgd2l0aCB6aWd6YWcgbGluZXMgYW5kIGJsdXJyeSB2aXNpb24gcHJlY2VkaW5nIGhlYWRhY2hlcy4gT3RoZXJ3aXNlIHJlcG9ydHMgbm8gb3RoZXIgaGVhbHRoIGlzc3Vlcy4gU29jaWFsOiBub24tc21va2VyLgoKVklUQUxTCkJsb29kIHByZXNzdXJlIDExOC83Mi4KClBIWVNJQ0FMIEVYQU0KTm90IGRvY3VtZW50ZWQKCkFTU0VTU01FTlQgQU5EIFBMQU4KMS4gTWlncmFpbmUgd2l0aCBhdXJhLCBuZXcgb25zZXQg4oCUIG5ldwpOZXctb25zZXQgaGVhZGFjaGVzIHRoaXMgeWVhciBwcmVjZWRlZCBieSB2aXN1YWwgYXVyYSAoemlnemFnIGxpbmVzLCBibHVycmVkIHZpc2lvbik7IGNsaW5pY2lhbiBhc3Nlc3NlZCBhcyBtaWdyYWluZSB3aXRoIGF1cmEuIFRoaXMgaXMgYSBjb250cmFpbmRpY2F0aW9uIHRvIGVzdHJvZ2VuLWNvbnRhaW5pbmcgY29udHJhY2VwdGlvbiBkdWUgdG8gaW5jcmVhc2VkIHN0cm9rZSByaXNrLgotIERpc2NvbnRpbnVlIGNvbWJpbmVkIG9yYWwgY29udHJhY2VwdGl2ZSBwaWxsIHRvZGF5Ci0gQ291bnNlbGxlZCBvbiBpbmNyZWFzZWQgc3Ryb2tlIHJpc2sgd2l0aCBlc3Ryb2dlbi1jb250YWluaW5nIGNvbnRyYWNlcHRpb24gaW4gbWlncmFpbmUgd2l0aCBhdXJhCjIuIENvbnRyYWNlcHRpb24gbWFuYWdlbWVudCDigJQgbmVlZCBmb3Igbm9uLWVzdHJvZ2VuIG1ldGhvZCDigJQgbmV3ClJlcXVpcmVzIHN3aXRjaCBmcm9tIGNvbWJpbmVkIG9yYWwgY29udHJhY2VwdGl2ZSB0byBhbiBlc3Ryb2dlbi1mcmVlIG1ldGhvZCBnaXZlbiBtaWdyYWluZSB3aXRoIGF1cmEuIERlc2lyZXMgbG9uZy1hY3RpbmcgcmV2ZXJzaWJsZSBjb250cmFjZXB0aW9uIGFzIHByZWduYW5jeSBpcyBub3QgcGxhbm5lZCBmb3IgdHdvIHRvIHRocmVlIHllYXJzOyBwcmVmZXJzIGxpZ2h0ZXIgcGVyaW9kcywgc28gbGV2b25vcmdlc3RyZWwgNTIgbWcgSVVEIGNob3NlbiBvdmVyIGNvcHBlciBJVUQgb3IgaW1wbGFudC4KLSBTdG9wIGNvbWJpbmVkIG9yYWwgY29udHJhY2VwdGl2ZSBwaWxsIHRvZGF5Ci0gVXNlIGNvbmRvbXMgZm9yIHRoZSBuZXh0IHR3byB3ZWVrcyB1bnRpbCBJVUQgcGxhY2VtZW50Ci0gU2NoZWR1bGUgbGV2b25vcmdlc3RyZWwgNTIgbWcgSVVEIGluc2VydGlvbiBpbiB0d28gd2Vla3MKLSBVcmluZSBwcmVnbmFuY3kgdGVzdCBvbiBkYXkgb2YgaW5zZXJ0aW9uIHByaW9yIHRvIHBsYWNlbWVudAotIFRha2UgaWJ1cHJvZmVuIGFib3V0IG9uZSBob3VyIGJlZm9yZSBpbnNlcnRpb24gdG8gcmVkdWNlIGNyYW1waW5nCi0gQ291bnNlbGxlZCB0aGF0IGluc2VydGlvbiBjYXVzZXMgYnJpZWYgY3JhbXBpbmcgc2ltaWxhciB0byBhIHN0cm9uZyBwZXJpb2QgY3JhbXAKCk1FRElDQVRJT05TCi0gQ29tYmluZWQgb3JhbCBjb250cmFjZXB0aXZlIHBpbGwgU3RvcCB0b2RheSAoc3RvcHBlZCkKLSBJYnVwcm9mZW4gVGFrZSBhYm91dCBvbmUgaG91ciBiZWZvcmUgSVVEIGluc2VydGlvbiBhcHBvaW50bWVudDsgZG9zZSBub3QgZG9jdW1lbnRlZCAoc3RhcnRlZCkKLSBMZXZvbm9yZ2VzdHJlbCA1MiBtZyBpbnRyYXV0ZXJpbmUgZGV2aWNlIEluc2VydGlvbiBwbGFubmVkIGluIHR3byB3ZWVrcyAoc3RhcnRlZCkKLSBDb3BwZXIgSVVEIChkaXNjdXNzZWQpCi0gQ29udHJhY2VwdGl2ZSBpbXBsYW50IChhcm0pIChkaXNjdXNzZWQpCgpGT0xMT1ctVVAKUmV0dXJuIGluIHR3byB3ZWVrcyBmb3IgbGV2b25vcmdlc3RyZWwgSVVEIGluc2VydGlvbiwgd2l0aCBwcmVnbmFuY3kgdGVzdCB0aGF0IGRheTsgdXNlIGNvbmRvbXMgdW50aWwgdGhlbi4KCkRJQUdOT1NFUyAoSUNELTEwLUNNKQoxLiBHNDMuMTA5IE1pZ3JhaW5lIHdpdGggYXVyYSwgbm90IGludHJhY3RhYmxlLCB3aXRob3V0IHN0YXR1cyBtaWdyYWlub3N1cwoyLiBaMzAuMDkgRW5jb3VudGVyIGZvciBvdGhlciBnZW5lcmFsIGNvdW5zZWxpbmcgYW5kIGFkdmljZSBvbiBjb250cmFjZXB0aW9uCgpWSVNJVCBDT0RFIChDUFQpCjk5MjE0IE9mZmljZSB2aXNpdCwgZXN0YWJsaXNoZWQgcGF0aWVudCwgbW9kZXJhdGUtY29tcGxleGl0eSBkZWNpc2lvbiBtYWtpbmc=",
+              "title": "Progress note"
+            }
+          }
+        ],
+        "context": {
+          "encounter": [
+            {
+              "reference": "urn:uuid:bac54d27-29d9-5545-9e68-6d79767c6d0e"
+            }
+          ],
+          "period": {
+            "start": "2026-10-30T00:51:00Z"
+          }
+        }
+      }
+    }
+  ]
+}

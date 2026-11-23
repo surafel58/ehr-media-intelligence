@@ -1,0 +1,77 @@
+{
+  "patient_id": "hapi-852181",
+  "record_hash": "ccb4a6ddf931020b2bbd7bd3e308397c59bf9189c9cd2f476b15e3ea476fd6f8",
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "generated_at": "2026-11-20T11:09:20.571553Z",
+  "summary": {
+    "overview": "This 68-year-old male has a single lab report from April 2013 demonstrating elevated blood glucose and elevated base excess. No clinical notes or past medical history are included in the record.",
+    "chief_concern": "Not specified",
+    "key_diagnoses": [],
+    "recent_media": [
+      {
+        "source_id": "hapi-report-852186",
+        "kind": "lab",
+        "date": "2013-04-02",
+        "result": "Glucose 6.3 mmol/L (high), Base excess 12.6 mmol/L (high)"
+      }
+    ],
+    "anomalies": [
+      {
+        "kind": "clinical",
+        "text": "Elevated blood glucose: 6.3 mmol/L (reference range 3.1-6.2)",
+        "source_ids": [
+          "hapi-report-852186"
+        ]
+      },
+      {
+        "kind": "clinical",
+        "text": "Elevated base excess: 12.6 mmol/L (reference range 7.1-11.2)",
+        "source_ids": [
+          "hapi-report-852186"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_reason": "Record contains only a single lab result with no clinical notes or history."
+  },
+  "disclaimer": "AI-generated summary for information only. It is not a clinical decision and must be checked against the source records by a qualified clinician.",
+  "word_count": 71,
+  "quality": [
+    {
+      "name": "under_word_limit",
+      "passed": true,
+      "detail": "71 words"
+    },
+    {
+      "name": "citations_exist",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "findings_cited",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "numbers_grounded",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "abnormal_results_reported",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "data_quality_reported",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "usage": {
+    "input_tokens": 514,
+    "output_tokens": 1510,
+    "attempts": 1
+  }
+}
